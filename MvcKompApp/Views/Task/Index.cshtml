@@ -34,7 +34,15 @@
                 }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Completed)
+                 @if (item.Completed)
+                 {
+                     <span>True</span>
+                 }
+                 else
+                 {
+                     <span>False</span>
+                 }
+                @*@Html.DisplayFor(modelItem => item.Completed)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EntryDate)

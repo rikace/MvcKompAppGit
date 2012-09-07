@@ -44,12 +44,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
@@ -77,10 +81,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmpAsyncController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstructorController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
+    <Compile Include="DAL\CourseRepository.cs" />
+    <Compile Include="DAL\GenericRepository.cs" />
+    <Compile Include="DAL\IStudentRepository.cs" />
+    <Compile Include="DAL\SchoolContext.cs" />
+    <Compile Include="DAL\SchoolInitializer.cs" />
+    <Compile Include="DAL\StudentRepository.cs" />
+    <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="Infrastructure\KompValidation.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Global.asax.cs">
@@ -93,14 +108,25 @@
     <Compile Include="Infrastructure\PagingHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\EFProductRepository.cs" />
     <Compile Include="Models\EmployeeWithPaging.cs" />
+    <Compile Include="Models\Enrollment.cs" />
+    <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\IProductRepository.cs" />
     <Compile Include="Models\MaxWordsValidationAttribute.cs" />
+    <Compile Include="Models\OfficeAssignment.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Models\TaskItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AssignedCourseData.cs" />
+    <Compile Include="ViewModels\EnrollmentDateGroup.cs" />
+    <Compile Include="ViewModels\InstructorIndexData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\School.sdf" />
     <Content Include="App_Data\TaskDb.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -216,6 +242,27 @@
     <Content Include="Views\Task\Edit.cshtml" />
     <Content Include="Views\Task\Delete.cshtml" />
     <Content Include="Views\Task\SearchTask.cshtml" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
+    <Content Include="Views\Course\Details.cshtml" />
+    <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Course\UpdateCourseCredits.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Instructor\Create.cshtml" />
+    <Content Include="Views\Instructor\Delete.cshtml" />
+    <Content Include="Views\Instructor\Details.cshtml" />
+    <Content Include="Views\Instructor\Edit.cshtml" />
+    <Content Include="Views\Instructor\Index.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

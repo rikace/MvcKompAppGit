@@ -1,6 +1,8 @@
 ﻿using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ContosoUniversity.DAL;
+using ContosoUniversity.Models;
 using MvcKompApp.Infrastructure;
 using MvcKompApp.Models;
 
@@ -31,8 +33,6 @@ namespace MvcKompApp
                 "Employee/{action}/{id}",
                 new { controller = "Employee", action = "Index", id = UrlParameter.Optional });
 
-
-
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
@@ -49,6 +49,7 @@ namespace MvcKompApp
         {
 #if DEBUG
             Database.SetInitializer<TaskDBContext>(new TaskDbContextInitializer());
+            Database.SetInitializer<SchoolContext>(new SchoolInitializer());
 #endif
 
             AreaRegistration.RegisterAllAreas();
