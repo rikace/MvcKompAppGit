@@ -1,0 +1,53 @@
+﻿@model MvcKompApp.Models.Customer
+<script src="@Url.Content("~/Scripts/jquery-1.8.0.min.js")" type="text/javascript"></script>
+@*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>*@
+
+@using (Ajax.BeginForm("UpdateCustmer", "Customer", new { Id = Model.Id }, new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = "imgLoading",
+    OnComplete = "CompleteUpdate"
+}))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Customer</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Age)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Age)
+            @Html.ValidationMessageFor(model => model.Age)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+<script type="text/javascript">
+
+    function CompleteUpdate() {
+        $('#custmerEditor').children().remove();
+    }
+
+
+</script>

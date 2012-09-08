@@ -3,6 +3,8 @@
 <head>
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Custom.css")" rel="stylesheet" type="text/css" />
+
     <script src="@Url.Content("~/Scripts/jquery-1.8.0.min.js")" type="text/javascript"></script>
 </head>
 <body>
@@ -23,13 +25,15 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
 
-                      <li>@Html.ActionLink("Employee", "Index", "Employee")</li>
-                      <li>@Html.ActionLink("Task", "Index", "Task")</li>
+                    <li>@Html.ActionLink("Employee", "Index", "Employee")</li>
+                    <li>@Html.ActionLink("Task", "Index", "Task")</li>
 
-                      <li>@Html.ActionLink("Students", "Index", "Student")</li>
+                    <li>@Html.ActionLink("Students", "Index", "Student")</li>
                     <li>@Html.ActionLink("Courses", "Index", "Course")</li>
                     <li>@Html.ActionLink("Instructors", "Index", "Instructor")</li>
                     <li>@Html.ActionLink("Departments", "Index", "Department")</li>
+                    <li>@Html.ActionLink("Visitor Site", "Index", "VisitorSite")</li>
+                    <li>@Html.ActionLink("Customer", "Index", "Customer")</li>
 
                 </ul>
             </div>
@@ -44,11 +48,12 @@
 </body>
 </html>
 
-@helper Script(string scriptName){
-   <script src="@Url.Content("~/Scripts/" + scriptName)" type="text/javascript" />
-    }
+@helper Script(string scriptName)
+{
+    <script src="@Url.Content("~/Scripts/" + scriptName)" type="text/javascript" />
+}
 
-    @if(IsSectionDefined("Scripts"))
-        {
-@RenderSection("Scripts")
+@if (IsSectionDefined("Scripts"))
+{
+    @RenderSection("Scripts")
 }
