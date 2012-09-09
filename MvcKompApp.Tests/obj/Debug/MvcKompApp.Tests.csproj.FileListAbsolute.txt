@@ -92,3 +92,4 @@ C:\Temp\MvcKompApp\MvcKompApp.Tests\bin\Debug\App_Data\TaskDb.sdf
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp.Tests\obj\Debug\MvcKompApp.Tests.csprojResolveAssemblyReference.cache
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp.Tests\obj\Debug\MvcKompApp.Tests.dll
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp.Tests\obj\Debug\MvcKompApp.Tests.pdb
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp.Tests\bin\Debug\App_Data\ImageDb.sdf

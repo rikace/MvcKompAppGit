@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using ContosoUniversity.DAL;
 using ContosoUniversity.Models;
+using MvcKompApp.DAL;
 using MvcKompApp.Infrastructure;
 using MvcKompApp.Models;
 
@@ -50,6 +51,7 @@ namespace MvcKompApp
 #if DEBUG
             Database.SetInitializer<TaskDBContext>(new TaskDbContextInitializer());
             Database.SetInitializer<SchoolContext>(new SchoolInitializer());
+          //  Database.SetInitializer<ImageContext>(new ImageInitializer());
 #endif
 
             AreaRegistration.RegisterAllAreas();

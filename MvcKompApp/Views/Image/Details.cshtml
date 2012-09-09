@@ -1,0 +1,29 @@
+﻿@model MvcKompApp.Models.ImageModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ImageModel</legend>
+
+    <div class="display-label">ImageName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageName)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+    <div>
+        @{   string imageName = "/uploads/" + Model.ImageID + ".jpg"; }
+        <a href="@Url.Content(@imageName)">
+            <img src="@Url.Content(@imageName)" alt="" width="75" height = "50"/></a>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ImageID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
