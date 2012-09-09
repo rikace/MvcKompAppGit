@@ -1,0 +1,34 @@
+﻿@inherits System.Web.Mvc.WebViewPage 
+
+@if (Model == null) 
+{     
+    <span>@ViewData.ModelMetadata.NullDisplayText</span>  
+} 
+@*else 
+if (ViewData.TemplateInfo.TemplateDepth > 1) 
+{   
+    <span>@ViewData.ModelMetadata.SimpleDisplayText</span>  
+} *@ 
+else 
+{ 
+    <table cellpadding="0" cellspacing="0" class="display-table">    
+    @foreach (var prop in ViewData
+                        .ModelMetadata
+                        .Properties
+                        .Where(pm => pm.ShowForDisplay && !ViewData.TemplateInfo.Visited(pm))) 
+    {
+        <tr>
+            <td>
+                <div class="display-label" style="text-align: right;">  
+                    @prop.GetDisplayName()
+                </div>
+            </td>
+            <td>
+                <div class="display-field">  
+                        <span>@Html.Display(prop.PropertyName)</span>
+                </div>
+            </td>
+        </tr>
+    } 
+    </table>
+} 

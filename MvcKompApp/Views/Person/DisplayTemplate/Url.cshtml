@@ -1,0 +1,13 @@
+﻿@* Use @model if you just need raw values ... *@
+@*@model String
+
+<a href="@Model" style="border: solid 1px black;">
+   <b>@Model</b>
+</a> *@
+
+
+@* Use @inherits if you need to access template-info data from scaffolding ... *@
+@inherits System.Web.Mvc.WebViewPage<String>
+<a href="@Model" style="border: solid 1px black;">
+   @ViewData.TemplateInfo.FormattedModelValue 
+</a> 

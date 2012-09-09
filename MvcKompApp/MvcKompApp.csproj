@@ -25,6 +25,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,6 +58,9 @@
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -88,18 +92,28 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructorController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
+    <Compile Include="Controllers\UserModelController.cs" />
     <Compile Include="Controllers\VisitorSiteController.cs" />
     <Compile Include="DAL\CourseRepository.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
+    <Compile Include="DAL\InMemoryUserDB.cs" />
     <Compile Include="DAL\IStudentRepository.cs" />
+    <Compile Include="DAL\IUserDB.cs" />
     <Compile Include="DAL\SchoolContext.cs" />
     <Compile Include="DAL\SchoolInitializer.cs" />
     <Compile Include="DAL\StudentRepository.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="DAL\VisitorSiteInMemoryDB.cs" />
+    <Compile Include="Filters\RequestLogFilter.cs" />
+    <Compile Include="Filters\RequestTimingFilter.cs" />
+    <Compile Include="Filters\RequestTimingFilterProvider.cs" />
+    <Compile Include="Filters\TraceActionFilterAttribute.cs" />
     <Compile Include="Infrastructure\AjaxOnly.cs" />
+    <Compile Include="Infrastructure\ILog.cs" />
     <Compile Include="Infrastructure\KompValidation.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Global.asax.cs">
@@ -107,11 +121,13 @@
     </Compile>
     <Compile Include="Infrastructure\CartModelBinder.cs" />
     <Compile Include="Infrastructure\HtmlHelpers.cs" />
+    <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Infrastructure\MinLenghtAttribute.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Infrastructure\PagingHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CountryAndState.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Department.cs" />
@@ -125,12 +141,23 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\TaskItem.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\VisitorSiteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DataService.svc.cs">
+      <DependentUpon>DataService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Validation\ClientEvenNumberAttribute.cs" />
+    <Compile Include="Validation\EvenNumberAttribute.cs" />
+    <Compile Include="Validation\EvenNumberValidatorMvc2.cs" />
+    <Compile Include="Validation\GreaterThanDateAttribute.cs" />
+    <Compile Include="Validation\PriceValidation.cs" />
     <Compile Include="ViewModels\AssignedCourseData.cs" />
     <Compile Include="ViewModels\EnrollmentDateGroup.cs" />
     <Compile Include="ViewModels\InstructorIndexData.cs" />
     <Compile Include="ViewModels\ListCustmersViewModel.cs" />
+    <Compile Include="ViewModels\PersonViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="WorkerServices\Abstraction\ICustomerWorkerServices.cs" />
     <Compile Include="WorkerServices\Abstraction\IVisitorSiteService.cs" />
     <Compile Include="WorkerServices\Customer\CustomerWorkerServices.cs" />
@@ -201,6 +228,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="README.jQuery.vsdoc.txt" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\CustomPriceValidation.debug.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.23.js" />
@@ -218,6 +246,12 @@
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\WordsCountValidation.js" />
+    <Content Include="Services\DataService.svc" />
+    <Content Include="Views\Person\DisplayTemplate\datetime.ascx" />
+    <Content Include="Views\Person\DisplayTemplate\Object.notused.ascx" />
+    <Content Include="Views\Person\DisplayTemplate\Url.ascx" />
+    <Content Include="Views\Person\EditorTemplate\my_date_template.ascx" />
+    <Content Include="Views\Person\EditorTemplate\ReadOnly1.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -280,6 +314,22 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Shared\_customerEdit.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Person\Index.cshtml" />
+    <Content Include="Views\Person\DisplayTemplate\datetime.cshtml" />
+    <Content Include="Views\Person\DisplayTemplate\Object.cshtml" />
+    <Content Include="Views\Person\DisplayTemplate\Url.cshtml" />
+    <Content Include="Views\Person\EditorTemplate\my_date_template.cshtml" />
+    <Content Include="Views\Person\EditorTemplate\Object.cshtml" />
+    <Content Include="Views\Person\EditorTemplate\ReadOnly.cshtml" />
+    <Content Include="Views\Person\Edit.cshtml" />
+    <Content Include="Views\UserModel\Index.cshtml" />
+    <Content Include="Views\UserModel\Details.cshtml" />
+    <Content Include="Views\UserModel\Edit.cshtml" />
+    <Content Include="Views\UserModel\Create.cshtml" />
+    <Content Include="Views\UserModel\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

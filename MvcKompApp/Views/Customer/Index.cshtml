@@ -41,6 +41,36 @@
 </table>
 
 <div>
+    @if (ViewBag.YouSelected != null)
+    {
+        <h2>@ViewBag.YouSelected</h2>
+    }
+    @using (Html.BeginForm("IndexDDL", "Customer", FormMethod.Post,
+    new
+    {
+        id = "CountryStateFormID",
+        data_stateListAction = @Url.Action("StateList")
+    }))
+    {
+        <fieldset>
+            <legend>Country/State</legend>
+            @Html.DropDownList("Countries", ViewBag.Country as SelectList,
+            "Select a Country", new
+            {
+                id = "CountriesID",
+                //onchange = "$('#CountryStateFormID').submit()"
+            })
+            <div id="StatesDivID">
+                <label for="States">States</label>
+                <select id="StatesID" name="States"></select>
+            </div>
+            <p>
+                <input type="submit" value="Submit" id="SubmitID" />
+            </p>
+        </fieldset>
+    }
+</div>
+<div>
     @using (Ajax.BeginForm("EditAjax", "Customer", new AjaxOptions { LoadingElementId = "imgLoading", UpdateTargetId = "custmerEditor" }))
     {
         @Html.DropDownList("customerList", new SelectList(Model, "Id", "LastName"))
@@ -55,9 +85,33 @@
 @section Scripts{
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-
     <script src="@Url.Content("~/Scripts/MicrosoftAjax.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/MicrosoftMvcAjax.js")" type="text/javascript"></script>
-
-
 }
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#StatesDivID').hide();
+        $('#SubmitID').hide();
+
+        $('#CountriesID').change(function () {
+            var URL = $('#CountryStateFormID').data('stateListAction');
+            //alert(URL);
+            URL = '/Customer/StateList'
+            $.getJSON(URL + '/' + $('#CountriesID').val(), function (data) {
+                var items = '<option>Select a State</option>';
+                $.each(data, function (i, state) {
+                    items += "<option value='" + state.Value + "'>" + state.Text + "</option>";
+                    // state.Value cannot contain ' character. We are OK because state.Value = cnt++;
+                });
+                $('#StatesID').html(items);
+                $('#StatesDivID').show();
+            });
+        });
+
+        $('#StatesID').change(function () {
+            $('#SubmitID').show();
+        });
+    })
+</script>
