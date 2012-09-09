@@ -8,7 +8,7 @@
 </p>
 <div>
     <ul>
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
         <li>@Html.ActionLink("About", "About", "Home")</li>
         <li>@Html.ActionLink("Employee", "Index", "Employee")</li>
         <li>@Html.ActionLink("Task", "Index", "Task")</li>
@@ -22,5 +22,8 @@
         <li>@Html.ActionLink("Person", "Index", "Person")</li>
         <li>@Html.ActionLink("UserModel", "Index", "UserModel")</li>
           <li>@Html.ActionLink("Image", "Index", "Image")</li>
+          <li>@Html.ActionLink("Movie", "Index", "Movie")</li>*@
+
+        @Html.Partial("_listControllers")
     </ul>
 </div>

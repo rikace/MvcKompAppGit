@@ -19,5 +19,20 @@ namespace MvcKompApp.Controllers
         {
             return View();
         }
+
+        public ActionResult PartialViewRefreshHandler()
+        {
+            return View();
+        }
+
+        public ActionResult RefreshPartial(FormCollection form)
+        {
+            string name = form["Name"];
+
+            ViewBag.Name = name == null ? "No one, just refreshing" : name;
+            ViewBag.DateTime = DateTime.Now.ToString();
+
+            return PartialView("_DateTimePartial");
+        }
     }
 }

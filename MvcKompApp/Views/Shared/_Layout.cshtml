@@ -2,7 +2,9 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/SiteGreen.css")" rel="stylesheet" type="text/css" />
+     <link href="@Url.Content("~/Content/Sprite.css")" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />*@
     <link href="@Url.Content("~/Content/Custom.css")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/Scripts/jquery-1.8.0.min.js")" type="text/javascript"></script>
 </head>
@@ -22,7 +24,7 @@
             </div>
             <div id="menucontainer">
                 <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                 @*   <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Employee", "Index", "Employee")</li>
                     <li>@Html.ActionLink("Task", "Index", "Task")</li>
@@ -36,6 +38,10 @@
                     <li>@Html.ActionLink("Person", "Index", "Person")</li>
                     <li>@Html.ActionLink("UserModel", "Index", "UserModel")</li>
                     <li>@Html.ActionLink("Image", "Index", "Image")</li>
+                    <li>@Html.ActionLink("Movie", "Index", "Movie")</li>*@
+
+                    @Html.Partial("_listControllers")
+
                 </ul>
             </div>
         </div>

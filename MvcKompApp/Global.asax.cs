@@ -6,6 +6,7 @@ using ContosoUniversity.Models;
 using MvcKompApp.DAL;
 using MvcKompApp.Infrastructure;
 using MvcKompApp.Models;
+using MvcKompApp.Validation;
 
 namespace MvcKompApp
 {
@@ -52,12 +53,17 @@ namespace MvcKompApp
             Database.SetInitializer<TaskDBContext>(new TaskDbContextInitializer());
             Database.SetInitializer<SchoolContext>(new SchoolInitializer());
           //  Database.SetInitializer<ImageContext>(new ImageInitializer());
+            Database.SetInitializer<MovieContext>(new MovieInitializer());
 #endif
 
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(
+                typeof(RemoteUID_Attribute),
+                typeof(RemoteValidator));
 
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
 

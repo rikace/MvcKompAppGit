@@ -27,3 +27,8 @@ C:\Temp\MvcKompApp\Entities\bin\Debug\Entities.pdb
 C:\Temp\MvcKompApp\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
 C:\Temp\MvcKompApp\Entities\obj\Debug\Entities.dll
 C:\Temp\MvcKompApp\Entities\obj\Debug\Entities.pdb
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\Entities\bin\Debug\Entities.dll.config
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\Entities\bin\Debug\Entities.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\Entities\bin\Debug\Entities.pdb
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\Entities\obj\Debug\Entities.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\Entities\obj\Debug\Entities.pdb

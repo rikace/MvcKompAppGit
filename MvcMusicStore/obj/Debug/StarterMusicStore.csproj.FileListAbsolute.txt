@@ -1,0 +1,7 @@
+d:\DevDiv2_riande\MusicStoreType\DDL_Finish\MvcMusicStore\bin\MvcMusicStore.dll
+d:\DevDiv2_riande\MusicStoreType\DDL_Finish\MvcMusicStore\bin\MvcMusicStore.pdb
+d:\DevDiv2_riande\MusicStoreType\DDL_Finish\MvcMusicStore\bin\EntityFramework.dll
+d:\DevDiv2_riande\MusicStoreType\DDL_Finish\MvcMusicStore\bin\EntityFramework.xml
+d:\DevDiv2_riande\MusicStoreType\DDL_Finish\MvcMusicStore\obj\Debug\ResolveAssemblyReference.cache
+d:\DevDiv2_riande\MusicStoreType\DDL_Finish\MvcMusicStore\obj\Debug\MvcMusicStore.dll
+d:\DevDiv2_riande\MusicStoreType\DDL_Finish\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
