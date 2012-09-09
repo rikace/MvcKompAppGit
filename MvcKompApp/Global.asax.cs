@@ -4,6 +4,7 @@ using System.Web.Routing;
 using ContosoUniversity.DAL;
 using ContosoUniversity.Models;
 using MvcKompApp.DAL;
+using MvcKompApp.Filters;
 using MvcKompApp.Infrastructure;
 using MvcKompApp.Models;
 using MvcKompApp.Validation;
@@ -17,6 +18,7 @@ namespace MvcKompApp
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+            //filters.Add(new LogonAuthorize());
             filters.Add(new HandleErrorAttribute());
         }
 

@@ -29,6 +29,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -105,6 +109,7 @@
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MvcMusicStore.sdf" />
     <Content Include="Chosen\chosen-sprite.png" />
     <Content Include="Chosen\chosen.css" />
     <Content Include="Chosen\chosen.jquery.js" />
@@ -184,7 +189,6 @@
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\ui\jquery.ui.combobox.css" />
     <Content Include="Scripts\ui\jquery.ui.combobox.js" />
-    <Content Include="zToDo.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -216,9 +220,7 @@
   <ItemGroup>
     <Content Include="Views\Store\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />

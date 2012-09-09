@@ -103,6 +103,7 @@
     <Compile Include="Controllers\RemoteValidationController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserModelController.cs" />
     <Compile Include="Controllers\VisitorSiteController.cs" />
     <Compile Include="DAL\CourseRepository.cs" />
@@ -116,12 +117,15 @@
     <Compile Include="DAL\StudentRepository.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="DAL\VisitorSiteInMemoryDB.cs" />
+    <Compile Include="Filters\LogonAuthorize.cs" />
     <Compile Include="Filters\RequestLogFilter.cs" />
     <Compile Include="Filters\RequestTimingFilter.cs" />
     <Compile Include="Filters\RequestTimingFilterProvider.cs" />
     <Compile Include="Filters\TraceActionFilterAttribute.cs" />
+    <Compile Include="Framework\AllowAnonymousAttribute.cs" />
     <Compile Include="Framework\EntityFrameworkSqlServerCompact.cs" />
     <Compile Include="Framework\PdfResult.cs" />
+    <Compile Include="Framework\PoorManMembershipProvider.cs" />
     <Compile Include="Framework\UserNameHelper.cs" />
     <Compile Include="Framework\WordDocument.cs" />
     <Compile Include="Infrastructure\AjaxOnly.cs" />
@@ -174,6 +178,8 @@
     <Compile Include="ViewModels\ListCustmersViewModel.cs" />
     <Compile Include="ViewModels\PersonViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\User\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\User\RegisterViewModel.cs" />
     <Compile Include="WorkerServices\Abstraction\ICustomerWorkerServices.cs" />
     <Compile Include="WorkerServices\Abstraction\IVisitorSiteService.cs" />
     <Compile Include="WorkerServices\Customer\CustomerWorkerServices.cs" />
@@ -387,6 +393,9 @@
     <Content Include="Views\Shared\DisplayTemplates\Address.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\User\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
