@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Pdf";
+}
+<h2>Pdf</h2>
+@using (Html.BeginForm())
+{
+    <span>Author</span><br />
+    <input type="text" name="author" value="@ViewBag.Author" />
+    <input type="submit" value="Create" />
+}
+

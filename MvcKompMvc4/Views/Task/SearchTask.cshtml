@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MvcKompApp.Models.TaskItem>
+@{
+    ViewBag.Title = "SearchTask";
+}
+
+<h2>SearchTask</h2>
+
+<p>
+    @using (Html.BeginForm("SearchTask", "Task", FormMethod.Get))
+    {
+        <p>
+            Task: @Html.TextBox("task")
+            Completed: @Html.DropDownList("iscomplete", new List<SelectListItem> { 
+                                        new SelectListItem { Selected = true, Text = "All", Value = "All" }, 
+                                        new SelectListItem { Selected = false, Text = "True", Value = "true" }, 
+                                        new SelectListItem { Selected = false, Text = "False", Value = "false" } })
+            <input type="submit" value="Search" />
+
+        </p>
+    }
+</p>
+<table>
+    <tr>
+        <th>Task
+        </th>
+        <th>Description
+        </th>
+        <th>Completed
+        </th>
+        <th>EntryDate
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Task)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>*@
+        </tr>
+    }
+
+</table>

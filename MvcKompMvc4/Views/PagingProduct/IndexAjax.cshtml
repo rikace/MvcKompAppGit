@@ -1,0 +1,33 @@
+﻿@using MvcAjaxPaging;
+
+@model IPagedList<ProductModel>
+@{
+    ViewBag.Title = "IndexAjax";
+}
+
+<h2>IndexAjax</h2>
+
+<div id="divGrid">
+    @{      
+        Html.RenderPartial("_ListControl", this.Model); 
+    }
+</div>
+
+
+<script type="text/javascript">
+
+    function beginPaging(args) {
+        // Animate
+        $('#divGrid').fadeOut('normal');
+    }
+
+    function successPaging() {
+        // Animate
+        $('#divGrid').fadeIn('normal');
+    }
+
+    function failurePaging() {
+        alert("Could not retrieve contacts.");
+    }
+
+</script>

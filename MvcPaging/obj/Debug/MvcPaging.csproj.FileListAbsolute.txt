@@ -1,0 +1,15 @@
+C:\Users\daniel.HUDDLE\Desktop\mvcpaging-rc1\src\MvcPaging\bin\Debug\MvcPaging.dll
+C:\Users\daniel.HUDDLE\Desktop\mvcpaging-rc1\src\MvcPaging\bin\Debug\MvcPaging.pdb
+C:\Users\daniel.HUDDLE\Desktop\mvcpaging-rc1\src\MvcPaging\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\daniel.HUDDLE\Desktop\mvcpaging-rc1\src\MvcPaging\obj\Debug\MvcPaging.dll
+C:\Users\daniel.HUDDLE\Desktop\mvcpaging-rc1\src\MvcPaging\obj\Debug\MvcPaging.pdb
+C:\Users\rscannicchio\Desktop\MVC\mvcpaging-rc1\src\MvcPaging\obj\Debug\MvcPaging.csprojResolveAssemblyReference.cache
+C:\Users\rscannicchio\Desktop\MVC\mvcpaging-rc1\src\MvcPaging\obj\Debug\MvcPaging.dll
+C:\Users\rscannicchio\Desktop\MVC\mvcpaging-rc1\src\MvcPaging\bin\Debug\MvcPaging.dll
+C:\Users\rscannicchio\Desktop\MVC\mvcpaging-rc1\src\MvcPaging\bin\Debug\MvcPaging.pdb
+C:\Users\rscannicchio\Desktop\MVC\mvcpaging-rc1\src\MvcPaging\obj\Debug\MvcPaging.pdb
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPaging\bin\Debug\MvcPaging.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPaging\bin\Debug\MvcPaging.pdb
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.pdb
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.csprojResolveAssemblyReference.cache

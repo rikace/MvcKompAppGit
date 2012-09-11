@@ -1,0 +1,209 @@
+﻿@using MvcKompApp.Models
+@model EmployeeWithPaging
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Index</h2>
+@using (Ajax.BeginForm("Index", new AjaxOptions
+{
+    HttpMethod = "GET",//FormMethod.Get,
+    UpdateTargetId = "empBodyTable"
+}))
+{
+    <input type="text" name="q" />
+    <input type="submit" value="Search" />
+}
+@using (Ajax.BeginForm("SearchEmployee2", "Employee", new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "GET",
+    OnFailure = "SearchFailled",
+    LoadingElementId = "loading",
+    UpdateTargetId = "empBodyTable"
+}))
+{ 
+    <input type="text" name="q2" data-autocomplete-source="@Url.Action("QuickSearch", "Employee")" />
+    <input type="submit" value="Search" />
+    <img id="loading" src="@Url.Content("~/Content/loading.gif")" style="display:none" />
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+    <br />
+    @{Html.RenderAction("MyAction", "Nav");}
+    <br />
+    @Html.RouteLink("Employee details", new
+{
+    controller = "Employee",
+    action = "Details",
+    id = 1
+}, new { @class = "selected" })
+</p>
+<table>
+    <tr>
+        <th>
+            LastName
+        </th>
+        <th>
+            FirstName
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            TitleOfCourtesy
+        </th>
+        <th>
+            BirthDate
+        </th>
+        <th>
+            HireDate
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Region
+        </th>
+        <th>
+            PostalCode
+        </th>
+        <th>
+            Country
+        </th>
+        <th>
+            HomePhone
+        </th>
+        <th>
+            Extension
+        </th>
+        <th>
+            Notes
+        </th>
+        <th>
+            Employee1
+        </th>
+        <th>
+            PhotoPath
+        </th>
+        <th>
+        </th>
+    </tr>
+    <tbody id="empBodyTable">
+        @foreach (var item in Model.Employees)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitleOfCourtesy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HireDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Region)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostalCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HomePhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Extension)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee1.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhotoPath)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) | @* @Html.RouteLink("Employee details", new
+{
+    controller = "Employee",
+    action = "Details",
+    id = 1
+})*@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="pager">
+    @Html.PageLinks(Model.Paging, x => Url.Action("Index", new { page = x }))
+</div>
+@section Scripts{
+    <script src="@Url.Content("~/Scripts/jquery.autocomplete.js")" type="text/javascript"></script>
+}
+<script type="text/javascript">
+
+    $(function () {
+        //  $("#empBodyTable").hover(function () { $(this).toggleClass('highttablebody'); });
+
+        //$("#empBodyTable").mouseover(function () {
+        //            $(this).animate({background-color: 'Red'})
+        //                    .animate({});
+        // $(this).toggleClass('highttablebody');
+
+        //           $(this).mouseover(function () {
+        //                
+        //            }).mouseout(function () {
+        //            });
+
+        $("#empBodyTable").mouseover(function () {
+            $(this).addClass('highttablebody');
+        }).mouseout(function () {
+            $(this).removeClass('highttablebody');
+        });
+
+    });
+
+    function SearchFailled() {
+    }
+    // http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/
+    //    $(function () {
+    //        $("#q").autocomplete("/Employee/SearchEmployee", { minChars: 3 });
+    //    })
+
+    //    var calculator = function () {
+    //        var eqCtrl = document.getElementById('q'),
+    //        doAdd = function (x, y) {
+    //            var result = x + y;
+    //            eq.innerHTML = res;
+    //        };
+
+    //        return {
+    //            add: doAdd
+    //        };
+    //    } ();
+
+</script>

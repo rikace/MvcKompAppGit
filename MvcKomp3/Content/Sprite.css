@@ -1,0 +1,20 @@
+.signup-link
+{
+    float: right;
+    outline: 0;
+    width: 175px;
+    height:56px;
+    background-image: url(/Images/loginsprite.png);
+    background-position: -0px 0px;
+    background-repeat: no-repeat;
+}
+
+.signup-link:hover 
+{
+    background-position: -177px 0px;
+}
+
+.signup-link:active 
+{
+    background-position: -354px 0px;
+}

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Add A Summit";
+}
+
+<h4>Add a Summit</h4>
+
+@using (Html.BeginForm())
+{
+
+    <p>Name: @Html.TextBox("Name")</p>
+    <p>Height: @Html.TextBox("Height")</p>
+    
+    <input type="submit" />
+}
+
+@*@section Scripts{
+    <script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" type="text/css" />
+}*@

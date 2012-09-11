@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "EfficientWebGridPaging";
+}
+
+<h2>EfficientWebGridPaging</h2>
+<style type="text/css">
+    .webGrid {
+        margin: 4px;
+        border-collapse: collapse;
+        width: 300px;
+    }
+
+    .header {
+        background-color: #E8E8E8;
+        font-weight: bold;
+        color: #FFF;
+    }
+
+    .webGrid th, .webGrid td {
+        border: 1px solid #C0C0C0;
+        padding: 5px;
+    }
+
+    .alt {
+        background-color: #E8E8E8;
+        color: #000;
+    }
+
+    .person {
+        width: 200px;
+        font-weight: bold;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function () {
+        $.getJSON("/Home/EfficientWebGridPaging", null, function (d) {
+            // add the dynamic WebGrid to the body
+            $("#divTable").append(d.Data);
+
+            // create the footer
+            var footer = createFooter(d.Count);
+
+            $("#DataTable tfoot a").live("click", function (e) {
+                e.preventDefault();
+                var data = {
+                    page: $(this).text()
+                };
+
+                $.getJSON("/Home/EfficientPaging", data, function (html) {
+                    // add the data to the table    
+                    $("#DataTable").remove();
+                    $("#divTable").append(html.Data);
+
+                    // re-add the footer
+                    $('#DataTable thead').after(footer);
+                });
+            });
+        });
+    });
+
+    function createFooter(d) {
+        var rowsPerPage = 5;
+        var footer = "<tfoot>";
+        for (var i = 1; i < (d + 1) ; i++) {
+            footer = footer + "<a href=#>" + i + "</a>&nbsp;";
+        }
+        footer = footer + "</tfoot>";
+        $("#DataTable thead").after(footer);
+        return footer;
+    }
+
+</script>
+
+
+<div id="divTable">
+</div>

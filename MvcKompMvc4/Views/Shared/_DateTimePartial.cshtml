@@ -1,0 +1,6 @@
+﻿<div>
+    @Html.Raw(string.Format("Person: {0}", ViewBag.Name == null ? "No one yet" : ViewBag.Name))
+</div>
+<div>
+    @Html.Raw(string.Format("Date: {0}", ViewBag.DateTime == null ? DateTime.Now.ToString() : ViewBag.DateTime))
+</div>

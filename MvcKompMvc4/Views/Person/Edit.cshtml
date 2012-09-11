@@ -1,0 +1,17 @@
+﻿@model MvcKompApp.ViewModels.PersonViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Person"))
+{
+    <fieldset>
+        <legend>New customer</legend>
+        @Html.EditorForModel()
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>                                                                                                                                                                                                                   
+}

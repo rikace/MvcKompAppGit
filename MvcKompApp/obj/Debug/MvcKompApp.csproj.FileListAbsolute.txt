@@ -75,3 +75,11 @@ C:\Temp\MvcKompApp\MvcKompApp\bin\App_Data\TaskDb.sdf
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\obj\Debug\MvcKompApp.csprojResolveAssemblyReference.cache
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\obj\Debug\MvcKompApp.dll
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\obj\Debug\MvcKompApp.pdb
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\bin\MvcPagingLib.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\bin\System.Web.Http.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\bin\System.Net.Http.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\bin\System.Net.Http.Formatting.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\bin\MvcPagingLib.pdb
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\bin\System.Web.Http.xml
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\bin\System.Net.Http.xml
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKompApp\bin\System.Net.Http.Formatting.xml

@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvcKompApp;
-using MvcKompApp.Controllers;
+using MvcKompMvc4.Controllers;    
 
 namespace MvcKompApp.Tests.Controllers
 {

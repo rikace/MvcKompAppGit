@@ -1,0 +1,46 @@
+﻿@using MvcAjaxPaging
+@model MvcAjaxPaging.IPagedList<ProductModel>
+@{
+    ViewBag.Title = "ViewByCategoryAjax";
+}
+
+<h2>ViewByCategoryAjax</h2>
+<link href="@Url.Content("~/Content/Pager.css")" rel="stylesheet" type="text/css" />
+
+@using (Html.BeginForm("ViewByCategory", "PagingProduct", FormMethod.Get))
+{
+    <p>
+        Select a category:
+		<@Html.DropDownList("categoryName")
+        <input type="submit" value="Browse" />
+    </p>
+}
+@if (ViewData.Model.Count > 0)
+{
+    <p>
+        Found @ViewData.Model.TotalItemCount items
+    </p>
+    
+    <div id="divGrid">
+        @Html.Partial("_ListControlByCategory", this.Model)
+    </div>
+
+    <script type="text/javascript">
+
+        function beginPaging(args) {
+            // Animate
+            $('#divGrid').fadeOut('normal');
+        }
+
+        function successPaging() {
+            // Animate
+            $('#divGrid').fadeIn('normal');
+        }
+
+        function failurePaging() {
+            alert("Could not retrieve contacts.");
+        }
+
+    </script>
+}
+ 

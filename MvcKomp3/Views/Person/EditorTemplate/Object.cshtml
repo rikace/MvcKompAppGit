@@ -1,0 +1,38 @@
+﻿@inherits System.Web.Mvc.WebViewPage 
+
+@if (Model == null) 
+{     
+    <span>@ViewData.ModelMetadata.NullDisplayText</span>  
+} 
+@*else 
+if (ViewData.TemplateInfo.TemplateDepth > 1) 
+{   
+    <span>@ViewData.ModelMetadata.SimpleDisplayText</span>  
+} *@
+else 
+{ 
+    <table cellpadding="0" cellspacing="0" class="editor-table">    
+    @foreach (var prop in ViewData
+                        .ModelMetadata
+                        .Properties
+                        .Where(pm => pm.ShowForDisplay && !ViewData.TemplateInfo.Visited(pm))) 
+    {
+        <tr>
+            <td>
+                <div class="editor-label" style="text-align: right;">  
+                    @prop.GetDisplayName()
+                </div>
+            </td>
+            <td width="10px">
+                @(prop.IsRequired ? "*" : "")
+            </td>
+            <td>
+                <div class="editor-field">  
+                        <span>@Html.Editor(prop.PropertyName)</span>
+                        <span>@Html.ValidationMessage(prop.PropertyName, "*")</span>
+                </div>
+            </td>
+        </tr>
+    } 
+    </table>
+} 

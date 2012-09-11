@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "GetDogListJson";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#GetDogs').click(function () {
+            $.getJSON('/Home/GetDogListJSON', null, function (data) { showDogs(data); });
+        });
+    });
+
+    function showDogs(data) {
+        var list = '<p>Dog List:</p><ul>';
+        $.each(data, function () {
+            list += '<li>' + this.Name + ', age ' + this.Age + '</li>';
+        });
+        list += '</ul>';
+        $('#divResults').replaceWith(list);
+    }
+</script>
+
+
+<h2>Get Dog List using JSON</h2>
+
+<input type="button" id="GetDogs" value="Get Dog List" />
+<br />
+<br />
+<div id='divResults' />
+
+
+
+

@@ -1,0 +1,26 @@
+﻿@model MvcKompApp.Models.PersonRemoteValidationModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.UserName)
+    @Html.DisplayFor(model => model.UserName) 
+    @Html.HiddenFor(model => model.UserName)
+
+         
+    @Html.EditorForModel()
+    <input type="submit" value="Save" />
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts{
+    <script src="@Url.Content("~/Scripts/CustomValidation.debug.js")" type="text/javascript"></script>
+}

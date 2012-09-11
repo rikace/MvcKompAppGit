@@ -1,0 +1,4 @@
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPagingLib\bin\Debug\MvcPagingLib.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPagingLib\bin\Debug\MvcPagingLib.pdb
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPagingLib\obj\Debug\MvcPagingLib.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPagingLib\obj\Debug\MvcPagingLib.pdb

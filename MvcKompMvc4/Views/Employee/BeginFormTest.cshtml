@@ -1,0 +1,24 @@
+﻿@model System.DateTime
+
+@{
+    ViewBag.Title = "BeginFormTest";
+}
+
+<h2>
+    BeginFormTest</h2>
+<p>
+    @Html.Encode(DateTime.Now.ToLongTimeString())
+</p>
+<p>
+@Html.Action("Time","Employee")
+</p>
+@using (Html.BeginForm())
+{ 
+    <input type="text" name="parameter" />
+    <input type="submit" />
+ 
+}
+
+@section Scripts {
+
+}

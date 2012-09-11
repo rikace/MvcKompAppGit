@@ -7,7 +7,6 @@
 \\psf\Home\Desktop\Projetcs\MVC\Using the DropDownList and ListBox with ASP.NET MVC\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcMusicStore\bin\MvcMusicStore.dll
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcMusicStore\bin\MvcMusicStore.pdb
-\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcMusicStore\bin\EntityFramework.xml
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcMusicStore\obj\Debug\FinishedMusicStore.csprojResolveAssemblyReference.cache
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcMusicStore\obj\Debug\MvcMusicStore.dll
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcMusicStore\obj\Debug\MvcMusicStore.pdb

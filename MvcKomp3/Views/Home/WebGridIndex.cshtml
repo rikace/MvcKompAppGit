@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FavouriteGivenName>
+@{
+    ViewBag.Title = "WebGrid Index";
+}
+
+<h2>WebGridIndex</h2>
+
+
+
+
+<style type="text/css">
+    .webGrid {
+        margin: 4px;
+        border-collapse: collapse;
+        width: 300px;
+    }
+
+    .header {
+        background-color: #E8E8E8;
+        font-weight: bold;
+        color: #FFF;
+    }
+
+    .webGrid th, .webGrid td {
+        border: 1px solid #C0C0C0;
+        padding: 5px;
+    }
+
+    .alt {
+        background-color: #E8E8E8;
+        color: #000;
+    }
+
+    .person {
+        width: 200px;
+        font-weight: bold;
+    }
+</style>
+
+@{
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 5);
+    grid.Pager(WebGridPagerModes.NextPrevious);
+    @grid.GetHtml(tableStyle: "webGrid",
+                headerStyle: "header",
+                alternatingRowStyle: "alt",
+                columns: grid.Columns(
+                    grid.Column("Name", "Given Name", canSort: true, format: @<b>@item.Name</b>, style: "person"),
+                    grid.Column("Age", "How Old?", canSort: true)
+        ));        
+}
+

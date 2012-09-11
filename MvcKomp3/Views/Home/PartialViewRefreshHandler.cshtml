@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "PartialViewHandler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>PartialView Handler</h2>
+@using (Ajax.BeginForm("RefreshPartial", "Home", null, new AjaxOptions() { UpdateTargetId = "PartialToRefresh", HttpMethod = "Post" }, null))
+{ 
+    @Html.TextBox("Name");
+    <input type="submit" value="Send name" />
+}
+<br />
+<div>
+    @Ajax.ActionLink("Just refresh", "RefreshPartial", "Home", null, new AjaxOptions() { UpdateTargetId = "PartialToRefresh", HttpMethod = "Post" }, null)
+</div>
+<br />
+<div id="PartialToRefresh">
+    @*    @{Html.RenderPartial("_DateTimePartial");}
+*@
+</div>
+
+@section Scripts{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>    
+}
+
+
+    

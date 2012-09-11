@@ -1,0 +1,35 @@
+﻿@model MvcKompApp.Models.TaskItem
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>
+        <div class="display-field">
+            <span>Task
+        @Html.DisplayFor(model => model.Task)
+            </span>
+        </div>
+    </legend>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">Completed</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Completed)
+    </div>
+
+    <div class="display-label">EntryDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EntryDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

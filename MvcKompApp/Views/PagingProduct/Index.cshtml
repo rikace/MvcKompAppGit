@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MvcKompApp.Models.ProductModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="grid">
+    <thead>
+        <tr>
+            <th>Product name</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% foreach (var product in Model) { %>
+				<tr>
+                    <td><%= product.Name %></td>
+                    <td><%= product.Category %></td>
+                </tr>
+        <% } %>
+    </tbody>
+</table>
+<div class="pager">
+    <%= Html.Pager(ViewData.Model.PageSize, ViewData.Model.PageNumber, ViewData.Model.TotalItemCount) %>
+</div>

@@ -1,0 +1,17 @@
+﻿@model MvcKompApp.ViewModels.PersonViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Edit", "Person"))
+{
+    <fieldset>
+        <legend>@Model.Name</legend>
+        @Html.DisplayForModel()
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+    </fieldset>                                                                                                                                                                                                                   
+}

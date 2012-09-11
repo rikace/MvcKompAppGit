@@ -1,0 +1,23 @@
+﻿@model RadioModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ValidationSummary(true, "Form Validation was unsuccessful. Please correct the errors and try again.")
+
+@using (Html.BeginForm())
+{
+    
+    <p>TestRadio</p>
+    <div>
+        @Html.RadioButtonForSelectList(m => m.TestRadio, Model.TestRadioList)
+        @Html.ValidationMessageFor(m => m.TestRadio)
+    </div>
+    
+    <br />
+    <p>
+        <input type="submit" value="Submit" />
+    </p>
+}
