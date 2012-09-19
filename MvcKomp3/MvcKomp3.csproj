@@ -148,6 +148,7 @@
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="DAL\VisitorSiteInMemoryDB.cs" />
     <Compile Include="Filters\AjaxAuthorizeAttribute.cs" />
+    <Compile Include="Filters\AjaxOnlyAttribute.cs" />
     <Compile Include="Filters\CustomAuthFilter.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Filters\Logger.cs" />
@@ -231,6 +232,8 @@
     <Compile Include="Validation\MustBeTrueAttribute.cs" />
     <Compile Include="Validation\PriceValidation.cs" />
     <Compile Include="Validation\RemoteValidator.cs" />
+    <Compile Include="Validation\ValidateEmailAttribute.cs" />
+    <Compile Include="Validation\ValidatePasswordAttribute.cs" />
     <Compile Include="Validation\ValidationModelBinding.cs" />
     <Compile Include="ViewModels\AssignedCourseData.cs" />
     <Compile Include="ViewModels\EnrollmentDateGroup.cs" />
@@ -493,6 +496,10 @@
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{0eb0931d-c8a7-4f44-9154-61be0c279972}</Project>
       <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Log\Log.csproj">
+      <Project>{09c53720-c84b-4462-a2c1-604e9dd0fcbd}</Project>
+      <Name>Log</Name>
     </ProjectReference>
     <ProjectReference Include="..\MvcPaging\MvcPaging.csproj">
       <Project>{aaf30968-1118-4937-b392-e9863ea8d76d}</Project>

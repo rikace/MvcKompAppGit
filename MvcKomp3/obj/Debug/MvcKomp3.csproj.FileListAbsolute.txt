@@ -28,3 +28,5 @@
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKomp3\bin\System.Web.WebPages.Razor.xml
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKomp3\obj\Debug\MvcKomp3.dll
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKomp3\obj\Debug\MvcKomp3.pdb
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKomp3\bin\Log.dll
+\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcKomp3\bin\Log.pdb

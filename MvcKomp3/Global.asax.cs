@@ -1,8 +1,12 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Configuration;
+using System.Data.Entity;
+using System.Net.Mail;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ContosoUniversity.DAL;
 using ContosoUniversity.Models;
+using Log;
 using MvcKompApp.DAL;
 using MvcKompApp.Filters;
 using MvcKompApp.Infrastructure;
@@ -56,6 +60,9 @@ namespace MvcKompApp
             Database.SetInitializer<SchoolContext>(new SchoolInitializer());
           //  Database.SetInitializer<ImageContext>(new ImageInitializer());
             Database.SetInitializer<MovieContext>(new MovieInitializer());
+
+            Log.SingletonLogger.Instance.Attach(new Log.ObserverLogToConsole());
+
 #endif
             //ModelBinders.Binders.Add(typeof(Appointment), new ValidatingModelBinder());
 
@@ -81,5 +88,47 @@ namespace MvcKompApp
             ModelBinders.Binders.Add(typeof(Appointment), new ValidatingModelBinder());
 
         }
+
+        /// <summary>
+        /// Initializes logging facility with severity level and observer(s).
+        /// Private helper method.
+        /// </summary>
+        private void InitializeLogger()
+        {
+            // Read and assign application wide logging severity
+            //string severity = ConfigurationManager.AppSettings.Get("LogSeverity");
+            //SingletonLogger.Instance.Severity =  (LogSeverity)Enum.Parse(typeof(LogSeverity), severity, true);
+
+            SingletonLogger.Instance.Severity = LogSeverity.Debug | LogSeverity.Error | LogSeverity.Fatal | LogSeverity.Info;
+
+            // Send log messages to debugger console (output window). 
+            // Btw: the attach operation is the Observer pattern.
+            Log.ILog log = new ObserverLogToConsole();
+            SingletonLogger.Instance.Attach(log);
+
+            // Send log messages to email (observer pattern)
+            string from = "notification@yourcompany.com";
+            string to = "webmaster@yourcompany.com";
+            string subject = "Webmaster: please review";
+            string body = "email text";
+            var smtpClient = new SmtpClient("mail.yourcompany.com");
+            log = new ObserverLogToEmail(from, to, subject, body, smtpClient);
+            SingletonLogger.Instance.Attach(log);
+
+            // Other log output options
+
+            //// Send log messages to a file
+            //log = new ObserverLogToFile(@"C:\Temp\DoFactory.log");
+            //SingletonLogger.Instance.Attach(log);
+
+            //// Send log message to event log
+            //log = new ObserverLogToEventlog();
+            //SingletonLogger.Instance.Attach(log);
+
+            //// Send log messages to database (observer pattern)
+            //log = new ObserverLogToDatabase();
+            //SingletonLogger.Instance.Attach(log);
+        }
+
     }
 }

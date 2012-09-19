@@ -27,3 +27,11 @@
         @Html.Partial("_listControllers")
     </ul>
 </div>
+<div>
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        @Html.DropDownList("SelectedControl", "- -")
+        <input type="submit" value="Click Me" />
+    }
+</div>

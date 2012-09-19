@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5F657A8-66E8-4FD8-838E-E295D75D12B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MVCControlsToolkit</RootNamespace>
+    <AssemblyName>MVC2ControlsToolkit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MvcControlsToolkitKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionFilters\AcceptViewHintAttribute.cs" />
+    <Compile Include="Controller\ClentValidationViewResult.cs" />
+    <Compile Include="Controller\ClientBlockPartialResult.cs" />
+    <Compile Include="Controller\ClientBlockResult.cs" />
+    <Compile Include="Controller\ServerErrors.cs" />
+    <Compile Include="Controller\Updater.cs" />
+    <Compile Include="Controls\Bindings\BindingsContext.cs" />
+    <Compile Include="Controls\Bindings\BindingsExtensions.cs" />
+    <Compile Include="Controls\Bindings\BindingsBuilder.cs" />
+    <Compile Include="Controls\Bindings\BindingsHelpers.cs" />
+    <Compile Include="Controls\Bindings\ClientBlockControlFlowHelpers.cs" />
+    <Compile Include="Controls\Bindings\ClientBlockRepeaterHelper.cs" />
+    <Compile Include="Controls\Bindings\ClientTemplateHelper.cs" />
+    <Compile Include="Controls\Bindings\IBindingsBuilder.cs" />
+    <Compile Include="Controls\Bindings\ModelTranslator.cs" />
+    <Compile Include="Controls\Buttons.cs" />
+    <Compile Include="Controls\CheckBoxList.cs" />
+    <Compile Include="Controls\ChoiceListDescription.cs" />
+    <Compile Include="Controls\ControlsResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlsResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataFilter\DataFilterClause.cs" />
+    <Compile Include="Controls\DataFilter\DataFilterHelper.cs" />
+    <Compile Include="Controls\DataFilter\FilterContext.cs" />
+    <Compile Include="Controls\DataGrid\Column.cs" />
+    <Compile Include="Controls\DataGrid\Columns.cs" />
+    <Compile Include="Controls\DataGrid\DataFormHelpers.cs" />
+    <Compile Include="Controls\DataGrid\DataGridHelpers.cs" />
+    <Compile Include="Controls\DataGrid\DataGridItem.cs" />
+    <Compile Include="Controls\DataGrid\Dialog.cs" />
+    <Compile Include="Controls\DataGrid\enumerations.cs" />
+    <Compile Include="Controller\Tracker.cs" />
+    <Compile Include="Controls\DataGrid\GridDescription.cs" />
+    <Compile Include="Controls\DataGrid\SortInfo.cs" />
+    <Compile Include="Controls\DateAndTime\CalendarOptions.cs" />
+    <Compile Include="Controls\DateAndTime\DateTimeInput.cs" />
+    <Compile Include="Controls\DateTimeInputHelper.cs" />
+    <Compile Include="Controls\DualSelectHelper.cs" />
+    <Compile Include="Controls\DualSelect\DualSelect.cs" />
+    <Compile Include="Controls\EnumerableConverter.cs" />
+    <Compile Include="Controls\ExtendedDropDownHelper.cs" />
+    <Compile Include="Controls\GenericInput.cs" />
+    <Compile Include="Controls\Html5\RangeHelpers.cs" />
+    <Compile Include="Controls\HTMLHelpers.cs" />
+    <Compile Include="Controls\CheckBoxesExtensions.cs" />
+    <Compile Include="Controls\JsonHelpers.cs" />
+    <Compile Include="Controls\Menu\MenuHelper.cs" />
+    <Compile Include="Controls\Menu\TreeBuilder.cs" />
+    <Compile Include="Controls\NullableUpdater.cs" />
+    <Compile Include="Controls\PackedList.cs" />
+    <Compile Include="Controls\Pager\ClientPager.cs" />
+    <Compile Include="Controls\Pager\Pager.cs" />
+    <Compile Include="Controls\Pager\PagerHelper.cs" />
+    <Compile Include="Controls\Pager\SubmitPagerDescription.cs" />
+    <Compile Include="Controls\SortableList\PermutationsUpdater.cs" />
+    <Compile Include="Controls\SortableList\SortableListDescription.cs" />
+    <Compile Include="Controls\SortableList\SortableListHelper.cs" />
+    <Compile Include="Controls\SubClassCastInvoker.cs" />
+    <Compile Include="Controls\SyntacticSugar.cs" />
+    <Compile Include="Controls\ThemedControlsStrings.cs" />
+    <Compile Include="Controls\TimerHelpers.cs" />
+    <Compile Include="Controls\TreeView\ITreeViewNodeContainer.cs" />
+    <Compile Include="Controls\TreeView\TreeViewDisplay.cs" />
+    <Compile Include="Controls\TreeView\TreeViewHelpers.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\TreeView\TreeViewOptions.cs" />
+    <Compile Include="Controls\TreeView\TreeViewUpdater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\TwoWayChoice.cs" />
+    <Compile Include="Controls\TypedTextBoxHelper.cs" />
+    <Compile Include="Controls\Validation\ValidationHelpers.cs" />
+    <Compile Include="Controls\ViewListHelper.cs" />
+    <Compile Include="Core\BasicHtmlHelper.cs" />
+    <Compile Include="Core\ChoiceList.cs" />
+    <Compile Include="Core\ClientDataTypeModelValidatorProviderExt.cs" />
+    <Compile Include="Core\EnumerableHelper.cs" />
+    <Compile Include="Controls\EnumerableUpdater.cs" />
+    <Compile Include="Core\ExDefaultBinder.cs" />
+    <Compile Include="Core\Extensions.cs" />
+    <Compile Include="Core\ForbiddenException.cs" />
+    <Compile Include="Core\IDisplayModel.cs" />
+    <Compile Include="Core\IDisplayModelBuilder.cs" />
+    <Compile Include="Core\ISafeCreation.cs" />
+    <Compile Include="Core\ITemplateInvoker.cs" />
+    <Compile Include="Core\IUpdateModel.cs" />
+    <Compile Include="Core\IUpdateModelState.cs" />
+    <Compile Include="Core\IUpdateModelType.cs" />
+    <Compile Include="Core\IVisualState.cs" />
+    <Compile Include="Core\OrderItem.cs" />
+    <Compile Include="Core\PropertyAccessor.cs" />
+    <Compile Include="Core\RenderInfo.cs" />
+    <Compile Include="Core\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\TemplateInvoker.cs" />
+    <Compile Include="Core\TransformationContext.cs" />
+    <Compile Include="Core\Utilities\Sorting.cs" />
+    <Compile Include="Core\MvcEnvironment.cs" />
+    <Compile Include="DataAnnotations\AnnotationsRsources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnnotationsRsources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DataAnnotations\CanSortAttribute.cs" />
+    <Compile Include="DataAnnotations\CollectionMaxLengthAttribute.cs" />
+    <Compile Include="DataAnnotations\DataAnnotationsModelMetadataProviderExt.cs" />
+    <Compile Include="DataAnnotations\DateRangeAdapter.cs" />
+    <Compile Include="DataAnnotations\DynamicRangeAdapter.cs" />
+    <Compile Include="DataAnnotations\DynamicRangeAttribute.cs" />
+    <Compile Include="DataAnnotations\Enumerations.cs" />
+    <Compile Include="DataAnnotations\DateRangeAttribute.cs" />
+    <Compile Include="DataAnnotations\FormatAttribute.cs" />
+    <Compile Include="DataAnnotations\MileStoneAttribute.cs" />
+    <Compile Include="DataAnnotations\RangeAdapter.cs" />
+    <Compile Include="DataAnnotations\RequiredFieldsAttribute.cs" />
+    <Compile Include="Exceptions\InvalidAttributeApplicationException.cs" />
+    <Compile Include="Exceptions\InvalidDynamicRangeException.cs" />
+    <Compile Include="Exceptions\PropertyNotFoundException.cs" />
+    <Compile Include="Controls\DataFilter\IFilterDescription.cs" />
+    <Compile Include="Linq\FilterBuilder.cs" />
+    <Compile Include="Linq\LinqExceptions.cs" />
+    <Compile Include="Linq\OrderHelpers.cs" />
+    <Compile Include="Linq\OrderType.cs" />
+    <Compile Include="Linq\SafeQueryL.cs" />
+    <Compile Include="Linq\TypedConstant.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ControlsResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ControlsResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnnotations\AnnotationsRsources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AnnotationsRsources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MvcControlsToolkitKey.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

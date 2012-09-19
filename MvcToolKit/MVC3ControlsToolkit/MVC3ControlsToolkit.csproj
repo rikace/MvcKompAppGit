@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B48550D-6A75-415E-8030-2AD3C56C6FA9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MVCControlsToolkit</RootNamespace>
+    <AssemblyName>MVC3ControlsToolkit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MvcControlsToolkitKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\MVCControlToolkit\ActionFilters\AcceptViewHintAttribute.cs">
+      <Link>ActionFilters\AcceptViewHintAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controller\ClentValidationViewResult.cs">
+      <Link>Controller\ClentValidationViewResult.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controller\ClientBlockPartialResult.cs">
+      <Link>Controller\ClientBlockPartialResult.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controller\ClientBlockResult.cs">
+      <Link>Controller\ClientBlockResult.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controller\ServerErrors.cs">
+      <Link>Controller\ServerErrors.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controller\Tracker.cs">
+      <Link>Controller\Tracker.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controller\Updater.cs">
+      <Link>Controller\Updater.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Bindings\BindingsBuilder.cs">
+      <Link>Controls\Bindings\BindingsBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Bindings\BindingsContext.cs">
+      <Link>Controls\Bindings\BindingsContext.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Bindings\BindingsExtensions.cs">
+      <Link>Controls\Bindings\BindingsExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Bindings\BindingsHelpers.cs">
+      <Link>Controls\Bindings\BindingsHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Bindings\ClientBlockControlFlowHelpers.cs">
+      <Link>Controls\Bindings\ClientBlockControlFlowHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Bindings\ClientBlockRepeaterHelper.cs">
+      <Link>Controls\Bindings\ClientBlockRepeaterHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Bindings\ClientTemplateHelper.cs">
+      <Link>Controls\Bindings\ClientTemplateHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Bindings\IBindingsBuilder.cs">
+      <Link>Controls\Bindings\IBindingsBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Bindings\ModelTranslator.cs">
+      <Link>Controls\Bindings\ModelTranslator.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Buttons.cs">
+      <Link>Controls\Buttons.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\CheckBoxesExtensions.cs">
+      <Link>Controls\CheckBoxesExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\CheckBoxList.cs">
+      <Link>Controls\CheckBoxList.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\ChoiceListDescription.cs">
+      <Link>Controls\ChoiceListDescription.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\ControlsResources.Designer.cs">
+      <Link>Controls\ControlsResources.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataFilter\DataFilterClause.cs">
+      <Link>Controls\DataFilter\DataFilterClause.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataFilter\DataFilterHelper.cs">
+      <Link>Controls\DataFilter\DataFilterHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataFilter\FilterContext.cs">
+      <Link>Controls\DataFilter\FilterContext.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataFilter\IFilterDescription.cs">
+      <Link>Controls\DataFilter\IFilterDescription.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataGrid\Column.cs">
+      <Link>Controls\DataGrid\Column.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataGrid\Columns.cs">
+      <Link>Controls\DataGrid\Columns.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataGrid\DataFormHelpers.cs">
+      <Link>Controls\DataGrid\DataFormHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataGrid\DataGridHelpers.cs">
+      <Link>Controls\DataGrid\DataGridHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataGrid\DataGridItem.cs">
+      <Link>Controls\DataGrid\DataGridItem.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataGrid\Dialog.cs">
+      <Link>Controls\DataGrid\Dialog.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataGrid\enumerations.cs">
+      <Link>Controls\DataGrid\enumerations.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataGrid\GridDescription.cs">
+      <Link>Controls\DataGrid\GridDescription.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DataGrid\SortInfo.cs">
+      <Link>Controls\DataGrid\SortInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DateAndTime\CalendarOptions.cs">
+      <Link>Controls\DateAndTime\CalendarOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DateAndTime\DateTimeInput.cs">
+      <Link>Controls\DateAndTime\DateTimeInput.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DateTimeInputHelper.cs">
+      <Link>Controls\DateTimeInputHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DualSelectHelper.cs">
+      <Link>Controls\DualSelectHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\DualSelect\DualSelect.cs">
+      <Link>Controls\DualSelect\DualSelect.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\EnumerableConverter.cs">
+      <Link>Controls\EnumerableConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\EnumerableUpdater.cs">
+      <Link>Controls\EnumerableUpdater.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\ExtendedDropDownHelper.cs">
+      <Link>Controls\ExtendedDropDownHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\GenericInput.cs">
+      <Link>Controls\GenericInput.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Html5\RangeHelpers.cs">
+      <Link>Controls\Html5\RangeHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\HTMLHelpers.cs">
+      <Link>Controls\HTMLHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\JsonHelpers.cs">
+      <Link>Controls\JsonHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Menu\MenuHelper.cs">
+      <Link>Controls\Menu\MenuHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Menu\TreeBuilder.cs">
+      <Link>Controls\Menu\TreeBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\NullableUpdater.cs">
+      <Link>Controls\NullableUpdater.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\PackedList.cs">
+      <Link>Controls\PackedList.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Pager\ClientPager.cs">
+      <Link>Controls\Pager\ClientPager.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Pager\Pager.cs">
+      <Link>Controls\Pager\Pager.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Pager\PagerHelper.cs">
+      <Link>Controls\Pager\PagerHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Pager\SubmitPagerDescription.cs">
+      <Link>Controls\Pager\SubmitPagerDescription.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\SortableList\PermutationsUpdater.cs">
+      <Link>Controls\SortableList\PermutationsUpdater.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\SortableList\SortableListDescription.cs">
+      <Link>Controls\SortableList\SortableListDescription.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\SortableList\SortableListHelper.cs">
+      <Link>Controls\SortableList\SortableListHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\SubClassCastInvoker.cs">
+      <Link>Controls\SubClassCastInvoker.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\ThemedControlsStrings.cs">
+      <Link>Controls\ThemedControlsStrings.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\TimerHelpers.cs">
+      <Link>Controls\TimerHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\TreeView\ITreeViewNodeContainer.cs">
+      <Link>Controls\TreeView\ITreeViewNodeContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\TreeView\TreeViewDisplay.cs">
+      <Link>Controls\TreeView\TreeViewDisplay.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\TreeView\TreeViewHelpers.cs">
+      <Link>Controls\TreeView\TreeViewHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\TreeView\TreeViewOptions.cs">
+      <Link>Controls\TreeView\TreeViewOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\TreeView\TreeViewUpdater.cs">
+      <Link>Controls\TreeView\TreeViewUpdater.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\TwoWayChoice.cs">
+      <Link>Controls\TwoWayChoice.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\TypedTextBoxHelper.cs">
+      <Link>Controls\TypedTextBoxHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\Validation\ValidationHelpers.cs">
+      <Link>Controls\Validation\ValidationHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Controls\ViewListHelper.cs">
+      <Link>Controls\ViewListHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\BasicHtmlHelper.cs">
+      <Link>Core\BasicHtmlHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\ChoiceList.cs">
+      <Link>Core\ChoiceList.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\ClientDataTypeModelValidatorProviderExt.cs">
+      <Link>Core\ClientDataTypeModelValidatorProviderExt.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\EnumerableHelper.cs">
+      <Link>Core\EnumerableHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\ExDefaultBinder.cs">
+      <Link>Core\ExDefaultBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\Extensions.cs">
+      <Link>Core\Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\ForbiddenException.cs">
+      <Link>Core\ForbiddenException.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\IDisplayModel.cs">
+      <Link>Core\IDisplayModel.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\IDisplayModelBuilder.cs">
+      <Link>Core\IDisplayModelBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\ISafeCreation.cs">
+      <Link>Core\ISafeCreation.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\ITemplateInvoker.cs">
+      <Link>Core\ITemplateInvoker.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\IUpdateModel.cs">
+      <Link>Core\IUpdateModel.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\IUpdateModelState.cs">
+      <Link>Core\IUpdateModelState.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\IUpdateModelType.cs">
+      <Link>Core\IUpdateModelType.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\IVisualState.cs">
+      <Link>Core\IVisualState.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\OrderItem.cs">
+      <Link>Core\OrderItem.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\PropertyAccessor.cs">
+      <Link>Core\PropertyAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\RenderInfo.cs">
+      <Link>Core\RenderInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\Resources.Designer.cs">
+      <Link>Core\Resources.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\TransformationContext.cs">
+      <Link>Core\TransformationContext.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Core\Utilities\Sorting.cs">
+      <Link>Core\Utilities\Sorting.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\AnnotationsRsources.Designer.cs">
+      <Link>DataAnnotations\AnnotationsRsources.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\CanSortAttribute.cs">
+      <Link>DataAnnotations\CanSortAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\DataAnnotationsModelMetadataProviderExt.cs">
+      <Link>DataAnnotations\DataAnnotationsModelMetadataProviderExt.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\DateRangeAdapter.cs">
+      <Link>DataAnnotations\DateRangeAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\DateRangeAttribute.cs">
+      <Link>DataAnnotations\DateRangeAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\DynamicRangeAdapter.cs">
+      <Link>DataAnnotations\DynamicRangeAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\DynamicRangeAttribute.cs">
+      <Link>DataAnnotations\DynamicRangeAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\Enumerations.cs">
+      <Link>DataAnnotations\Enumerations.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\FormatAttribute.cs">
+      <Link>DataAnnotations\FormatAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\MileStoneAttribute.cs">
+      <Link>DataAnnotations\MileStoneAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\RangeAdapter.cs">
+      <Link>DataAnnotations\RangeAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\DataAnnotations\RequiredFieldsAttribute.cs">
+      <Link>DataAnnotations\RequiredFieldsAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Exceptions\InvalidAttributeApplicationException.cs">
+      <Link>Exceptions\InvalidAttributeApplicationException.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Exceptions\InvalidDynamicRangeException.cs">
+      <Link>Exceptions\InvalidDynamicRangeException.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Exceptions\PropertyNotFoundException.cs">
+      <Link>Exceptions\PropertyNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Linq\FilterBuilder.cs">
+      <Link>Linq\FilterBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Linq\LinqExceptions.cs">
+      <Link>Linq\LinqExceptions.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Linq\OrderHelpers.cs">
+      <Link>Linq\OrderHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Linq\OrderType.cs">
+      <Link>Linq\OrderType.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Linq\SafeQueryL.cs">
+      <Link>Linq\SafeQueryL.cs</Link>
+    </Compile>
+    <Compile Include="..\MVCControlToolkit\Linq\TypedConstant.cs">
+      <Link>Linq\TypedConstant.cs</Link>
+    </Compile>
+    <Compile Include="Controls\SyntacticSugar.cs" />
+    <Compile Include="Core\MvcEnvironment.cs" />
+    <Compile Include="Core\TemplateInvoker.cs" />
+    <Compile Include="DataAnnotations\MandatoryAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MvcControlsToolkitKey.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\MVCControlToolkit\Controls\ControlsResources.resx">
+      <Link>Controls\ControlsResources.resx</Link>
+      <LastGenOutput>ControlsResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\MVCControlToolkit\Core\Resources.resx">
+      <Link>Core\Resources.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\MVCControlToolkit\DataAnnotations\AnnotationsRsources.resx">
+      <Link>DataAnnotations\AnnotationsRsources.resx</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

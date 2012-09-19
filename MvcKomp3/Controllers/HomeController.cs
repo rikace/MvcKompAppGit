@@ -10,11 +10,29 @@ namespace MvcKompApp.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
 
+            ItemToSelect[] items = new ItemToSelect[] { 
+                new ItemToSelect{ Id=0, Name ="Employee"},
+                new ItemToSelect{ Id=1, Name ="Course"},
+                new ItemToSelect{ Id=2, Name ="Department"},
+                new ItemToSelect{ Id=3, Name ="Instructor"},
+                new ItemToSelect{ Id=4, Name ="Product"},
+                new ItemToSelect{ Id=5, Name ="Person"},
+                new ItemToSelect{ Id=6, Name ="User"}
+            };
+
+            ViewBag.SelectedControl = new SelectList(items, "Id", "Name", id);
+
             return View();
+        }
+
+        private class ItemToSelect
+        {
+            public string Name { get; set; }
+            public int Id { get; set; }
         }
 
         public ActionResult About()

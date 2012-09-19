@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCControlsToolkit", "MVCControlToolkit\MVCControlsToolkit.csproj", "{F5F657A8-66E8-4FD8-838E-E295D75D12B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC3ControlsToolkit", "MVC3ControlsToolkit\MVC3ControlsToolkit.csproj", "{7B48550D-6A75-415E-8030-2AD3C56C6FA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCNestedModels", "MVCNestedModels\MVCNestedModels.csproj", "{EDB80802-F157-4E29-82B8-6CD0D30B27EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC3NestedModels", "MVC3NestedModels\MVC3NestedModels.csproj", "{3DF2B0C5-1CEA-4B58-8272-78843EE3790A}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs15
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MVCControlToolkit\\MVCControlsToolkit.csproj
+		SccProjectName1 = MVCControlToolkit
+		SccLocalPath1 = MVCControlToolkit
+		SccProjectUniqueName2 = MVC3ControlsToolkit\\MVC3ControlsToolkit.csproj
+		SccProjectName2 = MVC3ControlsToolkit
+		SccLocalPath2 = MVC3ControlsToolkit
+		SccProjectUniqueName3 = MVCNestedModels\\MVCNestedModels.csproj
+		SccProjectName3 = MVCNestedModels
+		SccLocalPath3 = MVCNestedModels
+		SccProjectUniqueName4 = MVC3NestedModels\\MVC3NestedModels.csproj
+		SccProjectName4 = MVC3NestedModels
+		SccLocalPath4 = MVC3NestedModels
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5F657A8-66E8-4FD8-838E-E295D75D12B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5F657A8-66E8-4FD8-838E-E295D75D12B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5F657A8-66E8-4FD8-838E-E295D75D12B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5F657A8-66E8-4FD8-838E-E295D75D12B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B48550D-6A75-415E-8030-2AD3C56C6FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B48550D-6A75-415E-8030-2AD3C56C6FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B48550D-6A75-415E-8030-2AD3C56C6FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B48550D-6A75-415E-8030-2AD3C56C6FA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDB80802-F157-4E29-82B8-6CD0D30B27EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDB80802-F157-4E29-82B8-6CD0D30B27EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDB80802-F157-4E29-82B8-6CD0D30B27EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDB80802-F157-4E29-82B8-6CD0D30B27EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DF2B0C5-1CEA-4B58-8272-78843EE3790A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DF2B0C5-1CEA-4B58-8272-78843EE3790A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DF2B0C5-1CEA-4B58-8272-78843EE3790A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DF2B0C5-1CEA-4B58-8272-78843EE3790A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
