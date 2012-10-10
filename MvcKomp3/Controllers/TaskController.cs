@@ -3,23 +3,47 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using MvcKompApp.Models;
 
 namespace MvcKompApp.Controllers
 {
-    public class TaskController : Controller
+    public class TaskController : AsyncController
     {
         private TaskDBContext db = new TaskDBContext();
+
+        public void IndexAsync()
+        {
+            AsyncManager.OutstandingOperations.Completed += OutstandingOperations_Completed;
+            AsyncManager.OutstandingOperations.Increment(1);
+
+            Task.Factory.StartNew(() =>
+            {
+                var tasks = db.Tasks.ToList();
+                AsyncManager.Parameters["tasks"] = tasks;
+                AsyncManager.OutstandingOperations.Decrement(1);
+            });
+        }
+
+        public ViewResult IndexCompleted(IList<TaskItem> tasks)
+        {
+            return View(tasks);
+        }
+
+        void OutstandingOperations_Completed(object sender, EventArgs e)
+        {
+            Console.WriteLine("Completed - {0}", sender.GetType().Name);
+        }
 
         //
         // GET: /Task/
 
-        public ViewResult Index()
-        {
-            return View(db.Tasks.ToList());
-        }
+        //public ViewResult Index()
+        //{
+        //    return View(db.Tasks.ToList());
+        //}
 
         //
         // GET: /Task/Details/5

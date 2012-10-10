@@ -244,6 +244,7 @@
     </Compile>
     <Compile Include="Infrastructure\AjaxOnly.cs" />
     <Compile Include="Infrastructure\CartModelBinder.cs" />
+    <Compile Include="Infrastructure\DateBinder.cs" />
     <Compile Include="Infrastructure\EnableJson.cs" />
     <Compile Include="Infrastructure\EnableXml.cs" />
     <Compile Include="Infrastructure\HtmlHelpers.cs" />
@@ -255,6 +256,7 @@
     <Compile Include="Infrastructure\MyHelper.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Infrastructure\PagingHelpers.cs" />
+    <Compile Include="Infrastructure\PrincipalModelBinder.cs" />
     <Compile Include="Infrastructure\XmlResult.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Appointment.cs" />

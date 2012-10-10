@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<MvcKompApp.Models.Movie>
-
 @{
     ViewBag.Title = "Index";
 }
@@ -9,50 +8,54 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm("Index", "Movie", FormMethod.Get))
+{
+    @Html.DropDownList("year", new SelectList(ViewBag.Years), "All")
+    <input type="submit" value="Submit" />
+
+}
+
 <table>
     <tr>
-        <th>
-            Title
+        <th>Title
         </th>
-        <th>
-            ReleaseDate
+        <th>ReleaseDate
         </th>
-        <th>
-            Genre
+        <th>Genre
         </th>
-        <th>
-            Price
+        <th>Price
         </th>
-        <th>
-            Rating
+        <th>Rating
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rating)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate.Year);
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
 @section Scripts{
@@ -64,7 +67,7 @@
     <link href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" rel="stylesheet" type="text/css" />
 
     <script src="@Url.Content("~/Scripts/jquery.ui.core.min.js")" type="text/javascript"></script>
-@*    <script src="@Url.Content("~/Scripts/jquery.ui.1.8.23.min.js")" type="text/javascript"></script>*@
+    @*    <script src="@Url.Content("~/Scripts/jquery.ui.1.8.23.min.js")" type="text/javascript"></script>*@
     <script src="@Url.Content("~/Scripts/jquery.ui.datepicker.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/DatePickerReady.js")"  type="text/javascript"></script>
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using MvcKomp3.Infrastructure;
 using MvcKompApp.Models;
 
 namespace MvcKompApp.Controllers
@@ -45,6 +46,18 @@ namespace MvcKompApp.Controllers
             return View();
         }
 
+        public JsonResult CheckUsername(string username)
+        {
+            var result = false;
+
+            if (username == "sallen")
+            {
+                result = true;
+            }
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+
+        }
         public ActionResult RefreshPartial(FormCollection form)
         {
             string name = form["Name"];

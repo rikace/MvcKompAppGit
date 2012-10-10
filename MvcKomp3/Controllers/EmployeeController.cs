@@ -35,7 +35,7 @@ namespace MvcKompApp.Controllers
         //
         // GET: /Employee/
 
-        public ActionResult Index(string q = null, int page = 1)
+        public ActionResult Index(string q = null, int page = 1, [ModelBinder(typeof(MvcKomp3.Infrastructure.PrincipalModelBinder))]System.Security.Principal.IPrincipal user = null)
         {
             List<Employee> employees = null;
             if (HttpContext.Cache["Employees"] == null)

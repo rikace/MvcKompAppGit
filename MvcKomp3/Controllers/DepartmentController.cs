@@ -46,9 +46,9 @@ namespace ContosoUniversity.Controllers
         // POST: /Department/Create
 
         [HttpPost]
-        public ActionResult Create(Department department)
+        public ActionResult Create(/*[Bind(Exclude="PersonID")] */Department department)
         {
-            if (ModelState.IsValid)
+            if (ModelState. IsValid)
             {
                 db.Departments.Add(department);
                 db.SaveChanges();

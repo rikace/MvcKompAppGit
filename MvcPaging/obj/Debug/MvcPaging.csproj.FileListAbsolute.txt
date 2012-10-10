@@ -12,4 +12,3 @@ C:\Users\rscannicchio\Desktop\MVC\mvcpaging-rc1\src\MvcPaging\obj\Debug\MvcPagin
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPaging\bin\Debug\MvcPaging.pdb
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.dll
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.pdb
-\\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.csprojResolveAssemblyReference.cache

@@ -179,6 +179,7 @@
     </Compile>
     <Compile Include="Infrastructure\AjaxOnly.cs" />
     <Compile Include="Infrastructure\CartModelBinder.cs" />
+    <Compile Include="Infrastructure\DateBinder.cs" />
     <Compile Include="Infrastructure\EnableJson.cs" />
     <Compile Include="Infrastructure\EnableXml.cs" />
     <Compile Include="Infrastructure\HtmlHelpers.cs" />
@@ -189,7 +190,9 @@
     <Compile Include="Infrastructure\MinLenghtAttribute.cs" />
     <Compile Include="Infrastructure\MyHelper.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\PagingHelpers.cs" />
+    <Compile Include="Infrastructure\PrincipalModelBinder.cs" />
     <Compile Include="Infrastructure\XmlResult.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -217,6 +220,7 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Summit.cs" />
     <Compile Include="Models\TaskItem.cs" />
+    <Compile Include="Models\TimeCard.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\VisitorSiteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -325,6 +329,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="Scripts\GreatherThenCustomValidation.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

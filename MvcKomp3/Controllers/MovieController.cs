@@ -100,9 +100,17 @@ public ActionResult SearchIndex(string Genre, string searchString)
         //
         // GET: /Movie/
 
-        public ViewResult Index()
+        public ViewResult Index(string year = null)
         {
-            return View(db.Movies.ToList());
+            ViewBag.Years = db.Movies.Select(m => m.ReleaseDate.Year).ToArray();
+
+            if (string.IsNullOrWhiteSpace(year))
+                return View(db.Movies.ToList());
+            else
+            {
+                var yearNum = Convert.ToInt32(year);
+                return View(db.Movies.Where(m => m.ReleaseDate.Year == yearNum).Select(m => m).ToList());
+            }
         }
 
         //

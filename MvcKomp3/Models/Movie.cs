@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using MvcKomp3.Infrastructure;
 
 namespace MvcKompApp.Models
 {
@@ -16,7 +18,7 @@ namespace MvcKompApp.Models
 
         [Required(ErrorMessage = "Date is required")]
         [DisplayFormat(DataFormatString = "{0:d}")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date)]        
         public DateTime ReleaseDate { get; set; }
 
         [Required(ErrorMessage = "Genre must be specified")]

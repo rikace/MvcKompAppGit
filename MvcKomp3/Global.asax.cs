@@ -7,11 +7,13 @@ using System.Web.Routing;
 using ContosoUniversity.DAL;
 using ContosoUniversity.Models;
 using Log;
+using MvcKomp3.Infrastructure;
 using MvcKompApp.DAL;
 using MvcKompApp.Filters;
 using MvcKompApp.Infrastructure;
 using MvcKompApp.Models;
 using MvcKompApp.Validation;
+using Ninject;
 
 namespace MvcKompApp
 {
@@ -87,7 +89,16 @@ namespace MvcKompApp
 
             ModelBinders.Binders.Add(typeof(Appointment), new ValidatingModelBinder());
 
+           //odelBinders.Binders.Add(typeof(DateTime), new DateBinder());
         }
+
+        private void SetupDependency()
+        {
+            IKernel kernel = new StandardKernel();
+            //kernel.Bind
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+        }
+
 
         /// <summary>
         /// Initializes logging facility with severity level and observer(s).

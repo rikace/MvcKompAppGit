@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
+using MvcKomp3.Infrastructure;
 
 namespace ContosoUniversity.Models
 {
-    public class Department
+    [ModelBinder(typeof(DateDefaultBinder))]
+    [Bind(Exclude = "PersonID")]
+    public class Department : IValidatableObject
     {
         public int DepartmentID { get; set; }
 
@@ -24,11 +28,17 @@ namespace ContosoUniversity.Models
 
         [Display(Name = "Administrator")]
         public int? PersonID { get; set; }
-        
+
         [Timestamp]
         public Byte[] Timestamp { get; set; }
 
         public virtual Instructor Administrator { get; set; }
         public virtual ICollection<Course> Courses { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (Name == "Rik")
+                yield return new ValidationResult("The name cannot be Rik", new[] { "Name" });
+        }
     }
 }
