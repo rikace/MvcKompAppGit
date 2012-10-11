@@ -10,32 +10,53 @@ using MvcKompApp.Models;
 
 namespace MvcKompApp.Controllers
 {
-    public class TaskController : AsyncController
+    public class TaskController : Controller //AsyncController
     {
         private TaskDBContext db = new TaskDBContext();
 
-        public void IndexAsync()
-        {
-            AsyncManager.OutstandingOperations.Completed += OutstandingOperations_Completed;
-            AsyncManager.OutstandingOperations.Increment(1);
+        //public void IndexAsync()
+        //{
+        //    AsyncManager.OutstandingOperations.Completed += OutstandingOperations_Completed;
+        //    AsyncManager.OutstandingOperations.Increment(1);
 
-            Task.Factory.StartNew(() =>
-            {
-                var tasks = db.Tasks.ToList();
-                AsyncManager.Parameters["tasks"] = tasks;
-                AsyncManager.OutstandingOperations.Decrement(1);
-            });
-        }
+        //    Task.Factory.StartNew(() =>
+        //    {
+        //        var tasks = db.Tasks.ToList();
+        //        AsyncManager.Parameters["tasks"] = tasks;
+        //        AsyncManager.OutstandingOperations.Decrement(1);
+        //    });
+        //}
 
-        public ViewResult IndexCompleted(IList<TaskItem> tasks)
+        //public ViewResult IndexCompleted(IList<TaskItem> tasks)
+        //{
+        //    ViewBag.TaskList = tasks.Select(t => new { id = t.Id, Value = t.Task }); 
+        //    return View(tasks);
+        //}
+
+        public ViewResult Index()
         {
+            var tasks = db.Tasks.ToList();
+            ViewBag.TaskList = tasks.Select(s=>s.Task);
             return View(tasks);
+
         }
+
+
 
         void OutstandingOperations_Completed(object sender, EventArgs e)
         {
             Console.WriteLine("Completed - {0}", sender.GetType().Name);
         }
+
+        public ActionResult GetTasksDDL(string value)
+        {
+            return Json(new object[] { "Riccardo", "Bugghina" }, JsonRequestBehavior.AllowGet);
+        }
+
+        //public JsonResult GetTasksDDL(string value)
+        //{
+        //    return Json(new object[] { "Riccardo", "Bugghina" }, JsonRequestBehavior.AllowGet);
+        //}
 
         //
         // GET: /Task/

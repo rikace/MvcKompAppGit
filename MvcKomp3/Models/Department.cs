@@ -24,6 +24,7 @@ namespace ContosoUniversity.Models
 
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Start date is required.")]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
         [Display(Name = "Administrator")]

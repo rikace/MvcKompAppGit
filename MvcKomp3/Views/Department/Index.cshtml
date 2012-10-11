@@ -9,6 +9,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<h2 style="color:red">@Html.Action("CurrentTime", new { name = Model.First().Name })</h2>
+
+<img src="@Url.Action("GetImage")" alt="@Url.Action("GetImage")" />
+
 <table>
     <tr>
         <th></th>

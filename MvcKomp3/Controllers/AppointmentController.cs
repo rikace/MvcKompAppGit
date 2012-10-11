@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcKomp3.Filters;
 using MvcKompApp.Models;
 
 namespace MvcKompApp.Controllers
@@ -80,6 +81,28 @@ namespace MvcKompApp.Controllers
 
             return Json(true, JsonRequestBehavior.AllowGet);
         
+        }
+
+        public ActionResult Index(string id)
+        {
+            return View("Index", (object)id);
+        }
+
+        [AjaxActionOnly] // [ChildActionOnly]
+        public PartialViewResult AppointmentData(string id)
+        {
+            IEnumerable<Appointment> data = new[] {
+            new Appointment { ClientName = "Joe", Date = DateTime.Parse("1/1/2012")},
+            new Appointment { ClientName = "Joe", Date = DateTime.Parse("2/1/2012")},
+            new Appointment { ClientName = "Joe", Date = DateTime.Parse("3/1/2012")},
+            new Appointment { ClientName = "Jane", Date = DateTime.Parse("1/20/2012")},
+            new Appointment { ClientName = "Jane", Date = DateTime.Parse("1/22/2012")},
+            new Appointment {ClientName = "Bob", Date = DateTime.Parse("2/25/2012")},
+            new Appointment {ClientName = "Bob", Date = DateTime.Parse("2/25/2013")} };
+
+            if (!string.IsNullOrEmpty(id) && id != "All")
+                data = data.Where(e => e.ClientName == id);
+            return PartialView("_AppointmentData", data);
         }
     }
 }

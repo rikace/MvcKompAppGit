@@ -147,6 +147,7 @@
     <Compile Include="DAL\StudentRepository.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="DAL\VisitorSiteInMemoryDB.cs" />
+    <Compile Include="Filters\AjaxActionOnly.cs" />
     <Compile Include="Filters\AjaxAuthorizeAttribute.cs" />
     <Compile Include="Filters\AjaxOnlyAttribute.cs" />
     <Compile Include="Filters\CustomAuthFilter.cs" />
@@ -490,6 +491,8 @@
     <Content Include="Views\PagingProduct\_ListControl.cshtml" />
     <Content Include="Views\PagingProduct\ViewByCategoryAjax.cshtml" />
     <Content Include="Views\PagingProduct\_ListControlByCategory.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Appointment\_AppointmentData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

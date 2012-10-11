@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Appointment>
+@{
+    Layout = null;
+}
+           
+@foreach (Appointment appt in Model) {
+    <tr>
+        <td>@Html.DisplayFor(m => appt.ClientName)</td>
+        <td>@Html.DisplayFor(m => appt.Date)</td>    
+    </tr>
+}

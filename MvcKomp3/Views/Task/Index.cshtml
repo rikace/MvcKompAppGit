@@ -9,6 +9,15 @@
     @Html.ActionLink("Create New", "Create")
     @Html.ActionLink("Search", "SearchTask")
 </p>
+@{
+    var urlAction = @Url.Action("GetTasksDDL");
+}
+
+@using (Html.BeginForm("Index", "Task", FormMethod.Get,
+            new { id = "taskForm", data_otherTask = urlAction }))
+{
+    @Html.DropDownList("tasklist", new SelectList(ViewBag.TaskList), "Select Task", new { id = "TaskIdddl", onchange = "changeTask()" })
+}
 <table>
     <tr>
         <th>Task
@@ -34,14 +43,14 @@
                 }
             </td>
             <td>
-                 @if (item.Completed)
-                 {
-                     <span>True</span>
-                 }
-                 else
-                 {
-                     <span>False</span>
-                 }
+                @if (item.Completed)
+                {
+                    <span>True</span>
+                }
+                else
+                {
+                    <span>False</span>
+                }
                 @*@Html.DisplayFor(modelItem => item.Completed)*@
             </td>
             <td>
@@ -56,3 +65,21 @@
     }
 
 </table>
+
+@section Scripts{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+}
+
+<script type="text/javascript">
+
+    function changeTask() {
+        var URL = $('#taskForm').data('otherTask');
+        $.getJSON("/Task/GetTasksDDL/" + $('#TaskIdddl').val(), function (data) {
+            // $.getJSON(URL + '/' + $('#TaskIdddl').val(), function (data) {
+            alert(data);
+        });
+    }
+
+
+
+</script>

@@ -10,7 +10,7 @@ using ContosoUniversity.DAL;
 using System.Data.Entity.Infrastructure;
 
 namespace ContosoUniversity.Controllers
-{ 
+{
     public class DepartmentController : Controller
     {
         private SchoolContext db = new SchoolContext();
@@ -20,17 +20,42 @@ namespace ContosoUniversity.Controllers
 
         public ViewResult Index()
         {
+            ViewBag.TaskList = db.Enrollments;
             var departments = db.Departments.Include(d => d.Administrator);
             return View(departments.ToList());
         }
 
         //
         // GET: /Department/Details/5
+        [ChildActionOnly]
+        public PartialViewResult CurrentTime(string name = "")
+        {
+            ViewBag.Name = name;
+
+            return PartialView("_DateTimePartial");
+        }
 
         public ViewResult Details(int id)
         {
             Department department = db.Departments.Find(id);
             return View(department);
+        }
+
+        public FileStreamResult DownloadFileStream()
+        {
+            return File(System.IO.File.OpenRead(Server.MapPath("~/Content/Site.css")), "text/html");
+        }
+
+        public FileContentResult DownloadFileContent()
+        {
+            var data = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/Site.css"));
+            return File(data, "text/html");
+        }
+
+        public FilePathResult GetImage()
+        {
+            var data = System.IO.File.ReadAllBytes(Server.MapPath("~/Image/orderedList9.png"));
+            return File(Server.MapPath("~/Image/orderedList9.png"), "multipart/form-data");
         }
 
         //
@@ -40,7 +65,7 @@ namespace ContosoUniversity.Controllers
         {
             ViewBag.PersonID = new SelectList(db.Instructors, "PersonID", "FullName");
             return View();
-        } 
+        }
 
         //
         // POST: /Department/Create
@@ -48,20 +73,20 @@ namespace ContosoUniversity.Controllers
         [HttpPost]
         public ActionResult Create(/*[Bind(Exclude="PersonID")] */Department department)
         {
-            if (ModelState. IsValid)
+            if (ModelState.IsValid)
             {
                 db.Departments.Add(department);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
             ViewBag.PersonID = new SelectList(db.Instructors, "PersonID", "FullName", department.PersonID);
             return View(department);
         }
-        
+
         //
         // GET: /Department/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             Department department = db.Departments.Find(id);
@@ -186,7 +211,7 @@ namespace ContosoUniversity.Controllers
                 }
             }
         }
-        
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
