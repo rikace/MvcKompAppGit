@@ -38,7 +38,7 @@ namespace DataAnnotations.Components
         public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
         {
             var rule = new ModelClientValidationRule();
-            rule.ErrorMessage = FormatErrorMessage(metadata.GetDisplayName());    
+            rule.ErrorMessage = FormatErrorMessage(metadata.GetDisplayName());
             rule.ValidationType = "greater"; // This is what the jQuery.Validation expects    
             rule.ValidationParameters.Add("other", OtherPropertyName); // This is the 2nd parameter    
             yield return rule;
@@ -57,5 +57,6 @@ namespace DataAnnotations.Components
             options.messages["greater"] = options.message;
         });        
         */
+
     }
 }

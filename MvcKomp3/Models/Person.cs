@@ -13,6 +13,8 @@ namespace ContosoUniversity.Models
         [Required(ErrorMessage = "Last name is required.")]
         [Display(Name = "Last Name")]
         [MaxLength(50)]
+       // [DataType(DataType.
+        [DisplayFormat(NullDisplayText="Not Name")]
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "First name is required.")]

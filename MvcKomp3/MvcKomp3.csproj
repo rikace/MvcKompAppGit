@@ -137,7 +137,7 @@
     <Compile Include="DAL\DataAccess\IRepository.cs" />
     <Compile Include="DAL\DataAccess\Repository.cs" />
     <Compile Include="DAL\DataAccess\UnitOfWork.cs" />
-    <Compile Include="DAL\GenericRepository.cs" />
+    <Compile Include="DAL\DataAccess\GenericRepository.cs" />
     <Compile Include="DAL\ImageContext.cs" />
     <Compile Include="DAL\InMemoryUserDB.cs" />
     <Compile Include="DAL\IStudentRepository.cs" />
@@ -315,6 +315,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Framework\Parallels Shared Folders.lnk" />
+    <Content Include="App_Code\Content.cshtml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />

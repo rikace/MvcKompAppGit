@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MvcKompApp.DAL.DataAccess
 {
-    public class UnitOfWork
+    public class UnitOfWork:IDisposable
     {
         public UnitOfWork(DataContext context)
         {
@@ -36,6 +36,26 @@ namespace MvcKompApp.DAL.DataAccess
         private static bool IsState(DbEntityEntry entity, EntityState state)
         {
             return (entity.State & state) == state;
+        }
+
+         private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    Context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

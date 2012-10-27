@@ -18,8 +18,6 @@ namespace MvcKompApp.DAL.DataAccess
 
         protected DataContext Context { get; private set; }
 
-        #region IRepository<TAggregateRoot> Members
-
         public virtual void Save(TAggregateRoot instance)
         {
             if (instance.Id == Guid.Empty)
@@ -77,8 +75,7 @@ namespace MvcKompApp.DAL.DataAccess
                        : set.Count(predicate);
         }
 
-        #endregion
-
+      
         private IDbSet<TAggregateRoot> CreateIncludedSet(
             IEnumerable<Expression<Func<TAggregateRoot, object>>> includes)
         {

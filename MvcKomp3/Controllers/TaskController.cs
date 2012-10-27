@@ -114,11 +114,15 @@ namespace MvcKompApp.Controllers
         // POST: /Task/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(TaskItem taskitem)
+        [ActionName("Edit")]
+        public ActionResult EditPost(int Id)// TaskItem taskitem)
         {
+            var taskitem = db.Tasks.First(t => t.Id == Id);
             if (ModelState.IsValid)
             {
-                db.Entry(taskitem).State = EntityState.Modified;
+
+                bool isVupdated = TryUpdateModel(taskitem);
+                //db.Entry(taskitem).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
