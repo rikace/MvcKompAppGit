@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AjaxPagerController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RemoteValidationController.cs" />
+    <Compile Include="Controllers\RssController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\SummitController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
@@ -135,7 +137,9 @@
     <Compile Include="DAL\DataAccess\IAggregateRoot.cs" />
     <Compile Include="DAL\DataAccess\IEntity.cs" />
     <Compile Include="DAL\DataAccess\IRepository.cs" />
+    <Compile Include="DAL\DataAccess\OperationStatus.cs" />
     <Compile Include="DAL\DataAccess\Repository.cs" />
+    <Compile Include="DAL\DataAccess\RepositoryBase.cs" />
     <Compile Include="DAL\DataAccess\UnitOfWork.cs" />
     <Compile Include="DAL\DataAccess\GenericRepository.cs" />
     <Compile Include="DAL\ImageContext.cs" />
@@ -190,14 +194,16 @@
     <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Infrastructure\MinLenghtAttribute.cs" />
     <Compile Include="Infrastructure\MyHelper.cs" />
-    <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
-    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="DI\NinjectControllerFactory.cs" />
+    <Compile Include="DI\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\PagingHelpers.cs" />
     <Compile Include="Infrastructure\PrincipalModelBinder.cs" />
+    <Compile Include="Infrastructure\RssActionResult.cs" />
     <Compile Include="Infrastructure\XmlResult.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CompanyInput.cs" />
     <Compile Include="Models\ContactUsInput.cs" />
     <Compile Include="Models\CountryAndState.cs" />
     <Compile Include="Models\Course.cs" />
@@ -229,6 +235,7 @@
       <DependentUpon>DataService.svc</DependentUpon>
     </Compile>
     <Compile Include="Validation\ClientEvenNumberAttribute.cs" />
+    <Compile Include="Validation\DateComesLaterClientAttribute.cs" />
     <Compile Include="Validation\EmailAddressAttribute.cs" />
     <Compile Include="Validation\EvenNumberAttribute.cs" />
     <Compile Include="Validation\EvenNumberValidatorMvc2.cs" />
@@ -331,6 +338,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="Scripts\ajax-util.js" />
     <Content Include="Scripts\GreatherThenCustomValidation.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -341,6 +349,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\later.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Services\DataService.svc" />
@@ -494,6 +503,11 @@
     <Content Include="Views\PagingProduct\_ListControlByCategory.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
     <Content Include="Views\Appointment\_AppointmentData.cshtml" />
+    <Content Include="Views\Rss\RSS.cshtml" />
+    <Content Include="Views\AjaxPaging\Index.cshtml" />
+    <Content Include="Views\AjaxPaging\_ListControl.cshtml" />
+    <Content Include="Views\AjaxPaging\ListControlByCategory.cshtml" />
+    <Content Include="Views\AjaxPaging\ProductsByCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

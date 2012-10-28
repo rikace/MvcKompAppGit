@@ -96,6 +96,7 @@ namespace MvcKompApp
         {
             IKernel kernel = new StandardKernel();
             //kernel.Bind
+            // Bind<IMessageProvider>().To<SimpleMessageProvider>();
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
 
