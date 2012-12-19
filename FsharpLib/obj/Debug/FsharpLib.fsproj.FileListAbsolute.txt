@@ -34,3 +34,9 @@ C:\Temp\MvcKompApp\FsharpLib\obj\Debug\FsharpLib.pdb
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\FsharpLib\obj\Debug\FsharpLib.fsprojResolveAssemblyReference.cache
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\FsharpLib\obj\Debug\FsharpLib.dll
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\FsharpLib\obj\Debug\FsharpLib.pdb
+C:\Git\MvcKompAppGit\FsharpLib\bin\Debug\FsharpLib.XML
+C:\Git\MvcKompAppGit\FsharpLib\bin\Debug\FsharpLib.dll
+C:\Git\MvcKompAppGit\FsharpLib\bin\Debug\FsharpLib.pdb
+C:\Git\MvcKompAppGit\FsharpLib\obj\Debug\FsharpLib.fsprojResolveAssemblyReference.cache
+C:\Git\MvcKompAppGit\FsharpLib\obj\Debug\FsharpLib.dll
+C:\Git\MvcKompAppGit\FsharpLib\obj\Debug\FsharpLib.pdb
