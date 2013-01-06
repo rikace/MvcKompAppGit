@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcPaging", "MvcPaging\MvcP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log", "Log\Log.csproj", "{09C53720-C84B-4462-A2C1-604E9DD0FCBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JQueryPro", "JQueryPro\JQueryPro.csproj", "{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +133,16 @@ Global
 		{09C53720-C84B-4462-A2C1-604E9DD0FCBD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{09C53720-C84B-4462-A2C1-604E9DD0FCBD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{09C53720-C84B-4462-A2C1-604E9DD0FCBD}.Release|x86.ActiveCfg = Release|Any CPU
+		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

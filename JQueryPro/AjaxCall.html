@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example</title>
+    <script src="Scripts/jquery-1.7.1.js"></script>
+    <script src="Scripts/jquery-1.7.1.intellisense.js"></script>
+    <script src="Scripts/jquery.tmpl.js"></script>
+    <script src="Scripts/jquery.validate.js"></script>
+    <script src="Scripts/jquery-ui-1.8.20.js"></script>
+    <script src="Scripts/jquery-ui-1.8.16.custom.js"></script>
+    
+    <link href="Content/styles.css" rel="stylesheet" />
+    <link href="Content/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('<button>Ajax</button>').appendTo('#buttonDiv').click(function (e) {
+                $.get("flowers.html",
+                    function (data) {
+                        var elems = $(data).filter("div").addClass("dcell");
+                        elems.slice(0, 3).appendTo('#row1');
+                        elems.slice(3).appendTo("#row2");
+                    });
+                e.preventDefault();
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var requestData = {
+                country: "US",
+                state: "New York"
+            }
+
+            $.get("flowers.html", requestData,
+                function (responseData) {
+                    var elems = $(responseData).filter('div').addClass("dcell");
+                    elems.slice(0, 3).appendTo('#row1');
+                    elems.slice(3).appendTo("#row2");
+                });
+
+            $.get("flowers.html",
+               function (responseData) {
+                   console.log(JSON.stringify(responseData));
+               }, "json");
+
+            $.ajax("mydata.json", {
+                success: function (data, status, jqxhr) {
+                    var template = $('#flowerTmpl');
+                    template.tmpl(data.slice(0, 3)).appendTo("#row1");
+                    template.tmpl(data.slice(3)).appendTo("#row2");
+                },
+                error: function (jqxhr, status, errorMsg) {
+                    $('<div class=error/>')
+                        .text("Status: " + status + " Error: " + errorMsg)
+                        .insertAfter('h1');
+                },
+                statusCode: {
+                    200: handleSuccessfulRequest,
+                    404: handleFailedRequest,
+                    302: handleRedirect
+                },
+                complete: function (jXHR, status) {
+                    console.log("Completed: " + status);
+                }
+            });
+
+            function handleSuccessfulRequest(data, status, jqxhr) {
+                $('#row1, #row2').children().remove();
+                var template = $('#flowerTmpl');
+                template.tmpl(data.slice(0, 3)).appendTo("#row1");
+                template.tmpl(data.slice(3)).appendTo("#row2");
+            }
+
+            function handleRedirect() {
+                // this function will neber be called
+            }
+
+            function handleFailedRequest(jqxhr, status, errorMsg) {
+                $('<div class=error>Code: ' + jqxhr.status + ' Message: '
+                    + errorMsg + '</div>').insertAfter('h1');
+            }
+
+            $.ajax({
+                success: function (data, status, jqxhr) {
+                    handleResponse(status, data, null, jqxhr);
+                },
+                error: function (jqxhr, status, errorMsg) {
+                    handleResponse(status, null, errorMsg, jqxhr);
+                },
+                beforeSend: function (jqxhr, settings) {
+                    settings.url = "mydata.json";
+                }
+            });
+
+            function handleResponse(status, data, errorMsg, jqxhr) {
+                if (status == "success") {
+                    var template = $('#flowerTmpl');
+                    template.tmpl(data.slice(0, 3)).appendTo("#row1");
+                    template.tmpl(data.slice(3)).appendTo("#row2");
+                } else {
+                    $('<div class=error/>')
+                        .text("Status: " + status + " Error: " + errorMsg)
+                        .insertAfter('h1');
+                }
+            }
+
+        });
+    </script>
+
+    <script id="flowerTmpl" type="text/x-jquery-tmpl">
+        <div class="dcell">
+            <img src="Content/Images/${product}.png" />
+            <label for="${product}">${name}:</label>
+            <input name="${product}" data-price="${price}" data-stock="${stocklevel}"
+                value="0" required />
+        </div>
+    </script>
+</head>
+<body>
+    <h1>Jacqui's Flower Shop</h1>
+    <form method="post" action="http://node.jacquisflowershop.com/order">
+        <div id="oblock">
+            <div class="dtable">
+                <div id="row1" class="drow">
+                </div>
+                <div id="row2" class="drow">
+                </div>
+            </div>
+        </div>
+        <div id="buttonDiv">
+            <button type="submit">Place Order</button>
+        </div>
+    </form>
+</body>
+</html>
