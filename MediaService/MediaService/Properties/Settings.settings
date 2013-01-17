@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MediaService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Folder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\MiniServerR2\F\Media\Immagini\Bugghina</Value>
+    </Setting>
+    <Setting Name="ApiKey" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;bda11d91-7ade-4da1-855d-24adfe39d174&lt;/string&gt;
+  &lt;string&gt;460ad6f3-8216-469f-9b1c-52cffa5d812c&lt;/string&gt;
+  &lt;string&gt;3ace31a2-1482-4062-91fc-a3d7df4059aa&lt;/string&gt;
+  &lt;string&gt;79a2f60d-54e1-4fcd-b087-0916f1c524fc&lt;/string&gt;
+  &lt;string&gt;293340c9-650e-4dd7-9e6e-8bda5cf4a23b&lt;/string&gt;
+  &lt;string&gt;1e1db4ce-373b-4dac-9756-7b3d864fe9c9&lt;/string&gt;
+  &lt;string&gt;26e94273-d9c5-43f0-a6ca-036048251040&lt;/string&gt;
+  &lt;string&gt;2194fc4e-efc5-4c87-b571-bbd02dd54e6c&lt;/string&gt;
+  &lt;string&gt;c87f678a-eb28-4880-93bb-63214212c354&lt;/string&gt;
+  &lt;string&gt;918704ec-4811-45b6-a169-16bae3df69a8&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

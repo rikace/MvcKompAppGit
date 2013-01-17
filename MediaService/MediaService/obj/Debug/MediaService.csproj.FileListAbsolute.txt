@@ -1,0 +1,25 @@
+c:\users\rterrell\documents\visual studio 2010\Projects\MediaService\MediaService\bin\MediaService.dll
+c:\users\rterrell\documents\visual studio 2010\Projects\MediaService\MediaService\bin\MediaService.pdb
+c:\users\rterrell\documents\visual studio 2010\Projects\MediaService\MediaService\bin\EntityFramework.dll
+c:\users\rterrell\documents\visual studio 2010\Projects\MediaService\MediaService\bin\EntityFramework.xml
+c:\users\rterrell\documents\visual studio 2010\Projects\MediaService\MediaService\obj\Debug\MediaService.csprojResolveAssemblyReference.cache
+c:\users\rterrell\documents\visual studio 2010\Projects\MediaService\MediaService\obj\Debug\MediaService.dll
+c:\users\rterrell\documents\visual studio 2010\Projects\MediaService\MediaService\obj\Debug\MediaService.pdb
+c:\users\rterrell\documents\visual studio 2010\Projects\MediaService\MediaService\bin\App_Data\image1
+c:\users\rterrell\documents\visual studio 2010\Projects\MediaService\MediaService\bin\App_Data\image2
+c:\users\rterrell\documents\visual studio 2010\Projects\MediaService\MediaService\bin\App_Data\image3
+Y:\Desktop\Temp\MediaService\MediaService\bin\MediaService.dll
+Y:\Desktop\Temp\MediaService\MediaService\bin\MediaService.pdb
+Y:\Desktop\Temp\MediaService\MediaService\bin\EntityFramework.dll
+Y:\Desktop\Temp\MediaService\MediaService\bin\EntityFramework.xml
+Y:\Desktop\Temp\MediaService\MediaService\obj\Debug\MediaService.csprojResolveAssemblyReference.cache
+Y:\Desktop\Temp\MediaService\MediaService\obj\Debug\MediaService.dll
+Y:\Desktop\Temp\MediaService\MediaService\obj\Debug\MediaService.pdb
+C:\Git\MvcKompAppGit\MediaService\MediaService\bin\App_Data\APIKeys.xml
+C:\Git\MvcKompAppGit\MediaService\MediaService\bin\MediaService.dll
+C:\Git\MvcKompAppGit\MediaService\MediaService\bin\MediaService.pdb
+C:\Git\MvcKompAppGit\MediaService\MediaService\bin\EntityFramework.dll
+C:\Git\MvcKompAppGit\MediaService\MediaService\bin\EntityFramework.xml
+C:\Git\MvcKompAppGit\MediaService\MediaService\obj\Debug\MediaService.csprojResolveAssemblyReference.cache
+C:\Git\MvcKompAppGit\MediaService\MediaService\obj\Debug\MediaService.dll
+C:\Git\MvcKompAppGit\MediaService\MediaService\obj\Debug\MediaService.pdb
