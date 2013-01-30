@@ -34,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDemo.Tests", "WebApiD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaService", "MediaService\MediaService\MediaService.csproj", "{6DC12211-346F-4333-8B54-71505E93B527}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oDataService", "oDataService\oDataService.csproj", "{2D75DED1-98CE-4D74-B729-947B65D5C868}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -174,6 +176,16 @@ Global
 		{6DC12211-346F-4333-8B54-71505E93B527}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{6DC12211-346F-4333-8B54-71505E93B527}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{6DC12211-346F-4333-8B54-71505E93B527}.Release|x86.ActiveCfg = Release|Any CPU
+		{2D75DED1-98CE-4D74-B729-947B65D5C868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D75DED1-98CE-4D74-B729-947B65D5C868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D75DED1-98CE-4D74-B729-947B65D5C868}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2D75DED1-98CE-4D74-B729-947B65D5C868}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2D75DED1-98CE-4D74-B729-947B65D5C868}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D75DED1-98CE-4D74-B729-947B65D5C868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D75DED1-98CE-4D74-B729-947B65D5C868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D75DED1-98CE-4D74-B729-947B65D5C868}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2D75DED1-98CE-4D74-B729-947B65D5C868}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2D75DED1-98CE-4D74-B729-947B65D5C868}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

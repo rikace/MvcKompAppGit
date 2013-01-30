@@ -2,8 +2,7 @@
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.Mvc.Ajax;
-using System.Web.Mvc.Resources;
+using System.Web.Mvc.Ajax; 
 
 namespace MvcAjaxPaging
 {
@@ -103,8 +102,10 @@ namespace MvcAjaxPaging
             {
                 sb.Append("<span class=\"disabled\">&gt;</span>");
             }
-            var tag = new TagBuilder("Pager");
-            tag.InnerHtml = sb.ToString();
+            //var tag = new TagBuilder("Pager");
+            //tag.InnerHtml = sb.ToString();
+
+            var tag = String.Format("<Pager>{0}</Pager>", sb.ToString());
 
             return MvcHtmlString.Create(tag.ToString());
         }

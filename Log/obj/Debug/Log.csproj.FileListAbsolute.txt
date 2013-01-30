@@ -2,3 +2,8 @@
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\Log\bin\Debug\Log.pdb
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\Log\obj\Debug\Log.dll
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\Log\obj\Debug\Log.pdb
+C:\Git\MvcKompAppGit\Log\bin\Debug\Log.dll
+C:\Git\MvcKompAppGit\Log\bin\Debug\Log.pdb
+C:\Git\MvcKompAppGit\Log\obj\Debug\Log.csprojResolveAssemblyReference.cache
+C:\Git\MvcKompAppGit\Log\obj\Debug\Log.dll
+C:\Git\MvcKompAppGit\Log\obj\Debug\Log.pdb

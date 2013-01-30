@@ -7,6 +7,7 @@ using System.Text;
 using System.IO;
 using System.ServiceModel.Web;
 using System.ServiceModel.Activation;
+using System.Web;
 
 namespace MediaService.Service
 {
@@ -15,25 +16,35 @@ namespace MediaService.Service
     {
         [OperationContract]
         [WebGet(UriTemplate = "GetImages")]
-        string[] GetImages();
+        ImageObj[] GetImages();
 
         [OperationContract]
         [WebGet(UriTemplate = "GetImage/{fileName}")]
         Stream GetImage(string fileName);
     }
 
-    //Service/MediaService.svc/GetImage/DSCN0812?apikey=bda11d91-7ade-4da1-855d-24adfe39d174
-    //http://localhost:8089/Service/MediaService.svc/GetImage/DSCN0813?apikey=bda11d91-7ade-4da1-855d-24adfe39d174
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class MediaService : IMediaService
     {
-        public string[] GetImages()
+        public ImageObj[] GetImages()
         {
             string dir = Properties.Settings.Default.Folder;
+            //return Directory.GetFiles(dir, "*.*", SearchOption.TopDirectoryOnly)
+            //    .Where(f => IsImage(Path.GetExtension(f).ToLower())).Select(f => Path.GetFileNameWithoutExtension(f))
+            //    .Select(s => new ImageObj{ Name = s, Link = new Uri(string.Format(@"{0}/GetImage/{1}?apikey={2}", OperationContext.Current.Channel.LocalAddress, s, HttpContext.Current.Request.QueryString["apikey"]))})
+            //    .ToArray();
+
             return Directory.GetFiles(dir, "*.*", SearchOption.TopDirectoryOnly)
-                .Where(f => IsImage(Path.GetExtension(f).ToLower())).Select(f => Path.GetFileNameWithoutExtension(f))
-                .ToArray();
+               .Where(f => IsImage(Path.GetExtension(f).ToLower()))
+               .Select(f => Path.GetFileNameWithoutExtension(f))
+               .Select(s => new ImageObj
+               {
+                   Name = s,
+                   Link = new Uri(string.Format(@"{0}/GetImage/{1}?apikey={2}",
+                              "http://www.riscanet.com/Service/MediaService.svc", s, HttpContext.Current.Request.QueryString["apikey"]))
+               })
+               .ToArray();
         }
 
         public Stream GetImage(string fileName)
@@ -83,4 +94,14 @@ namespace MediaService.Service
 
         }
     }
+
+    [DataContract]
+    public class ImageObj
+    {
+        [DataMember]
+        public string Name { get; set; }
+        [DataMember]
+        public Uri Link { get; set; }
+    }
+
 }

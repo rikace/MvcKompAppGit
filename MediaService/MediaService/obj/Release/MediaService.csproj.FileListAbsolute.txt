@@ -6,3 +6,11 @@ Y:\Desktop\Temp\MediaService\MediaService\obj\Release\MediaService.dll
 Y:\Desktop\Temp\MediaService\MediaService\obj\Release\MediaService.pdb
 Y:\Desktop\Temp\MediaService\MediaService\bin\App_Data\APIKeys.xml
 Y:\Desktop\Temp\MediaService\MediaService\obj\Release\MediaService.csprojResolveAssemblyReference.cache
+C:\Git\MvcKompAppGit\MediaService\MediaService\bin\App_Data\APIKeys.xml
+C:\Git\MvcKompAppGit\MediaService\MediaService\bin\MediaService.dll
+C:\Git\MvcKompAppGit\MediaService\MediaService\bin\MediaService.pdb
+C:\Git\MvcKompAppGit\MediaService\MediaService\bin\EntityFramework.dll
+C:\Git\MvcKompAppGit\MediaService\MediaService\bin\EntityFramework.xml
+C:\Git\MvcKompAppGit\MediaService\MediaService\obj\Release\MediaService.dll
+C:\Git\MvcKompAppGit\MediaService\MediaService\obj\Release\MediaService.pdb
+C:\Git\MvcKompAppGit\MediaService\MediaService\obj\Release\MediaService.csprojResolveAssemblyReference.cache

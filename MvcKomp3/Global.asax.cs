@@ -59,6 +59,12 @@ namespace MvcKompApp
         {
 #if DEBUG
             Database.SetInitializer<TaskDBContext>(new TaskDbContextInitializer());
+            using (var init = new TaskDBContext())
+            {
+                init.Database.Initialize(force: false);
+            }
+
+
             Database.SetInitializer<SchoolContext>(new SchoolInitializer());
           //  Database.SetInitializer<ImageContext>(new ImageInitializer());
             Database.SetInitializer<MovieContext>(new MovieInitializer());

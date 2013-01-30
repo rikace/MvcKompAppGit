@@ -11,28 +11,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/APIKeys.xml">
-      <publishTime>01/17/2013 14:40:09</publishTime>
+      <publishTime>01/17/2013 16:27:53</publishTime>
     </File>
     <File Include="bin/App_Data/APIKeys.xml">
-      <publishTime>01/17/2013 14:40:09</publishTime>
+      <publishTime>01/17/2013 16:27:53</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>01/16/2013 12:04:12</publishTime>
+      <publishTime>01/17/2013 16:27:53</publishTime>
     </File>
     <File Include="bin/MediaService.dll">
-      <publishTime>01/17/2013 15:27:17</publishTime>
+      <publishTime>01/19/2013 17:48:00</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>01/16/2013 12:04:14</publishTime>
+      <publishTime>01/17/2013 16:27:53</publishTime>
     </File>
     <File Include="Properties/Settings.settings">
-      <publishTime>01/17/2013 15:26:15</publishTime>
+      <publishTime>01/17/2013 16:27:53</publishTime>
     </File>
     <File Include="Service/MediaService.svc">
-      <publishTime>01/16/2013 15:07:12</publishTime>
+      <publishTime>01/17/2013 16:27:53</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/17/2013 15:29:17</publishTime>
+      <publishTime>01/19/2013 17:48:01</publishTime>
     </File>
   </ItemGroup>
 </Project>

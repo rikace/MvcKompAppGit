@@ -57,13 +57,28 @@ The active IDbConnectionFactory can be retrieved or set via the static property,
         }
     }
 
-    public class TaskDbContextInitializer : DropCreateDatabaseIfModelChanges<TaskDBContext>
+    public class TaskDbContextInitializer : DropCreateDatabaseAlways<TaskDBContext>// DropCreateDatabaseIfModelChanges<TaskDBContext>
     {
         protected override void Seed(TaskDBContext context)
         {
             var bugghinaTask = new TaskItem { Completed = false, EntryDate = DateTime.Now, Description = "Love my pet", Task = "Bugghina" };
             context.Tasks.Add(bugghinaTask);
             base.Seed(context);
+            InitDb(context);
+        }
+
+        private void InitDb(TaskDBContext context)
+        {
+            context.Database.Initialize(force: false);
         }
     }
+
+    public class DatabaseInitHelper<TContext> where TContext : DbContext
+    {
+        public DatabaseInitHelper(TContext ctx)
+        {
+            
+        }
+    }
+
 }

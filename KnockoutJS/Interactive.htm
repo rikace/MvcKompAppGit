@@ -42,8 +42,6 @@
     <script src="Scripts/Underscore.js"></script>
 
     <script type='text/javascript'>
-
-        _.
         function PersonViewModel() {
             var self = this;
             this.firstName = ko.observable("John");
@@ -58,8 +56,6 @@
                 { name: 'Buns', price: 2.99 }
             ]);
             this.favoriteProducts = ko.observableArray([brats]);
-
-
 
             this.saveUserData = function (model, event) {
                 alert(model.firstName() + " is trying to checkout!");
