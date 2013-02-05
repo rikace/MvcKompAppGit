@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -32,11 +33,11 @@ namespace MvcKomp3.App_Code
         {
             HttpApplication application = (HttpApplication)source;
             HttpContext context = application.Context;
-            Page page = context.Handler as Page;
-            if (page != null)
-            {
-                page.StyleSheetTheme = "mkt";
-            }
+            //Page page = context.Handler as Page;
+            //if (page != null)
+            //{
+            //    page.StyleSheetTheme = "mkt";
+            //}
         }
 
         private IAsyncResult Sample_BeginAuthenticateRequest(Object source, EventArgs e,
@@ -52,7 +53,7 @@ namespace MvcKomp3.App_Code
                 path.EndsWith("/", StringComparison.Ordinal)))
             {
 
-                RequestInfo info;
+               // RequestInfo info;
                 HttpCookie machCookie = context.Request.Cookies[MachCookie];
                 if ((machCookie == null) || !machCookie.HasKeys ||
                     (machCookie.Values[MachId] == null))
@@ -62,7 +63,7 @@ namespace MvcKomp3.App_Code
                     // object, and store it in the per-request Items cache.  The cookie will be
                     // created later.
                     //
-                    info = new RequestInfo(Guid.NewGuid(), true, false);
+                 //   info = new RequestInfo(Guid.NewGuid(), true, false);
                 }
                 else
                 {
@@ -78,7 +79,7 @@ namespace MvcKomp3.App_Code
                         bool firstResp = false;
                         if (machCookie.Values[MachFirst] != null)
                             firstResp = true;
-                        info = new RequestInfo(machGuid, false, firstResp);
+                     //   info = new RequestInfo(machGuid, false, firstResp);
                     }
                     catch (FormatException)
                     {
@@ -144,7 +145,7 @@ namespace MvcKomp3.App_Code
             HttpApplication application = (HttpApplication)source;
             HttpContext context = application.Context;
             HttpResponse response = context.Response;
-            RequestInfo info = (RequestInfo)context.Items[RequestInfo.REQ_INFO];
+          //  RequestInfo info = (RequestInfo)context.Items[RequestInfo.REQ_INFO];
 
             //
             // info is only set for dynamic pages: aspx, asmx, etc.
@@ -159,18 +160,18 @@ namespace MvcKomp3.App_Code
                 // machine ID cookie, and the MachFirst flag was set, then set
                 // a "forever" expiration date, and re-set the cookie without the flag.
                 //
-                if (info.FirstResponse || info.First)
-                {
-                    HttpCookie machCookie = new HttpCookie(MachCookie);
-                    machCookie.Path = CookiePath;
-                    machCookie.HttpOnly = true;
-                    machCookie.Values[MachId] = info.MachineId.ToString();
-                    if (info.FirstResponse)
-                        machCookie.Expires = DateTime.Now.AddYears(50);
-                    else
-                        machCookie.Values[MachFirst] = "1";
-                    response.AppendCookie(machCookie);
-                }
+                //if (info.FirstResponse || info.First)
+                //{
+                //    HttpCookie machCookie = new HttpCookie(MachCookie);
+                //    machCookie.Path = CookiePath;
+                //    machCookie.HttpOnly = true;
+                //    machCookie.Values[MachId] = info.MachineId.ToString();
+                //    if (info.FirstResponse)
+                //        machCookie.Expires = DateTime.Now.AddYears(50);
+                //    else
+                //        machCookie.Values[MachFirst] = "1";
+                //    response.AppendCookie(machCookie);
+                //}
             }
             if (!String.IsNullOrEmpty(context.Request.ServerVariables["SERVER_SOFTWARE"]))
             {
