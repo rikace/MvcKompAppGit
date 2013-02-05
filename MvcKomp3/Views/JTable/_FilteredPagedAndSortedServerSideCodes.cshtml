@@ -1,0 +1,184 @@
+﻿<div class="tabsContainer">
+    <ul>
+        <li><a href="#tabs-mvc">ASP.NET MVC</a></li>
+        <li><a href="#tabs-webforms">ASP.NET Web Forms</a></li>
+    </ul>
+    <div id="tabs-mvc">
+        <pre class="brush:csharp;">public class DemoController : Controller
+{
+    //...
+
+    [HttpPost]
+    public JsonResult StudentListByFiter(string name = &quot;&quot;, int cityId = 0, int jtStartIndex = 0, int jtPageSize = 0, string jtSorting = null)
+    {
+        try
+        {
+            //Get data from database
+            var studentCount = _repository.StudentRepository.GetStudentCountByFilter(name, cityId);
+            var students = _repository.StudentRepository.GetStudentsByFilter(name, cityId, jtStartIndex, jtPageSize, jtSorting);
+
+            //Return result to jTable
+            return Json(new { Result = &quot;OK&quot;, Records = students, TotalRecordCount = studentCount });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult CreateStudent(Student student)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            Student addedStudent = _repository.StudentRepository.AddStudent(student);
+            return Json(new { Result = "OK", Record = addedStudent });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult UpdateStudent(Student student)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            _repository.StudentRepository.UpdateStudent(student);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult DeleteStudent(int studentId)
+    {
+        try
+        {
+            _repository.StudentRepository.DeleteStudent(studentId);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult GetCityOptions()
+    {
+        try
+        {
+            var cities = _repository.CityRepository.GetAllCities().Select(c => new { DisplayText = c.CityName, Value = c.CityId });
+            return Json(new { Result = "OK", Options = cities });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+}</pre>
+<p class="code-extra">
+See "<a href="http://www.codeproject.com/KB/ajax/jTable.aspx" target="_blank">Using jTable with ASP.NET MVC</a>" tutorial for detailed usage.<br/>
+Download all samples from <a href="http://jtable.org/Home/Downloads" target="_blank">download page</a>.
+</p>
+    </div>
+<div id="tabs-webforms">
+<pre class="brush:csharp">public partial class PagingAndSorting : System.Web.UI.Page
+{
+    //...
+
+    [WebMethod(EnableSession = true)]
+    public static object StudentListByFilter(string name, int cityId, int jtStartIndex, int jtPageSize, string jtSorting)
+    {
+        try
+        {
+            //Get data from database
+            int studentCount = _repository.StudentRepository.GetStudentCountByFilter(name, cityId);
+            List&lt;Student&gt; students = _repository.StudentRepository.GetStudentsByFilter(name, cityId, jtStartIndex, jtPageSize, jtSorting);
+
+            //Return result to jTable
+            return new { Result = &quot;OK&quot;, Records = students, TotalRecordCount = studentCount };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object CreateStudent(Student record)
+    {
+        try
+        {
+            var addedStudent = _repository.StudentRepository.AddStudent(record);
+            return new { Result = &quot;OK&quot;, Record = addedStudent };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object UpdateStudent(Student record)
+    {
+        try
+        {
+            _repository.StudentRepository.UpdateStudent(record);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object DeleteStudent(int StudentId)
+    {
+        try
+        {
+            _repository.StudentRepository.DeleteStudent(StudentId);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object GetCityOptions()
+    {
+        try
+        {
+            var cities = _repository.CityRepository.GetAllCities().Select(c =&gt; new { DisplayText = c.CityName, Value = c.CityId });
+            return new { Result = &quot;OK&quot;, Options = cities };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+}</pre>
+<p class="code-extra">
+See "<a href="http://jtable.org/Tutorials/UsingWithAspNetWebFormsPageMethods" target="_blank">Using jTable with ASP.NET Web Forms</a>" tutorial for detailed usage.<br/>
+Download all samples from <a href="http://jtable.org/Home/Downloads" target="_blank">download page</a>.
+</p>
+</div>
+</div>

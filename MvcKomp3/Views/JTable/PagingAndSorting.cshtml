@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Paging & Sorting Demo";
+}
+<link href="@Url.Content("~/Content/highlight.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Scripts/jtable/themes/metro/blue/jtable.css")" rel="stylesheet" type="text/css" />
+
+
+<div id="StudentTableContainer">
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#StudentTableContainer').jtable({
+            title: 'Student List',
+            paging: true,
+            pageSize: 10,
+            sorting: true,
+            defaultSorting: 'Name ASC',
+            actions: {
+                listAction: '@Url.Action("StudentList")',
+                deleteAction: '@Url.Action("DeleteStudent")',
+                updateAction: '@Url.Action("UpdateStudent")',
+                createAction: '@Url.Action("CreateStudent")'
+            },
+            fields: {
+                StudentId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Name: {
+                    title: 'Name',
+                    width: '23%'
+                },
+                EmailAddress: {
+                    title: 'Email address',
+                    list: false
+                },
+                Password: {
+                    title: 'User Password',
+                    type: 'password',
+                    list: false
+                },
+                Gender: {
+                    title: 'Gender',
+                    width: '13%',
+                    options: { 'M': 'Male', 'F': 'Female' }
+                },
+                CityId: {
+                    title: 'City',
+                    width: '12%',
+                    options: '@Url.Action("GetCityOptions")'
+                },
+                BirthDate: {
+                    title: 'Birth date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'yy-mm-dd'
+                },
+                Education: {
+                    title: 'Education',
+                    list: false,
+                    type: 'radiobutton',
+                    options: { '1': 'Primary school', '2': 'High school', '3': 'University' }
+                },
+                About: {
+                    title: 'About this person',
+                    type: 'textarea',
+                    list: false
+                },
+                IsActive: {
+                    title: 'Status',
+                    width: '12%',
+                    type: 'checkbox',
+                    values: { 'false': 'Passive', 'true': 'Active' },
+                    defaultValue: 'true'
+                },
+                RecordDate: {
+                    title: 'Record date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'dd.mm.yy',
+                    create: false,
+                    edit: false,
+                    sorting: false //This column is not sortable!
+                }
+            }
+        });
+
+        //Load student list from server
+        $('#StudentTableContainer').jtable('load');
+    });
+
+</script>
+@section Scripts
+{
+
+    <script src="@Url.Content("~/Scripts/syntaxhighligher/shCore.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/syntaxhighligher/shBrushJScript.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/syntaxhighligher/shBrushXml.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/syntaxhighligher/shBrushCSharp.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/syntaxhighligher/shBrushSql.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/jtablesite.js")" type="text/javascript"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jtable/jquery.jtable.js")"></script>
+}

@@ -1,0 +1,465 @@
+﻿<div class="tabsContainer">
+    <ul>
+        <li><a href="#tabs-mvc">ASP.NET MVC</a></li>
+        <li><a href="#tabs-webforms">ASP.NET Web Forms</a></li>
+    </ul>
+    <div id="tabs-mvc">
+        <pre class="brush:csharp;">public class DemoController : Controller
+{
+    //...
+    
+    #region Student actions
+
+    [HttpPost]
+    public JsonResult StudentList(int jtStartIndex = 0, int jtPageSize = 0, string jtSorting = null)
+    {
+        try
+        {
+            //Get data from database
+            var studentCount = _repository.StudentRepository.GetStudentCount();
+            var students = _repository.StudentRepository.GetStudents(jtStartIndex, jtPageSize, jtSorting);
+
+            //Return results to jTable
+            return Json(new { Result = "OK", Records = students, TotalRecordCount = studentCount });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult CreateStudent(Student student)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            var addedStudent = _repository.StudentRepository.AddStudent(student);
+            return Json(new { Result = "OK", Record = addedStudent });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult UpdateStudent(Student student)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            _repository.StudentRepository.UpdateStudent(student);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult DeleteStudent(int studentId)
+    {
+        try
+        {
+            Thread.Sleep(50);
+            _repository.StudentRepository.DeleteStudent(studentId);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    #endregion
+
+    #region City actions
+
+    [HttpPost]
+    public JsonResult GetCityOptions()
+    {
+        try
+        {
+            var cities = _repository.CityRepository.GetAllCities().Select(c => new { DisplayText = c.CityName, Value = c.CityId });
+            return Json(new { Result = "OK", Options = cities });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    #endregion
+
+    #region Phone actions
+
+    [HttpPost]
+    public JsonResult PhoneList(int studentId)
+    {
+        try
+        {
+            Thread.Sleep(200);
+            var phones = _repository.PhoneRepository.GetPhonesOfStudent(studentId);
+            return Json(new { Result = "OK", Records = phones });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult DeletePhone(int phoneId)
+    {
+        try
+        {
+            Thread.Sleep(50);
+            _repository.PhoneRepository.DeletePhone(phoneId);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult UpdatePhone(Phone phone)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            _repository.PhoneRepository.UpdatePhone(phone);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult CreatePhone(Phone phone)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            var addedPhone = _repository.PhoneRepository.AddPhone(phone);
+            return Json(new { Result = "OK", Record = addedPhone });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    #endregion
+
+    #region Exam actions
+
+    [HttpPost]
+    public JsonResult ExamList(int studentId)
+    {
+        try
+        {
+            Thread.Sleep(200);
+            var exams = _repository.ExamRepository.GetExamsOfStudent(studentId).OrderBy(e => e.ExamDate).ToList();
+            return Json(new { Result = "OK", Records = exams });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult DeleteExam(int studentExamId)
+    {
+        try
+        {
+            Thread.Sleep(50);
+            _repository.ExamRepository.DeleteExam(studentExamId);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult UpdateExam(StudentExam exam)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            _repository.ExamRepository.UpdateExam(exam);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult CreateExam(StudentExam exam)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            var addedExam = _repository.ExamRepository.AddExam(exam);
+            return Json(new { Result = "OK", Record = addedExam });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    #endregion
+}</pre>
+<p class="code-extra">
+See "<a href="http://www.codeproject.com/KB/ajax/jTable.aspx" target="_blank">Using jTable with ASP.NET MVC</a>" tutorial for detailed usage.<br/>
+Download all samples from <a href="http://jtable.org/Home/Downloads" target="_blank">download page</a>.
+</p>
+    </div>
+<div id="tabs-webforms">
+<pre class="brush:csharp">public partial class PagingAndSorting : System.Web.UI.Page
+{
+    //...
+
+    #region Student methods
+
+    [WebMethod(EnableSession = true)]
+    public static object StudentList(int jtStartIndex, int jtPageSize, string jtSorting)
+    {
+        try
+        {
+            //Get data from database
+            int studentCount = _repository.StudentRepository.GetStudentCount();
+            List&lt;Student&gt; students = _repository.StudentRepository.GetStudents(jtStartIndex, jtPageSize, jtSorting);
+
+            //Return result to jTable
+            return new { Result = &quot;OK&quot;, Records = students, TotalRecordCount = studentCount };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object CreateStudent(Student record)
+    {
+        try
+        {
+            var addedStudent = _repository.StudentRepository.AddStudent(record);
+            return new { Result = &quot;OK&quot;, Record = addedStudent };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object UpdateStudent(Student record)
+    {
+        try
+        {
+            _repository.StudentRepository.UpdateStudent(record);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object DeleteStudent(int StudentId)
+    {
+        try
+        {
+            _repository.StudentRepository.DeleteStudent(StudentId);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+	#endregion
+
+    #region City methods
+
+    [WebMethod(EnableSession = true)]
+    public static object GetCityOptions()
+    {
+        try
+        {
+            var cities = _repository.CityRepository.GetAllCities().Select(c =&gt; new { DisplayText = c.CityName, Value = c.CityId });
+            return new { Result = &quot;OK&quot;, Options = cities };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+	
+	#endregion
+	
+    #region Phone methods
+
+    [WebMethod(EnableSession = true)]
+    public static object PhoneList(int StudentId)
+    {
+        try
+        {
+            var phones = _repository.PhoneRepository.GetPhonesOfStudent(StudentId);
+            return new { Result = &quot;OK&quot;, Records = phones };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object DeletePhone(int PhoneId)
+    {
+        try
+        {
+            _repository.PhoneRepository.DeletePhone(PhoneId);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object UpdatePhone(Phone record)
+    {
+        try
+        {
+            _repository.PhoneRepository.UpdatePhone(record);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object CreatePhone(Phone record)
+    {
+        try
+        {
+            var addedPhone = _repository.PhoneRepository.AddPhone(record);
+            return new { Result = &quot;OK&quot;, Record = addedPhone };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    #endregion
+
+    #region Exam actions
+
+    [WebMethod(EnableSession = true)]
+    public static object ExamList(int StudentId)
+    {
+        try
+        {
+            var exams = _repository.ExamRepository.GetExamsOfStudent(StudentId).OrderBy(e =&gt; e.ExamDate).ToList();
+            return new { Result = &quot;OK&quot;, Records = exams };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object DeleteExam(int StudentExamId)
+    {
+        try
+        {
+            _repository.ExamRepository.DeleteExam(StudentExamId);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object UpdateExam(StudentExam record)
+    {
+        try
+        {
+            _repository.ExamRepository.UpdateExam(record);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object CreateExam(StudentExam record)
+    {
+        try
+        {
+            var addedExam = _repository.ExamRepository.AddExam(record);
+            return new { Result = &quot;OK&quot;, Record = addedExam };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    #endregion
+}</pre>
+<p class="code-extra">
+See "<a href="http://jtable.org/Tutorials/UsingWithAspNetWebFormsPageMethods" target="_blank">Using jTable with ASP.NET Web Forms</a>" tutorial for detailed usage.<br/>
+Download all samples from <a href="http://jtable.org/Home/Downloads" target="_blank">download page</a>.
+</p>
+</div>
+</div>
