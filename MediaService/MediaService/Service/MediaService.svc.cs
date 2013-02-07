@@ -8,6 +8,8 @@ using System.IO;
 using System.ServiceModel.Web;
 using System.ServiceModel.Activation;
 using System.Web;
+using System.Data.Entity;
+using MediaService.DAL;
 
 namespace MediaService.Service
 {
@@ -15,60 +17,116 @@ namespace MediaService.Service
     public interface IMediaService
     {
         [OperationContract]
-        [WebGet(UriTemplate = "GetImages")]
-        ImageObj[] GetImages();
+        [WebGet(UriTemplate = "GetAlbums")]
+        AlbumDTO[] GetAlbums();
 
         [OperationContract]
-        [WebGet(UriTemplate = "GetImage/{fileName}")]
-        Stream GetImage(string fileName);
+        [WebGet(UriTemplate = "GetPhotos/{albumId}")]
+        PhotoDTO[] GetPhotos(string albumId);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "GetPhoto/{albumId}/{photoId}")]
+        Stream GetPhoto(string albumId, string photoId);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "GetPhoto/{albumId}/{photoId}")]
+        Stream GetPhotoResized(string albumId, string photoId, string size);
     }
 
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class MediaService : IMediaService
     {
-        public ImageObj[] GetImages()
+        public MediaService()
         {
-            string dir = Properties.Settings.Default.Folder;
-            //return Directory.GetFiles(dir, "*.*", SearchOption.TopDirectoryOnly)
-            //    .Where(f => IsImage(Path.GetExtension(f).ToLower())).Select(f => Path.GetFileNameWithoutExtension(f))
-            //    .Select(s => new ImageObj{ Name = s, Link = new Uri(string.Format(@"{0}/GetImage/{1}?apikey={2}", OperationContext.Current.Channel.LocalAddress, s, HttpContext.Current.Request.QueryString["apikey"]))})
-            //    .ToArray();
-
-            return Directory.GetFiles(dir, "*.*", SearchOption.TopDirectoryOnly)
-               .Where(f => IsImage(Path.GetExtension(f).ToLower()))
-               .Select(f => Path.GetFileNameWithoutExtension(f))
-               .Select(s => new ImageObj
-               {
-                   Name = s,
-                   Link = new Uri(string.Format(@"{0}/GetImage/{1}?apikey={2}",
-                              "http://www.riscanet.com/Service/MediaService.svc", s, HttpContext.Current.Request.QueryString["apikey"]))
-               })
-               .ToArray();
+#if DEBUG
+            //Database.SetInitializer(new PhotoAlbumDatabaseInitializer());
+#endif
         }
 
-        public Stream GetImage(string fileName)
+        public AlbumDTO[] GetAlbums()
         {
-            string dir = Properties.Settings.Default.Folder;
-            var image = Directory.GetFiles(dir, fileName + ".*", SearchOption.TopDirectoryOnly)
-                .Where(f => IsImage(Path.GetExtension(f).ToLower())).FirstOrDefault();
+            using (var db = new PhotoContext())
+                return db.Albums.ToList().Select(a => new AlbumDTO
+                {
+                    Id = a.Id,
+                    Name = a.Name,
+                    Comments = a.Comments,
+                    Link = new Uri(string.Format(@"http://www.riscanet.com/Service/MediaService.svc/GetPhotos/{0}?apikey={1}",
+                    a.Id, HttpContext.Current.Request.QueryString["apikey"]))
+                })
+                    .ToArray();
+        }
 
-            string file = Path.Combine(Properties.Settings.Default.Folder, image);
-            if (File.Exists(file))
+        public PhotoDTO[] GetPhotos(string albumId)
+        {
+            int id;
+            if (int.TryParse(albumId, out id))
             {
-                FileStream fs = File.OpenRead(file);
-                WebOperationContext.Current.OutgoingResponse.ContentType = GetContentTypeFromFileName(file);
-                return fs;
+                using (var db = new PhotoContext())
+                {
+                    var photos = (from a in db.Albums//.Include(p => p.Photos)
+                                  where a.Id == id
+                                  select a.Photos.Where(p => p.SizeX == null)).FirstOrDefault();
+                    if (photos != null)
+                        return photos.Select(a => new PhotoDTO
+                            {
+                                Id = a.Id,
+                                Name = a.Name,
+                                Comments = a.Comments,
+                                Link = new Uri(string.Format(@"http://www.riscanet.com/Service/MediaService.svc/GetPhoto/{0}/{1}?apikey={2}",
+                                                             albumId, a.Id, HttpContext.Current.Request.QueryString["apikey"]))
+                            })
+                                .ToArray();
+                }
+            }
+            return null;
+        }
+
+        public Stream GetPhoto(string albumId, string photoId)
+        {
+            int albumid, photoid;
+            if (int.TryParse(albumId, out albumid) && int.TryParse(photoId, out photoid))
+            {
+                using (var db = new PhotoContext())
+                {
+                    var photo = (from a in db.Albums//.Include(p => p.Photos)
+                                 where a.Id == albumid
+                                 select a.Photos.FirstOrDefault(p => p.Id == photoid && p.SizeX == null)).FirstOrDefault();
+                    var fullPath = System.IO.Path.Combine(photo.Path, photo.Name);
+                    if (File.Exists(fullPath))
+                    {
+                        FileStream fs = File.OpenRead(fullPath);
+                        WebOperationContext.Current.OutgoingResponse.ContentType = GetContentTypeFromFileName(photo.Name);
+                        return fs;
+                    }
+                }
             }
             WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.NotFound;
             return null;
         }
 
-        private bool IsImage(string extension)
+        public Stream GetPhotoResized(string albumId, string photoId, string size)
         {
-            return extension.Equals(".jpeg") || extension.Equals(".jpg") ||
-                    extension.Equals(".gif") || extension.Equals(".png") ||
-                     extension.Equals(".tiff") || extension.Equals(".bmp");
+            int albumid, photoid;
+            if (int.TryParse(albumId, out albumid) && int.TryParse(photoId, out photoid))
+            {
+                using (var db = new PhotoContext())
+                {
+                    var photo = (from a in db.Albums//.Include(p => p.Photos)
+                                 where a.Id == albumid
+                                 select a.Photos.FirstOrDefault(p => p.Id == photoid)).FirstOrDefault();
+                    var fullPath = System.IO.Path.Combine(photo.Path, photo.Name);
+                    if (File.Exists(fullPath))
+                    {
+                        FileStream fs = File.OpenRead(fullPath);
+                        WebOperationContext.Current.OutgoingResponse.ContentType = GetContentTypeFromFileName(photo.Name);
+                        return fs;
+                    }
+                }
+            }
+            WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.NotFound;
+            return null;
         }
 
         private static string GetContentTypeFromFileName(string fileName)
@@ -91,17 +149,6 @@ namespace MediaService.Service
                 default:
                     return "application/octet-stream";
             }
-
         }
     }
-
-    [DataContract]
-    public class ImageObj
-    {
-        [DataMember]
-        public string Name { get; set; }
-        [DataMember]
-        public Uri Link { get; set; }
-    }
-
 }
