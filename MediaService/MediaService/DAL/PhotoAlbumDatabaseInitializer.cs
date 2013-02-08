@@ -7,7 +7,7 @@ using System.IO;
 
 namespace MediaService.DAL
 {
-    public class PhotosContextInitializer : DropCreateDatabaseIfModelChanges<PhotosContext>// DropCreateDatabaseIfModelChanges<PhotosContext>//  
+    public class PhotosContextInitializer : DropCreateDatabaseAlways<PhotosContext>// DropCreateDatabaseIfModelChanges<PhotosContext>//  
     {
         protected override void Seed(PhotosContext context)
         {

@@ -13,6 +13,7 @@ namespace MediaService.DAL
     public class PhotosContext : DbContext
     {
         public PhotosContext()
+            : base("PhotosContextConnectionString")
         {
             Configuration.AutoDetectChangesEnabled = true;
             Configuration.ProxyCreationEnabled = false;

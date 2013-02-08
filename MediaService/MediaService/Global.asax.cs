@@ -13,8 +13,7 @@ namespace MediaService
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
-            Database.SetInitializer(new MediaService.DAL.PhotosContextInitializer());
+        //    Database.SetInitializer(new MediaService.DAL.PhotosContextInitializer());
         }
 
         protected void Application_Error(object sender, EventArgs e)

@@ -71,7 +71,7 @@ namespace MediaService.Service
                         {
                             Id = a.Id,
                             Name = a.Name,
-                            // Comments = a.Comments,
+                            Comments = a.Comments,
                             Link = new Uri(string.Format(@"http://www.riscanet.com/Service/MediaService.svc/GetPhoto/{0}/{1}?apikey={2}",
                                                          albumId, a.Id, HttpContext.Current.Request.QueryString["apikey"]))
                         })
@@ -121,15 +121,13 @@ namespace MediaService.Service
                 using (var db = new PhotosContext())
                 {
                     var photos = (from a in db.Albums//.Include(p => p.Photos)                                 
-                                 where a.Id == albumid
-                                 select a.Photos).FirstOrDefault();
+                                  where a.Id == albumid
+                                  select a.Photos).FirstOrDefault();
                     if (photos != null)
                     {
                         var photo = (from p in photos
                                      where p.Id == photoid && p.OriginalPhotoId == null && p.Dimension == null
                                      select p).FirstOrDefault();
-
-                        //a.Photos.FirstOrDefault(p => p.Id == photoid && p.OriginalPhotoId == null);//.FirstOrDefault();
 
                         if (photo != null)
                         {
@@ -141,7 +139,7 @@ namespace MediaService.Service
                                 var resizedPhoto = (from p in db.Photos
                                                     where p.OriginalPhotoId == photoid && p.Dimension.HasValue && p.Dimension.Value == size
                                                     select p).FirstOrDefault();
-                                
+
                                 string fullPath = string.Empty;
                                 if (resizedPhoto != null)
                                 {
@@ -150,11 +148,11 @@ namespace MediaService.Service
                                     {
                                         var newPhotoPath = System.IO.Path.Combine(photo.Path, string.Format("{0}-{1}{2}", System.IO.Path.GetFileNameWithoutExtension(photo.Name), ((int)size).ToString(), System.IO.Path.GetExtension(photo.Name)));
 
-                                      ImageResizer.ResizeImage(System.IO.Path.Combine(photo.Path, photo.Name), newPhotoPath, size, 50);
+                                        ImageResizer.ResizeImage(System.IO.Path.Combine(photo.Path, photo.Name), newPhotoPath, size, 50);
                                         photo.ResizedPhotos.Add(new Photo { Name = string.Format("{0}-{1}{2}", System.IO.Path.GetFileNameWithoutExtension(photo.Name), ((int)size).ToString(), System.IO.Path.GetExtension(photo.Name)), Path = photo.Path, Dimension = size });
                                         db.SaveChanges();
                                     }
-                                   
+
                                 }
                                 else
                                 {
