@@ -1,0 +1,59 @@
+@model IEnumerable<ContosoUniversity.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Title
+        </th>
+        <th>
+            Credits
+        </th>
+        <th>
+            Department
+        </th>
+        <th>
+            Enrollments
+        </th>
+        <th>
+            Instructors
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CourseID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CourseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CourseID })
+        </td>
+        <td>
+			@item.Title
+        </td>
+        <td>
+			@item.Credits
+        </td>
+        <td>
+			@(item.Department == null ? "None" : item.Department.Name)
+        </td>
+        <td>
+			@(item.Enrollments == null ? "None" : item.Enrollments.Count.ToString())
+        </td>
+        <td>
+			@(item.Instructors == null ? "None" : item.Instructors.Count.ToString())
+        </td>
+    </tr>
+}
+
+</table>
+
+

@@ -31,6 +31,47 @@ namespace MvcKomp3.Infrastructure
             var y2 = controllerContext.HttpContext.Request.Form.Get("Year");
             return DateTime.Now;
         }
+
+        private T Get<T>(ControllerContext controllerCtx, ModelBindingContext bindingCtx, string name)
+        {
+            string fullName = name;
+            if (!string.IsNullOrWhiteSpace(bindingCtx.ModelName))
+                fullName = bindingCtx.ModelName + "." + name;
+            ValueProviderResult result = bindingCtx.ValueProvider.GetValue(fullName);
+
+            ModelState modelState = new ModelState { Value = result };
+            bindingCtx.ModelState.Add(fullName, modelState);
+            
+            ModelMetadata metadata = bindingCtx.PropertyMetadata[name];
+            string attempteValue = result.AttemptedValue;
+            if (metadata.ConvertEmptyStringToNull && string.IsNullOrWhiteSpace(attempteValue))
+                attempteValue = null;
+
+            T model;
+            bool invalid = false;
+            try
+            {
+                model = (T)result.ConvertTo(typeof(T));
+                metadata.Model = model;
+            }
+            catch (Exception)
+            {
+                model = default(T);
+                metadata.Model = attempteValue;
+                invalid = true;
+            }
+
+            var errors = from m in ModelValidatorProviders.Providers.GetValidators(metadata, controllerCtx)
+                    from v in m.Validate(bindingCtx.Model)
+                    select v.Message;
+            foreach (var error in errors)
+                modelState.Errors.Add(error);
+            if (invalid && modelState.Errors.Count == 0)
+                modelState.Errors.Add(String.Format("The value {0} is not a Valid value for {1}", attempteValue, metadata.GetDisplayName()));
+
+            return model;
+        }
+
     }
 
     public class DateDefaultBinder : DefaultModelBinder

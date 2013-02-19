@@ -163,6 +163,8 @@ namespace ContosoUniversity.Controllers
             }
 
             Department department = db.Departments.Find(id);
+            //db.Entry(department).State = EntityState.Deleted;
+            //db.SaveChanges()'
             return View(department);
         }
 

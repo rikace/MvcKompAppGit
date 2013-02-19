@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -16,8 +20,9 @@ namespace MvcKomp3.App_Code
             using (Stream stream = new FileStream(inFile, FileMode.Open))
             {
                 buffer = new byte[stream.Length];
-                await Task<int>.Factory.FromAsync(stream.BeginRead, stream.EndRead,
-                    buffer, 0, buffer.Length, null);
+                stream.Read(buffer, 0, buffer.Length);
+                //await Task<int>.Factory.FromAsync(stream.BeginRead, stream.EndRead,
+                //    buffer, 0, buffer.Length, null);
             }
             using (MemoryStream memStream = new MemoryStream(buffer))
             {

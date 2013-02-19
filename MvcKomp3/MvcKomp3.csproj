@@ -133,6 +133,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RemoteValidationController.cs" />
     <Compile Include="Controllers\RssController.cs" />
+    <Compile Include="Controllers\SchollController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\SummitController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
@@ -677,6 +678,13 @@
     <Content Include="Views\JTable\_FilteredPagedAndSortedServerSideCodes.cshtml" />
     <Content Include="Views\JTable\_PagedAndSortedMasterChildServerSideCodes.cshtml" />
     <Content Include="Views\JTable\_PagedAndSortedServerSideCodes.cshtml" />
+    <Content Include="Views\Task\_MessageFromController.cshtml" />
+    <Content Include="Views\Scholl\Create.cshtml" />
+    <Content Include="Views\Scholl\Edit.cshtml" />
+    <Content Include="Views\Scholl\Delete.cshtml" />
+    <Content Include="Views\Scholl\Details.cshtml" />
+    <Content Include="Views\Scholl\Index.cshtml" />
+    <Content Include="Views\Scholl\_CreateOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

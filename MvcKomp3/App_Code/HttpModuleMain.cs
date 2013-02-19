@@ -18,7 +18,7 @@ namespace MvcKomp3.App_Code
 
         public void Init(HttpApplication context)
         {
-            WorkItem.Init(WorkItem.Work);
+            //WorkItem.Init(WorkItem.Work);
             context.AddOnAuthenticateRequestAsync(this.Sample_BeginAuthenticateRequest,
                 this.Sample_EndAuthenticateRequest);
             context.PreRequestHandlerExecute += this.Sample_PreRequestHandlerExecute;
@@ -87,57 +87,57 @@ namespace MvcKomp3.App_Code
                         // If the old cookie was malformed, then create and cache the 
                         // RequestInfo object and request that a new cookie be created later 
                         //
-                        info = new RequestInfo(Guid.NewGuid(), true, false);
+                       // info = new RequestInfo(Guid.NewGuid(), true, false);
                     }
                 }
-                context.Items[RequestInfo.REQ_INFO] = info;
+                //context.Items[RequestInfo.REQ_INFO] = info;
 
                 //
                 // If this is the first time the browser has
                 // sent the cookie back to us, then record the
                 // ID in the database.
                 //
-                if (info.FirstResponse)
-                {
-                    //
-                    // Insert or update the machine ID asynchronously.  Don't write the full PageView
-                    // record until later, in the worker thread.
-                    //
-                    SqlConnection conn = new SqlConnection(ConnString);
-                    SqlCommand cmd = new SqlCommand("[Traffic].[AddMachine]", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("id", SqlDbType.UniqueIdentifier).Value = info.MachineId;
-                    conn.Open();
-                    ar = cmd.BeginExecuteNonQuery(cb, cmd);
-                }
+                //if (info.FirstResponse)
+                //{
+                //    //
+                //    // Insert or update the machine ID asynchronously.  Don't write the full PageView
+                //    // record until later, in the worker thread.
+                //    //
+                //    SqlConnection conn = new SqlConnection(ConnString);
+                //    SqlCommand cmd = new SqlCommand("[Traffic].[AddMachine]", conn);
+                //    cmd.CommandType = CommandType.StoredProcedure;
+                //    cmd.Parameters.Add("id", SqlDbType.UniqueIdentifier).Value = info.MachineId;
+                //    conn.Open();
+                //    ar = cmd.BeginExecuteNonQuery(cb, cmd);
+                //}
             }
-            return ar ?? CompletedResult.Create(state, cb);
+            return ar;// ?? CompletedResult.Create(state, cb);
         }
 
         private void Sample_EndAuthenticateRequest(IAsyncResult ar)
         {
-            if (!(ar is CompletedResult))
-            {
-                SqlCommand cmd = ar.AsyncState as SqlCommand;
-                if (cmd != null)
-                {
-                    try
-                    {
-                        cmd.EndExecuteNonQuery(ar);
-                    }
-                    catch (SqlException e)
-                    {
-                        EventLog.WriteEntry("Application",
-                            "SqlException in Sample_EndAuthenticateRequest: " + e.Message,
-                            EventLogEntryType.Error, 201);
-                    }
-                    finally
-                    {
-                        cmd.Connection.Dispose();
-                        cmd.Dispose();
-                    }
-                }
-            }
+            //if (!(ar is CompletedResult))
+            //{
+            //    SqlCommand cmd = ar.AsyncState as SqlCommand;
+            //    if (cmd != null)
+            //    {
+            //        try
+            //        {
+            //            cmd.EndExecuteNonQuery(ar);
+            //        }
+            //        catch (SqlException e)
+            //        {
+            //            EventLog.WriteEntry("Application",
+            //                "SqlException in Sample_EndAuthenticateRequest: " + e.Message,
+            //                EventLogEntryType.Error, 201);
+            //        }
+            //        finally
+            //        {
+            //            cmd.Connection.Dispose();
+            //            cmd.Dispose();
+            //        }
+            //    }
+            //}
         }
 
         private void Sample_EndRequest(Object source, EventArgs e)
@@ -150,36 +150,36 @@ namespace MvcKomp3.App_Code
             //
             // info is only set for dynamic pages: aspx, asmx, etc.
             //
-            if (info != null)
-            {
-                WorkItem.QueuePageView(info, PageViewBatchSize);
+            //if (info != null)
+            //{
+            //    WorkItem.QueuePageView(info, PageViewBatchSize);
 
-                //
-                // If this request did not include a machine ID cookie, then set one
-                // and include the MachFirst flag.  If this request did include the
-                // machine ID cookie, and the MachFirst flag was set, then set
-                // a "forever" expiration date, and re-set the cookie without the flag.
-                //
-                //if (info.FirstResponse || info.First)
-                //{
-                //    HttpCookie machCookie = new HttpCookie(MachCookie);
-                //    machCookie.Path = CookiePath;
-                //    machCookie.HttpOnly = true;
-                //    machCookie.Values[MachId] = info.MachineId.ToString();
-                //    if (info.FirstResponse)
-                //        machCookie.Expires = DateTime.Now.AddYears(50);
-                //    else
-                //        machCookie.Values[MachFirst] = "1";
-                //    response.AppendCookie(machCookie);
-                //}
-            }
-            if (!String.IsNullOrEmpty(context.Request.ServerVariables["SERVER_SOFTWARE"]))
-            {
-                if ((response.Cookies.Count > 0) && (response.Headers["P3P"] == null))
-                {
-                    response.AddHeader("P3P", "CP = \"NID DSP CAO COR\"");
-                }
-            }
+            //    //
+            //    // If this request did not include a machine ID cookie, then set one
+            //    // and include the MachFirst flag.  If this request did include the
+            //    // machine ID cookie, and the MachFirst flag was set, then set
+            //    // a "forever" expiration date, and re-set the cookie without the flag.
+            //    //
+            //    //if (info.FirstResponse || info.First)
+            //    //{
+            //    //    HttpCookie machCookie = new HttpCookie(MachCookie);
+            //    //    machCookie.Path = CookiePath;
+            //    //    machCookie.HttpOnly = true;
+            //    //    machCookie.Values[MachId] = info.MachineId.ToString();
+            //    //    if (info.FirstResponse)
+            //    //        machCookie.Expires = DateTime.Now.AddYears(50);
+            //    //    else
+            //    //        machCookie.Values[MachFirst] = "1";
+            //    //    response.AppendCookie(machCookie);
+            //    //}
+            //}
+            //if (!String.IsNullOrEmpty(context.Request.ServerVariables["SERVER_SOFTWARE"]))
+            //{
+            //    if ((response.Cookies.Count > 0) && (response.Headers["P3P"] == null))
+            //    {
+            //        response.AddHeader("P3P", "CP = \"NID DSP CAO COR\"");
+            //    }
+            //}
         }
     }
 

@@ -18,6 +18,14 @@
 {
     @Html.DropDownList("tasklist", new SelectList(ViewBag.TaskList), "Select Task", new { id = "TaskIdddl", onchange = "changeTask()" })
 }
+
+<script type="text/javascript">
+    $(function () {
+        $('#resultAjax').load('/Task/MessageFromController');
+    });
+</script>
+<div id="resultAjax"></div>
+@ViewData.TemplateInfo
 <table>
     <tr>
         <th>Task
@@ -38,7 +46,7 @@
                     <del>@Html.DisplayFor(modelItem => item.Task)</del>
                 }
                 else
-                {
+                {   
                     @Html.DisplayFor(modelItem => item.Task)
                 }
             </td>
@@ -65,7 +73,10 @@
     }
 
 </table>
-
+@helper TestHelpr()
+{
+    <text>ciao</text>
+}
 @section Scripts{
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
 }

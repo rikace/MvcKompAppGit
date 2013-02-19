@@ -41,7 +41,10 @@ namespace MvcKompApp.Controllers
 
         }
 
-
+        public ActionResult MessageFromController()
+        {
+            return PartialView("_MessageFromController");
+        }
 
         void OutstandingOperations_Completed(object sender, EventArgs e)
         {
@@ -122,7 +125,7 @@ namespace MvcKompApp.Controllers
             {
 
                 bool isVupdated = TryUpdateModel(taskitem);
-                //db.Entry(taskitem).State = EntityState.Modified;
+                db.Entry(taskitem).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
