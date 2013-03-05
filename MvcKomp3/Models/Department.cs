@@ -39,7 +39,7 @@ namespace ContosoUniversity.Models
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (Name == "Rik")
-                yield return new ValidationResult("The name cannot be Rik", new[] { "Name" });
+                yield return new ValidationResult("The name cannot be Rik");//, new[] { "Name" });
         }
     }
 }

@@ -17,6 +17,15 @@ namespace MvcKompApp.Controllers
     {
         private NorthwindEntities db = new NorthwindEntities();
 
+
+        public PartialViewResult RenderDynamicTable()
+        {
+            var model = new Dictionary<string, List<string>>();
+            model.Add("Riccardo", new List<string>{"23", "errorciao", "bello", "error"});
+            model.Add("Bugghina", new List<string>{"stupenda", "piccolina", "no error"});
+            return PartialView("_DynamicTable",model);
+        }
+
         public int PageSize = 4;
         
         [OutputCache(CacheProfile = "Aggressive", VaryByParam = "parameter", Location = OutputCacheLocation.Server)]

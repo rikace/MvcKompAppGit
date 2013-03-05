@@ -18,10 +18,10 @@
 {
     @Html.DropDownList("tasklist", new SelectList(ViewBag.TaskList), "Select Task", new { id = "TaskIdddl", onchange = "changeTask()" })
 }
-
+@Html.Action("MessageFromController", new { id = 9 })
 <script type="text/javascript">
     $(function () {
-        $('#resultAjax').load('/Task/MessageFromController');
+        $('#resultAjax').load('/Task/MessageFromController/5');
     });
 </script>
 <div id="resultAjax"></div>

@@ -7,19 +7,35 @@ using MvcKompApp.Validation;
 
 namespace MvcKompApp.ViewModels
 {
-    public class ProductViewModel
+    public class ProductViewModel : IValidatableObject
     {
-        [Price(MinPrice = 3.98, ErrorMessage = "Price must end in .99 and be greater than 3.98")]
         public double Price { get; set; }
-
-        [Required]
-        [RegularExpression(@"(\S)+", ErrorMessage = "White space is not allowed")]
         public string Color { get; set; }
-
-        [Required]
-        [ScaffoldColumn(false)]
         public string Name { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (Price < 10.0)
+                yield return new ValidationResult("Prive to low");
+
+            if (Color.ToUpper().Equals("RED"))
+                yield return new ValidationResult("Not Color RED");
+        }
     }
+
+    //public class ProductViewModel
+    //{
+    //    [Price(MinPrice = 3.98, ErrorMessage = "Price must end in .99 and be greater than 3.98")]
+    //    public double Price { get; set; }
+
+    //    [Required]
+    //    [RegularExpression(@"(\S)+", ErrorMessage = "White space is not allowed")]
+    //    public string Color { get; set; }
+
+    //    [Required]
+    //    [ScaffoldColumn(false)]
+    //    public string Name { get; set; }
+    //}
 
     public static class ProductList
     {

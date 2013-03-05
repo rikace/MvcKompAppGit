@@ -192,6 +192,7 @@
     </Compile>
     <Compile Include="Infrastructure\AjaxOnly.cs" />
     <Compile Include="Infrastructure\CartModelBinder.cs" />
+    <Compile Include="Infrastructure\CustomModelBinder.cs" />
     <Compile Include="Infrastructure\DateBinder.cs" />
     <Compile Include="Infrastructure\EnableJson.cs" />
     <Compile Include="Infrastructure\EnableXml.cs" />
@@ -206,6 +207,7 @@
     <Compile Include="DI\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\PagingHelpers.cs" />
     <Compile Include="Infrastructure\PrincipalModelBinder.cs" />
+    <Compile Include="Infrastructure\ProductBinder.cs" />
     <Compile Include="Infrastructure\RssActionResult.cs" />
     <Compile Include="Infrastructure\XmlResult.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -292,6 +294,7 @@
   <ItemGroup>
     <Content Include="Content\Custom.css" />
     <Content Include="Content\highlight.css" />
+    <Content Include="Content\Images\arrows.png" />
     <Content Include="Content\jquery.autocomplete.css" />
     <Content Include="Content\Pager.css" />
     <Content Include="Content\SiteGreen.css" />
@@ -685,6 +688,9 @@
     <Content Include="Views\Scholl\Details.cshtml" />
     <Content Include="Views\Scholl\Index.cshtml" />
     <Content Include="Views\Scholl\_CreateOrEdit.cshtml" />
+    <Content Include="Views\Home\_TestRadioPartialViewOne.cshtml" />
+    <Content Include="Views\Home\_TestRadioPartialViewTwo.cshtml" />
+    <Content Include="Views\Employee\_DynamicTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

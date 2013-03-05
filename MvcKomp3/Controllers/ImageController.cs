@@ -70,14 +70,14 @@ namespace MvcKompApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(ImageModel Image, HttpPostedFileBase file)
+        public ActionResult Create(ImageModel Image)//, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
 
                 db.Images.Add(Image);
                 db.SaveChanges();
-
+                var file = Image.File;
                 if (file != null && file.ContentLength > 0)
                 {
 
@@ -91,6 +91,28 @@ namespace MvcKompApp.Controllers
             }
             return View(Image);
         }
+        //[HttpPost]
+        //public ActionResult Create(ImageModel Image, HttpPostedFileBase file)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+
+        //        db.Images.Add(Image);
+        //        db.SaveChanges();
+
+        //        if (file != null && file.ContentLength > 0)
+        //        {
+
+        //            var path = Path.Combine(Server.MapPath("~/uploads"),
+        //                Image.ImageID.ToString() + ".jpg");
+        //            file.SaveAs(path);
+        //        }
+
+
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(Image);
+        //}
 
         //
         // GET: /Image/Edit/5

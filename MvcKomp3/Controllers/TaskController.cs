@@ -41,9 +41,9 @@ namespace MvcKompApp.Controllers
 
         }
 
-        public ActionResult MessageFromController()
+        public ActionResult MessageFromController(int id =0)
         {
-            return PartialView("_MessageFromController");
+            return PartialView("_MessageFromController", id);
         }
 
         void OutstandingOperations_Completed(object sender, EventArgs e)

@@ -3,8 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-<h2>
-    Index</h2>
+<h2>Index</h2>
 @using (Ajax.BeginForm("Index", new AjaxOptions
 {
     HttpMethod = "GET",//FormMethod.Get,
@@ -14,6 +13,11 @@
     <input type="text" name="q" />
     <input type="submit" value="Search" />
 }
+
+<div>
+    @Html.Action("RenderDynamicTable")
+</div>
+
 @using (Ajax.BeginForm("SearchEmployee2", "Employee", new AjaxOptions
 {
     InsertionMode = InsertionMode.Replace,
@@ -41,56 +45,39 @@
 </p>
 <table>
     <tr>
-        <th>
-            LastName
+        <th>LastName
         </th>
-        <th>
-            FirstName
+        <th>FirstName
         </th>
-        <th>
-            Title
+        <th>Title
         </th>
-        <th>
-            TitleOfCourtesy
+        <th>TitleOfCourtesy
         </th>
-        <th>
-            BirthDate
+        <th>BirthDate
         </th>
-        <th>
-            HireDate
+        <th>HireDate
         </th>
-        <th>
-            Address
+        <th>Address
         </th>
-        <th>
-            City
+        <th>City
         </th>
-        <th>
-            Region
+        <th>Region
         </th>
-        <th>
-            PostalCode
+        <th>PostalCode
         </th>
-        <th>
-            Country
+        <th>Country
         </th>
-        <th>
-            HomePhone
+        <th>HomePhone
         </th>
-        <th>
-            Extension
+        <th>Extension
         </th>
-        <th>
-            Notes
+        <th>Notes
         </th>
-        <th>
-            Employee1
+        <th>Employee1
         </th>
-        <th>
-            PhotoPath
+        <th>PhotoPath
         </th>
-        <th>
-        </th>
+        <th></th>
     </tr>
     <tbody id="empBodyTable">
         @foreach (var item in Model.Employees)

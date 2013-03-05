@@ -43,8 +43,9 @@
 
         </table>
         <div class="editor-field">
-
-            <input type="file" name="file" />
+            
+            @Html.EditorFor(model => model.File)
+           @* <input type="file" name="file" />*@
         </div>
 
         <p>

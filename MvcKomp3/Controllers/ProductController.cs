@@ -29,9 +29,10 @@ namespace MvcKompApp.Controllers
 
 
         [HttpPost]
-        public ActionResult Edit(ProductViewModel um)
+        public ActionResult Edit([ModelBinder(typeof(MvcKompMvc4.Infrastructure.ProductBinder))]
+            ProductViewModel um)
         {
-            if (!TryUpdateModel(um))
+            if (!ModelState.IsValid || !TryUpdateModel(um))
                 return View(um);
 
             // ToDo: add persistent to DB.

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Xml;
+using System.Xml.Linq;
+using MvcKomp3.Filters;
 using MvcKomp3.Infrastructure;
 using MvcKompApp.Models;
 
@@ -121,6 +124,24 @@ namespace MvcKompApp.Controllers
             return View();
         }
 
+        public ActionResult GetXmlFile()
+        {
+            XElement xml =
+                            new XElement("Contacts",
+                                new XElement("Contact",
+                                    new XElement("Name", "Patrick Hines"),
+                                    new XElement("Phone", "206-555-0144"),
+                                    new XElement("Address",
+                                        new XElement("Street1", "123 Main St"),
+                                        new XElement("City", "Mercer Island"),
+                                        new XElement("State", "WA"),
+                                        new XElement("Postal", "68042")
+                                    )
+                                )
+                            );
+            return Content(xml.ToString(), "text/xml");
+        }
+
         [HttpPost]
         public ActionResult ContactUs(ContactUsInput input)
         {
@@ -150,21 +171,6 @@ namespace MvcKompApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult TestRadio()
-        {
-            List<aTest> list = new List<aTest>();
-            list.Add(new aTest() { ID = 1, Name = "test1" });
-            list.Add(new aTest() { ID = 2, Name = "test2" });
-            SelectList sl = new SelectList(list, "ID", "Name");
-
-            var model = new RadioModel();
-            model.TestRadioList = sl;
-
-            //model.TestRadio = "2";  // Set a default value for the first radio button
-
-            return View(model);
-        }
-
         public ActionResult GetDogListJson()
         {
             List<Models.Dog> dogs = new List<Models.Dog>()
@@ -177,6 +183,39 @@ namespace MvcKompApp.Controllers
 				new Models.Dog {ID = 6, Name = "Raja", Age = 14, Gender = "Female", Handedness = "Right", SpayedNeutered=true, Notes="Older than we first thought, but still loves to run."}
 			};
             return Json(dogs, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult TestRadionInput(string radioTest)
+        {
+            var id = radioTest;
+            return View();
+        }
+        public ActionResult TestRadio(string id)
+        {
+            List<aTest> list = new List<aTest>();
+            var radio1 = new aTest() { ID = 1, Name = "test1" };
+            list.Add(radio1);
+            list.Add(new aTest() { ID = 2, Name = "test2" });
+            SelectList sl = new SelectList(list, "ID", "Name");
+
+            var model = new RadioModel();
+            model.TestRadioList = sl;
+            model.TestRadio = id ?? "1";
+            model.Items = new List<string> { "Riccardo", "Bugghina", "Bryony" };
+
+            //model.TestRadio = "2";  // Set a default value for the first radio button
+
+            return View("TestRadio", model);
+        }
+
+        [AjaxActionOnly] // [ChildActionOnly]
+        public PartialViewResult ChangeListItems(RadioModel radioModel)
+        {
+            ValidateModel(radioModel);
+            if (radioModel.TestRadio == "1")
+                return PartialView("_TestRadioPartialViewOne", radioModel);
+
+            return PartialView("_TestRadioPartialViewTwo", radioModel);
         }
     }
 }

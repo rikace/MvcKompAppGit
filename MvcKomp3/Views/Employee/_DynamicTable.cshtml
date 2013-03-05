@@ -1,0 +1,39 @@
+﻿@model System.Collections.Generic.Dictionary<string, List<string>>
+<style>
+    .customError
+    {
+        background-color: red;
+        color: green;
+    }
+</style>
+@{
+    int index = 0;
+}
+<table>
+    <tr>
+        <td>
+            @foreach (var item in Model)
+            {
+                <div id="@item.Key">
+                    <text>@item.Key</text>
+                    <table>
+                        <tr>
+                            @foreach (var row in item.Value)
+                            { 
+                                <td class="@(row.Contains("error") ? "customError" : "")">
+                                    @row
+                                </td>
+                            }
+                            <td>
+                                @foreach (var msg in item.Value)
+                                {
+                                    @msg
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            }
+        </td>
+    </tr>
+</table>

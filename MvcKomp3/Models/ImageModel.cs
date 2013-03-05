@@ -16,5 +16,7 @@ namespace MvcKompApp.Models
         public string ImageName { get; set; }
          [Column("Description")]
          public string Description { get; set; }
+
+         public HttpPostedFileBase File { get; set; }
     }
 }

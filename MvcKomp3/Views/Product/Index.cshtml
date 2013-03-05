@@ -2,7 +2,74 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    .cell
+    {
+        display: inline-block;
+    }
 
+    .head
+    {
+        font-weight: bold;
+    }
+
+        .head .cell, .row .cell
+        {
+            width: 100%;
+        }
+
+    .details .cell
+    {
+        width: 100%;
+    }
+
+    .details
+    {
+        display: none;
+        background-color: gray;
+    }
+
+    /*#report th
+    {
+        background: #7CB8E2 url(header_bkg.png) repeat-x scroll center left;
+        color: #fff;
+        padding: 7px 15px;
+        text-align: left;
+    }*/
+
+    .detailsRow
+    {
+        background: #C7DDEE none repeat-x scroll center left;
+        color: #000;
+        padding: 7px 15px;
+    }
+
+    #report tr.odd 
+    {
+        background: #fff url(row_bkg.png) repeat-x scroll center left;
+        cursor: pointer;
+    }
+
+    #report div.arrow
+    {
+        background: transparent url(../../Content/Images/arrows.png) no-repeat scroll 0px -16px;
+        width: 16px;
+        height: 16px;
+        display: block;
+    }
+
+    #report div.up
+    {
+        background-position: 0px 0px;
+    }
+
+    .csv-validation-error
+    {
+        border: 1px solid #ff0000;
+        background-color: #F5E4EA;
+        font-size: large;
+    }
+</style>
 <h2>Index</h2>
 @{
     Html.EnableClientValidation();
@@ -37,6 +104,108 @@
     }
 </table>
 
+<table>
+    <thead>
+        <tr id="tr1" class="masterRow">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Riccardo</td>
+            <td>Bugghina</td>
+            <td><span>Open Details</span></td>
+        </tr>
+        <tr class="details">
+            <td colspan="2">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DOB</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>21 July 1976</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        <tr id="tr2" class="masterRow">
+            <td>Bryony</td>
+            <td>Terrell</td>
+            <td><span>Open Details</span></td>
+            </td>
+        </tr>
+        <tr class="details">
+            <td colspan="2">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DOB</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>18 March 1970</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table id="report">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>DOB</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>Riccardo</td>
+        <td>Terrell</td>
+        <td>21 July 1976</td>
+        <td>
+            <div class="arrow"></div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <h4>Additional information</h4>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>2</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Bryony</td>
+        <td>Terrell</td>
+        <td>28 March 1976</td>
+        <td>
+            <div class="arrow"></div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <h4>Additional information</h4>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>2</li>
+            </ul>
+
+        </td>
+    </tr>
+</table>
+
 
 @section Scripts{
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
@@ -45,4 +214,47 @@
     <script src="@Url.Content("~/Scripts/MicrosoftMvcAjax.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/MicrosoftMvcValidation.debug.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/CustomPriceValidation.debug.js")" type="text/javascript"></script>
+
+    <script>
+
+        $(function () {
+            // $(".details").hide();
+            $('.masterRow').click(function (e) {
+                var row = $(this);
+                row.next(".details").fadeToggle(100);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#report tr:odd").addClass("odd");
+            $("#report tr:not(.odd)").hide().find('td').addClass('detailsRow');
+            $("#report tr:first-child").show();
+
+            $('#report tr:odd').find('td:first').removeAttr('style').addClass('csv-validation-error');
+
+            $("#report tr.odd").click(function () {
+                $(this).next("tr").toggle();
+                $(this).find(".arrow").toggleClass("up");
+            });
+            //$("#report").jExpand();
+        });
+    </script>
+
+    <script>
+        (function ($) {
+            $.fn.jExpand = function () {
+                var element = this;
+
+                $(element).find("tr:odd").addClass("odd");
+                $(element).find("tr:not(.odd)").hide();
+                $(element).find("tr:first-child").show();
+
+                $(element).find("tr.odd").click(function () {
+                    $(this).next("tr").toggle();
+                });
+
+            }
+        })(jQuery);
+    </script>
 }

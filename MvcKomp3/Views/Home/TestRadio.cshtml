@@ -3,21 +3,76 @@
     ViewBag.Title = "Index";
 }
 
+<style>
+    /*.RadioButton
+    {
+        float: left;
+    }*/
+</style>
 <h2>Index</h2>
 
 @Html.ValidationSummary(true, "Form Validation was unsuccessful. Please correct the errors and try again.")
 
 @using (Html.BeginForm())
-{
-    
+{   
     <p>TestRadio</p>
     <div>
         @Html.RadioButtonForSelectList(m => m.TestRadio, Model.TestRadioList)
         @Html.ValidationMessageFor(m => m.TestRadio)
-    </div>
-    
+    </div>  
     <br />
     <p>
         <input type="submit" value="Submit" />
     </p>
 }
+
+<h2>Test Radio Input</h2>
+<div id="selectRadio">
+    @using (Html.BeginForm("TestRadionInput", "Home"))
+    {
+    <input type="radio" id="radioTest1" name="radioTest" checked="checked" value="1" />
+    <input type="radio" id="radioTest2" name="radioTest" value="2" />
+        <input type="submit" value="Submit" />
+    }
+
+</div>
+
+<div>
+    @using (Ajax.BeginForm("TestRadio", "Home", new { id = Model.TestRadio }, new AjaxOptions
+    {
+        HttpMethod = "GET",
+        // Url = Url.Action("ChangeListItems"),
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "viewDiv"
+    }, new { id = "ajaxForm" }))
+    {
+        <div>
+
+            @*<input type="hidden" name="id" id="id" value="@Model.TestRadio" />*@
+            @Html.RadioButtonForSelectList(m => m.TestRadio, Model.TestRadioList)
+        </div>  
+     
+        <div id="viewDiv">
+            @Html.Action("ChangeListItems", new { radioModel = Model })
+
+            @*<ul>
+                @foreach (var item in Model.Items)
+                {
+                    <li>@item</li>
+                }
+            </ul>*@
+        </div>
+        <input type="submit" value="sub" />
+    }
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#selectRadio :radio').change(function (r) {
+             alert($(this).val());
+
+            // $('#ajaxForm').submit();
+
+        });
+    });
+</script>
