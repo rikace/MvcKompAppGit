@@ -133,13 +133,21 @@
     <Compile Include="App_Start\NinjectDependencyResolver.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\ContactsHelperController.cs" />
+    <Compile Include="Controllers\CustomerGridController.cs" />
     <Compile Include="Controllers\DrillsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HttpApiController.cs" />
+    <Compile Include="Controllers\PhotosController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TagDrillsController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="CsvMediaTypeFormatter.cs" />
+    <Compile Include="Database\CustomersDbContext.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Filters\HelperFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,17 +155,26 @@
     </Compile>
     <Compile Include="HandleApiError.cs" />
     <Compile Include="LinkBuilderAttribute.cs" />
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerRepository.cs" />
     <Compile Include="Models\Drill.cs" />
     <Compile Include="Models\DrillRepository.cs" />
     <Compile Include="Models\HttpResource.cs" />
+    <Compile Include="Models\ICustomerRepository.cs" />
     <Compile Include="Models\PlaybookContext.cs" />
     <Compile Include="Models\PlaybookContextDbInitializer.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\TagRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-WebApi-20130116230436.mdf" />
+    <Content Include="App_Data\aspnet-WebApi-20130116230436_log.ldf">
+      <DependentUpon>aspnet-WebApi-20130116230436.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\images\button.gif" />
     <Content Include="Content\images\del.gif" />
     <Content Include="Content\images\edit.gif" />
@@ -263,10 +280,22 @@
     <Content Include="Views\Shared\_PlaybookLayout.cshtml" />
     <Content Include="Views\Home\Docs.cshtml" />
     <Content Include="Views\Home\Drills.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\ContactsGrid.cshtml" />
+    <Content Include="Views\Home\EditContact.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

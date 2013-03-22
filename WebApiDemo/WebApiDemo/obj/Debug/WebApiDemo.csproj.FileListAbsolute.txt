@@ -112,6 +112,6 @@ C:\Git\MvcKompAppGit\WebApiDemo\WebApiDemo\bin\System.Web.Razor.xml
 C:\Git\MvcKompAppGit\WebApiDemo\WebApiDemo\bin\System.Web.WebPages.xml
 C:\Git\MvcKompAppGit\WebApiDemo\WebApiDemo\bin\System.Web.WebPages.Deployment.xml
 C:\Git\MvcKompAppGit\WebApiDemo\WebApiDemo\bin\System.Web.WebPages.Razor.xml
-C:\Git\MvcKompAppGit\WebApiDemo\WebApiDemo\obj\Debug\WebApiDemo.csprojResolveAssemblyReference.cache
 C:\Git\MvcKompAppGit\WebApiDemo\WebApiDemo\obj\Debug\WebApiDemo.dll
 C:\Git\MvcKompAppGit\WebApiDemo\WebApiDemo\obj\Debug\WebApiDemo.pdb
+C:\Git\MvcKompAppGit\WebApiDemo\WebApiDemo\obj\Debug\WebApiDemo.csprojResolveAssemblyReference.cache

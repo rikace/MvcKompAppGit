@@ -1,0 +1,28 @@
+﻿@model System.Collections.Generic.List<MvcKomp3.Models.Film>
+
+@foreach (var movie in Model)
+{
+  <div class="movie">
+    <div class="img">
+      <img src="@movie.ImageUrl" width="75"/>
+    </div>
+    <div class="meta">
+      <p>
+        <span class="title">Name:</span>
+        <span class="content">@movie.Name</span>
+      </p>
+        <p>
+        <span class="title">Director:</span>
+        <span class="content">@movie.Director</span>
+      </p>
+      <p>
+        <span class="title">Actors:</span>
+        <span class="content">@movie.Actors</span>
+      </p>
+      <p>
+        <span class="title">ReleasedOn:</span>
+        <span class="content">@movie.ReleasedOn.ToShortDateString()</span>
+      </p>
+    </div>
+  </div>
+}

@@ -22,8 +22,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D295EA
 		WebApi\.nuget\NuGet.targets = WebApi\.nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{8EB589B8-42EB-47CD-B62B-77DD12643A2E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockoutJS", "KnockoutJS\KnockoutJS.csproj", "{B20DB2A9-21EA-4BDB-8576-B14C8C884173}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDemo", "WebApiDemo\WebApiDemo\WebApiDemo.csproj", "{463AF561-A2BC-432C-AA7D-326ABEFFFAC4}"
@@ -114,16 +112,6 @@ Global
 		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{88CF0DB6-6CE4-41AC-8262-D70EF7C929BE}.Release|x86.ActiveCfg = Release|Any CPU
-		{8EB589B8-42EB-47CD-B62B-77DD12643A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EB589B8-42EB-47CD-B62B-77DD12643A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EB589B8-42EB-47CD-B62B-77DD12643A2E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{8EB589B8-42EB-47CD-B62B-77DD12643A2E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{8EB589B8-42EB-47CD-B62B-77DD12643A2E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8EB589B8-42EB-47CD-B62B-77DD12643A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EB589B8-42EB-47CD-B62B-77DD12643A2E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EB589B8-42EB-47CD-B62B-77DD12643A2E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{8EB589B8-42EB-47CD-B62B-77DD12643A2E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{8EB589B8-42EB-47CD-B62B-77DD12643A2E}.Release|x86.ActiveCfg = Release|Any CPU
 		{B20DB2A9-21EA-4BDB-8576-B14C8C884173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B20DB2A9-21EA-4BDB-8576-B14C8C884173}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B20DB2A9-21EA-4BDB-8576-B14C8C884173}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

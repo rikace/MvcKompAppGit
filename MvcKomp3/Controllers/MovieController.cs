@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcKomp3.Models;
 using MvcKompApp.Models;
 
 namespace MvcKompApp.Controllers
@@ -12,6 +13,59 @@ namespace MvcKompApp.Controllers
     public class MovieController : Controller
     {
         private MovieContext db = new MovieContext();
+        private readonly List<Film> _movies;
+
+        public MovieController()
+        {
+            _movies = new List<Film>
+      {
+        new Film
+        { 
+          Id = 1,
+          Name = "Gladiator", 
+          Actors = "Russell Crowe, Joaquin Phoenix, Connie Nielsen, Ralf Möller, Oliver Reed, Djimon Hounsou, Derek Jacobi, John Shrapnel and Richard Harris", 
+          Director = "Ridley Scott", 
+          ReleasedOn = DateTime.Parse("5/5/2000"),
+          ImageUrl = "/Content/Movies/gladiator.jpg"
+        },
+        new Film
+        { 
+          Id = 2,
+          Name = "Titanic", 
+          Actors = "Leonardo DiCaprio, Kate Winslet", 
+          Director = "James Cameron", 
+          ReleasedOn = DateTime.Parse("11/1/1997"),
+          ImageUrl = "/Content/Movies/titanic.jpg"
+        },
+        new Film
+        { 
+          Id = 3,
+          Name = "Avatar", 
+          Actors = "Sam Worthington, Zoe Saldana, Stephen Lang, Michelle Rodriguez, Sigourney Weaver, Joel David Moore, Giovanni Ribisi", 
+          Director = "James Cameron", 
+          ReleasedOn = DateTime.Parse("5/5/2009"),
+          ImageUrl = "/Content/Movies/avatar.jpg"
+        },
+        new Film
+        { 
+          Id = 4,
+          Name = "Prometheus", 
+          Actors = "Noomi Rapace, Michael Fassbender, Guy Pearce, Idris Elba, Logan Marshall-Green, Charlize Theron", 
+          Director = "Ridley Scott", 
+          ReleasedOn = DateTime.Parse("6/1/2012"),
+          ImageUrl = "/Content/Movies/prometheus.jpg"
+        },
+        new Film
+        { 
+          Id = 5,
+          Name = "The Amazing Spider-Man", 
+          Actors = "Andrew Garfield, Emma Stone, Rhys Ifans, Denis Leary, Martin Sheen, Sally Field, Irrfan Khan, Chris Zylka",
+          Director = "Marc Webb", 
+          ReleasedOn = DateTime.Parse("6/3/2012"),
+          ImageUrl = "/Content/Movies/spiderman4.jpg"
+        }
+      };
+        }
 
 
         // GET: /Movies/SearchIndex
@@ -45,7 +99,6 @@ public ActionResult SearchIndex(string Genre, string searchString)
 
 }
 #else
-
         public ActionResult SearchIndex(string movieGenre, string searchString)
         {
 
@@ -76,7 +129,22 @@ public ActionResult SearchIndex(string Genre, string searchString)
         }
 #endif
 
+        #region Search Film With Ajax Text
+        public ActionResult FilmIndex()
+        {
+            return View();
+        }
 
+        public PartialViewResult Films()
+        {
+            return PartialView("_Films",_movies);
+        }
+        public PartialViewResult Search(string search)
+        {
+            var movies = string.IsNullOrEmpty(search) ? _movies : _movies.Where(m => m.Name.StartsWith(search, StringComparison.OrdinalIgnoreCase)).Select(m => m).ToList();
+            return PartialView("_Films", movies);
+        } 
+        #endregion
 
         //public ActionResult SearchIndex(string searchString)
         //{          

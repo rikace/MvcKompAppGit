@@ -179,8 +179,11 @@
     <Compile Include="Filters\SimpleMessageAttribute.cs" />
     <Compile Include="Filters\TraceActionFilterAttribute.cs" />
     <Compile Include="Filters\UseStopWatch.cs" />
+    <Compile Include="Framework\AjaxExtensions.cs" />
     <Compile Include="Framework\AllowAnonymousAttribute.cs" />
     <Compile Include="Framework\BasePagedList.cs" />
+    <Compile Include="Framework\Compression\HttpCompressionModule.cs" />
+    <Compile Include="Framework\Compression\StaticFileHandler.cs" />
     <Compile Include="Framework\EntityFrameworkSqlServerCompact.cs" />
     <Compile Include="Framework\ILogger.cs" />
     <Compile Include="Framework\PdfResult.cs" />
@@ -224,6 +227,7 @@
     <Compile Include="Models\EmployeeWithPaging.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\FavouriteGivenName.cs" />
+    <Compile Include="Models\Film.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\IProductRepository.cs" />
@@ -296,6 +300,11 @@
     <Content Include="Content\highlight.css" />
     <Content Include="Content\Images\arrows.png" />
     <Content Include="Content\jquery.autocomplete.css" />
+    <Content Include="Content\Movies\avatar.jpg" />
+    <Content Include="Content\Movies\gladiator.jpg" />
+    <Content Include="Content\Movies\prometheus.jpg" />
+    <Content Include="Content\Movies\spiderman4.jpg" />
+    <Content Include="Content\Movies\titanic.jpg" />
     <Content Include="Content\Pager.css" />
     <Content Include="Content\SiteGreen.css" />
     <Content Include="Content\Sprite.css" />
@@ -691,6 +700,8 @@
     <Content Include="Views\Home\_TestRadioPartialViewOne.cshtml" />
     <Content Include="Views\Home\_TestRadioPartialViewTwo.cshtml" />
     <Content Include="Views\Employee\_DynamicTable.cshtml" />
+    <Content Include="Views\Movie\FilmIndex.cshtml" />
+    <Content Include="Views\Movie\_Films.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

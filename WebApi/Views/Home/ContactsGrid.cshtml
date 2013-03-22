@@ -1,0 +1,30 @@
+﻿@model IEnumerable<WebApi.Models.Customer>
+
+@{
+    var grid = new WebGrid(Model, canPage: false, canSort:false, defaultSort: "Name");
+}
+
+@if (Model.Count() == 0)
+{
+    <p>No data found</p>
+}
+else
+{   
+   @grid.GetHtml(htmlAttributes: new {id ="grid"}, 
+    tableStyle: "webgrid",
+    headerStyle: "webgrid-header",
+    footerStyle: "webgrid-footer",
+    alternatingRowStyle: "webgrid-row-style",
+    selectedRowStyle: "webgrid-selected-row",
+    rowStyle: "webgrid-row-style",
+    columns: grid.Columns(
+            grid.Column("Id", format: @<text>@item.Id</text>),
+            grid.Column("Name", format: @<text>@item.Name</text>),
+            grid.Column("Email", format: @<text>@item.Email</text>),
+            grid.Column("Phone", format: @<text>@item.Phone</text>),  
+            grid.Column(format: @<input type="button" value="Edit" onclick="EditContact(@item.Id); return false;"/>),
+            grid.Column(format: @<input type="button" value="Delete" onclick="DeleteContact(@item.Id); return false;"/>)        
+            )
+     )
+}
+
