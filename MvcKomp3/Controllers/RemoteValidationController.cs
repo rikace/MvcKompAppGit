@@ -15,7 +15,6 @@ namespace MvcKompApp.Controllers
 
         public string IsUID_Available(string candidate)
         {
-
             if (UserNameHelper.IsAvailable(candidate))
                 return "OK";
 
