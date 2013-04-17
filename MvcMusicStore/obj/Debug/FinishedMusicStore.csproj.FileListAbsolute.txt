@@ -10,3 +10,8 @@
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcMusicStore\obj\Debug\FinishedMusicStore.csprojResolveAssemblyReference.cache
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcMusicStore\obj\Debug\MvcMusicStore.dll
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
+C:\Git\MvcKompAppGit\MvcMusicStore\bin\MvcMusicStore.dll
+C:\Git\MvcKompAppGit\MvcMusicStore\bin\MvcMusicStore.pdb
+C:\Git\MvcKompAppGit\MvcMusicStore\obj\Debug\FinishedMusicStore.csprojResolveAssemblyReference.cache
+C:\Git\MvcKompAppGit\MvcMusicStore\obj\Debug\MvcMusicStore.dll
+C:\Git\MvcKompAppGit\MvcMusicStore\obj\Debug\MvcMusicStore.pdb

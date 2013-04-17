@@ -8,3 +8,8 @@ C:\Temp\MvcKompApp\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\ConsoleApplication1\obj\x86\Debug\ConsoleApp.csprojResolveAssemblyReference.cache
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
 \\psf\Home\Desktop\Projetcs\MvcKompAppGit\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+C:\Git\MvcKompAppGit\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Git\MvcKompAppGit\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Git\MvcKompAppGit\ConsoleApplication1\obj\x86\Debug\ConsoleApp.csprojResolveAssemblyReference.cache
+C:\Git\MvcKompAppGit\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+C:\Git\MvcKompAppGit\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
