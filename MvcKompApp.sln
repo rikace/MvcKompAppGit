@@ -32,6 +32,143 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaService", "MediaServic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oDataService", "oDataService\oDataService.csproj", "{2D75DED1-98CE-4D74-B729-947B65D5C868}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JavascriptPatterns", "JavascriptPatterns", "{D57B83FF-80D5-4C94-A208-D80B8F35F5E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "object-creation-patterns", "object-creation-patterns", "{7E696F46-DA95-4104-9252-ED3F1C1B9A21}"
+	ProjectSection(SolutionItems) = preProject
+		JavascriptPatterns\object-creation-patterns\chaining.html = JavascriptPatterns\object-creation-patterns\chaining.html
+		JavascriptPatterns\object-creation-patterns\declaring-dependencies.html = JavascriptPatterns\object-creation-patterns\declaring-dependencies.html
+		JavascriptPatterns\object-creation-patterns\module.html = JavascriptPatterns\object-creation-patterns\module.html
+		JavascriptPatterns\object-creation-patterns\namespace.html = JavascriptPatterns\object-creation-patterns\namespace.html
+		JavascriptPatterns\object-creation-patterns\object-constants.html = JavascriptPatterns\object-creation-patterns\object-constants.html
+		JavascriptPatterns\object-creation-patterns\private-properties-and-methods.html = JavascriptPatterns\object-creation-patterns\private-properties-and-methods.html
+		JavascriptPatterns\object-creation-patterns\revelation.html = JavascriptPatterns\object-creation-patterns\revelation.html
+		JavascriptPatterns\object-creation-patterns\sandbox.html = JavascriptPatterns\object-creation-patterns\sandbox.html
+		JavascriptPatterns\object-creation-patterns\static-members.html = JavascriptPatterns\object-creation-patterns\static-members.html
+		JavascriptPatterns\object-creation-patterns\sugar-method.html = JavascriptPatterns\object-creation-patterns\sugar-method.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "literals-and-constructors", "literals-and-constructors", "{6BBAB0E0-DBD3-48B8-95E1-FB8AF1877632}"
+	ProjectSection(SolutionItems) = preProject
+		JavascriptPatterns\literals-and-constructors\array-literal.html = JavascriptPatterns\literals-and-constructors\array-literal.html
+		JavascriptPatterns\literals-and-constructors\enforcing-new.html = JavascriptPatterns\literals-and-constructors\enforcing-new.html
+		JavascriptPatterns\literals-and-constructors\json.html = JavascriptPatterns\literals-and-constructors\json.html
+		JavascriptPatterns\literals-and-constructors\object-literal.html = JavascriptPatterns\literals-and-constructors\object-literal.html
+		JavascriptPatterns\literals-and-constructors\primitive-wrappers.html = JavascriptPatterns\literals-and-constructors\primitive-wrappers.html
+		JavascriptPatterns\literals-and-constructors\regular-expression-literal.html = JavascriptPatterns\literals-and-constructors\regular-expression-literal.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jquery-plugin-patterns", "jquery-plugin-patterns", "{4E7F43D7-8BE7-4473-B1F5-03CD3B1470BA}"
+	ProjectSection(SolutionItems) = preProject
+		JavascriptPatterns\jquery-plugin-patterns\jquery-mobile-ui-widget-factory.html = JavascriptPatterns\jquery-plugin-patterns\jquery-mobile-ui-widget-factory.html
+		JavascriptPatterns\jquery-plugin-patterns\lightweight.html = JavascriptPatterns\jquery-plugin-patterns\lightweight.html
+		JavascriptPatterns\jquery-plugin-patterns\namespaced-starter.html = JavascriptPatterns\jquery-plugin-patterns\namespaced-starter.html
+		JavascriptPatterns\jquery-plugin-patterns\prototypal-inheritance.html = JavascriptPatterns\jquery-plugin-patterns\prototypal-inheritance.html
+		JavascriptPatterns\jquery-plugin-patterns\ui-widget-factory-bridge.html = JavascriptPatterns\jquery-plugin-patterns\ui-widget-factory-bridge.html
+		JavascriptPatterns\jquery-plugin-patterns\ui-widget-factory-mobile.html = JavascriptPatterns\jquery-plugin-patterns\ui-widget-factory-mobile.html
+		JavascriptPatterns\jquery-plugin-patterns\ui-widget-factory.html = JavascriptPatterns\jquery-plugin-patterns\ui-widget-factory.html
+		JavascriptPatterns\jquery-plugin-patterns\ui-widget-requirejs-module.html = JavascriptPatterns\jquery-plugin-patterns\ui-widget-requirejs-module.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jquery-patterns", "jquery-patterns", "{92139F5A-54A5-4D16-B69D-496B26547376}"
+	ProjectSection(SolutionItems) = preProject
+		JavascriptPatterns\jquery-patterns\append.html = JavascriptPatterns\jquery-patterns\append.html
+		JavascriptPatterns\jquery-patterns\cache-selector.html = JavascriptPatterns\jquery-patterns\cache-selector.html
+		JavascriptPatterns\jquery-patterns\context-and-find.html = JavascriptPatterns\jquery-patterns\context-and-find.html
+		JavascriptPatterns\jquery-patterns\data.html = JavascriptPatterns\jquery-patterns\data.html
+		JavascriptPatterns\jquery-patterns\decending-from-id.html = JavascriptPatterns\jquery-patterns\decending-from-id.html
+		JavascriptPatterns\jquery-patterns\detach.html = JavascriptPatterns\jquery-patterns\detach.html
+		JavascriptPatterns\jquery-patterns\event-delegation.html = JavascriptPatterns\jquery-patterns\event-delegation.html
+		JavascriptPatterns\jquery-patterns\left-and-right.html = JavascriptPatterns\jquery-patterns\left-and-right.html
+		JavascriptPatterns\jquery-patterns\pubsub-callback.html = JavascriptPatterns\jquery-patterns\pubsub-callback.html
+		JavascriptPatterns\jquery-patterns\pubsub-custom-events.html = JavascriptPatterns\jquery-patterns\pubsub-custom-events.html
+		JavascriptPatterns\jquery-patterns\pubsub-observable.html = JavascriptPatterns\jquery-patterns\pubsub-observable.html
+		JavascriptPatterns\jquery-patterns\pubsub-plugin.html = JavascriptPatterns\jquery-patterns\pubsub-plugin.html
+		JavascriptPatterns\jquery-patterns\requery.html = JavascriptPatterns\jquery-patterns\requery.html
+		JavascriptPatterns\jquery-patterns\specific-when-needed.html = JavascriptPatterns\jquery-patterns\specific-when-needed.html
+		JavascriptPatterns\jquery-patterns\universal-selector.html = JavascriptPatterns\jquery-patterns\universal-selector.html
+		JavascriptPatterns\jquery-patterns\window-scroll-event.html = JavascriptPatterns\jquery-patterns\window-scroll-event.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "general-patterns", "general-patterns", "{1EC38A38-6311-4D02-A15A-E0BD73132426}"
+	ProjectSection(SolutionItems) = preProject
+		JavascriptPatterns\general-patterns\access-to-global-object.html = JavascriptPatterns\general-patterns\access-to-global-object.html
+		JavascriptPatterns\general-patterns\avoiding-eval.html = JavascriptPatterns\general-patterns\avoiding-eval.html
+		JavascriptPatterns\general-patterns\avoiding-implied-typecasting.html = JavascriptPatterns\general-patterns\avoiding-implied-typecasting.html
+		JavascriptPatterns\general-patterns\built-in-prototypes.html = JavascriptPatterns\general-patterns\built-in-prototypes.html
+		JavascriptPatterns\general-patterns\conditionals.html = JavascriptPatterns\general-patterns\conditionals.html
+		JavascriptPatterns\general-patterns\for-in-loops.html = JavascriptPatterns\general-patterns\for-in-loops.html
+		JavascriptPatterns\general-patterns\for-loops.html = JavascriptPatterns\general-patterns\for-loops.html
+		JavascriptPatterns\general-patterns\function-declarations.html = JavascriptPatterns\general-patterns\function-declarations.html
+		JavascriptPatterns\general-patterns\globals.html = JavascriptPatterns\general-patterns\globals.html
+		JavascriptPatterns\general-patterns\hoisting.html = JavascriptPatterns\general-patterns\hoisting.html
+		JavascriptPatterns\general-patterns\minimizing-globals.html = JavascriptPatterns\general-patterns\minimizing-globals.html
+		JavascriptPatterns\general-patterns\parseint.html = JavascriptPatterns\general-patterns\parseint.html
+		JavascriptPatterns\general-patterns\shim-sniffing.html = JavascriptPatterns\general-patterns\shim-sniffing.html
+		JavascriptPatterns\general-patterns\single-var-pattern.html = JavascriptPatterns\general-patterns\single-var-pattern.html
+		JavascriptPatterns\general-patterns\switch-pattern.html = JavascriptPatterns\general-patterns\switch-pattern.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "function-patterns", "function-patterns", "{3E51A7C5-4C08-4C31-9BA7-E9B76E357C7A}"
+	ProjectSection(SolutionItems) = preProject
+		JavascriptPatterns\function-patterns\callback.html = JavascriptPatterns\function-patterns\callback.html
+		JavascriptPatterns\function-patterns\callbacks-and-scope.html = JavascriptPatterns\function-patterns\callbacks-and-scope.html
+		JavascriptPatterns\function-patterns\configuration-objects.html = JavascriptPatterns\function-patterns\configuration-objects.html
+		JavascriptPatterns\function-patterns\currying.html = JavascriptPatterns\function-patterns\currying.html
+		JavascriptPatterns\function-patterns\enforcing-new-in-constructors.html = JavascriptPatterns\function-patterns\enforcing-new-in-constructors.html
+		JavascriptPatterns\function-patterns\immediate-functions.html = JavascriptPatterns\function-patterns\immediate-functions.html
+		JavascriptPatterns\function-patterns\immediate-object-initialization.html = JavascriptPatterns\function-patterns\immediate-object-initialization.html
+		JavascriptPatterns\function-patterns\init-time-branching.html = JavascriptPatterns\function-patterns\init-time-branching.html
+		JavascriptPatterns\function-patterns\memoization.html = JavascriptPatterns\function-patterns\memoization.html
+		JavascriptPatterns\function-patterns\partial-application.html = JavascriptPatterns\function-patterns\partial-application.html
+		JavascriptPatterns\function-patterns\returning-functions.html = JavascriptPatterns\function-patterns\returning-functions.html
+		JavascriptPatterns\function-patterns\self-defining-functions.html = JavascriptPatterns\function-patterns\self-defining-functions.html
+		JavascriptPatterns\function-patterns\self-overwrite.html = JavascriptPatterns\function-patterns\self-overwrite.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dom-and-browser", "dom-and-browser", "{E3DC3EB7-293F-43F3-841D-A4B1473AC6EE}"
+	ProjectSection(SolutionItems) = preProject
+		JavascriptPatterns\dom-and-browser\event-handling.html = JavascriptPatterns\dom-and-browser\event-handling.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "design-patterns", "design-patterns", "{DCC2F953-EA6C-4461-918A-56F1E139DF64}"
+	ProjectSection(SolutionItems) = preProject
+		JavascriptPatterns\design-patterns\builder.html = JavascriptPatterns\design-patterns\builder.html
+		JavascriptPatterns\design-patterns\chain-of-responsibility.html = JavascriptPatterns\design-patterns\chain-of-responsibility.html
+		JavascriptPatterns\design-patterns\command.html = JavascriptPatterns\design-patterns\command.html
+		JavascriptPatterns\design-patterns\decorator.html = JavascriptPatterns\design-patterns\decorator.html
+		JavascriptPatterns\design-patterns\facade.html = JavascriptPatterns\design-patterns\facade.html
+		JavascriptPatterns\design-patterns\factory.html = JavascriptPatterns\design-patterns\factory.html
+		JavascriptPatterns\design-patterns\iterator.html = JavascriptPatterns\design-patterns\iterator.html
+		JavascriptPatterns\design-patterns\mediator.html = JavascriptPatterns\design-patterns\mediator.html
+		JavascriptPatterns\design-patterns\multiton.html = JavascriptPatterns\design-patterns\multiton.html
+		JavascriptPatterns\design-patterns\observer.html = JavascriptPatterns\design-patterns\observer.html
+		JavascriptPatterns\design-patterns\proxy.html = JavascriptPatterns\design-patterns\proxy.html
+		JavascriptPatterns\design-patterns\singleton.html = JavascriptPatterns\design-patterns\singleton.html
+		JavascriptPatterns\design-patterns\strategy.html = JavascriptPatterns\design-patterns\strategy.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "code-reuse-patterns", "code-reuse-patterns", "{4E3479B1-8FA0-440C-BE81-4BEE608AD6D2}"
+	ProjectSection(SolutionItems) = preProject
+		JavascriptPatterns\code-reuse-patterns\borrowing-methods.html = JavascriptPatterns\code-reuse-patterns\borrowing-methods.html
+		JavascriptPatterns\code-reuse-patterns\cp1-default.html = JavascriptPatterns\code-reuse-patterns\cp1-default.html
+		JavascriptPatterns\code-reuse-patterns\cp2-rent-a-constructor.html = JavascriptPatterns\code-reuse-patterns\cp2-rent-a-constructor.html
+		JavascriptPatterns\code-reuse-patterns\cp3-rent-and-set-prototype.html = JavascriptPatterns\code-reuse-patterns\cp3-rent-and-set-prototype.html
+		JavascriptPatterns\code-reuse-patterns\cp4-share-the-prototype.html = JavascriptPatterns\code-reuse-patterns\cp4-share-the-prototype.html
+		JavascriptPatterns\code-reuse-patterns\cp5-a-temporary-constructor.html = JavascriptPatterns\code-reuse-patterns\cp5-a-temporary-constructor.html
+		JavascriptPatterns\code-reuse-patterns\inheritance-by-copying-properties.html = JavascriptPatterns\code-reuse-patterns\inheritance-by-copying-properties.html
+		JavascriptPatterns\code-reuse-patterns\klass.html = JavascriptPatterns\code-reuse-patterns\klass.html
+		JavascriptPatterns\code-reuse-patterns\mix-ins.html = JavascriptPatterns\code-reuse-patterns\mix-ins.html
+		JavascriptPatterns\code-reuse-patterns\prototypal-inheritance.html = JavascriptPatterns\code-reuse-patterns\prototypal-inheritance.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "amd-commonjs", "amd-commonjs", "{A8743C73-0ED4-4508-A1DF-82447C95DD30}"
+	ProjectSection(SolutionItems) = preProject
+		JavascriptPatterns\jquery-plugin-patterns\amd-commonjs\pluginCore.js = JavascriptPatterns\jquery-plugin-patterns\amd-commonjs\pluginCore.js
+		JavascriptPatterns\jquery-plugin-patterns\amd-commonjs\pluginExtension.js = JavascriptPatterns\jquery-plugin-patterns\amd-commonjs\pluginExtension.js
+		JavascriptPatterns\jquery-plugin-patterns\amd-commonjs\usage.html = JavascriptPatterns\jquery-plugin-patterns\amd-commonjs\usage.html
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,5 +302,17 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7E696F46-DA95-4104-9252-ED3F1C1B9A21} = {D57B83FF-80D5-4C94-A208-D80B8F35F5E8}
+		{6BBAB0E0-DBD3-48B8-95E1-FB8AF1877632} = {D57B83FF-80D5-4C94-A208-D80B8F35F5E8}
+		{4E7F43D7-8BE7-4473-B1F5-03CD3B1470BA} = {D57B83FF-80D5-4C94-A208-D80B8F35F5E8}
+		{92139F5A-54A5-4D16-B69D-496B26547376} = {D57B83FF-80D5-4C94-A208-D80B8F35F5E8}
+		{1EC38A38-6311-4D02-A15A-E0BD73132426} = {D57B83FF-80D5-4C94-A208-D80B8F35F5E8}
+		{3E51A7C5-4C08-4C31-9BA7-E9B76E357C7A} = {D57B83FF-80D5-4C94-A208-D80B8F35F5E8}
+		{E3DC3EB7-293F-43F3-841D-A4B1473AC6EE} = {D57B83FF-80D5-4C94-A208-D80B8F35F5E8}
+		{DCC2F953-EA6C-4461-918A-56F1E139DF64} = {D57B83FF-80D5-4C94-A208-D80B8F35F5E8}
+		{4E3479B1-8FA0-440C-BE81-4BEE608AD6D2} = {D57B83FF-80D5-4C94-A208-D80B8F35F5E8}
+		{A8743C73-0ED4-4508-A1DF-82447C95DD30} = {4E7F43D7-8BE7-4473-B1F5-03CD3B1470BA}
 	EndGlobalSection
 EndGlobal
