@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    function Car(model, year, miles) {
+
+        this.model = model;
+        this.year = year;
+        this.miles = miles;
+
+        this.toString = function () {
+            return this.model + " has done " + this.miles + " miles";
+        };
+    }
+
+    // Usage:
+
+    // We can create new instances of the car
+    var civic = new Car("Honda Civic", 2009, 20000);
+    var mondeo = new Car("Ford Mondeo", 2010, 5000);
+
+    // and then open our browser console to view the 
+    // output of the toString() method being called on 
+    // these objects
+    console.log(civic.toString());
+    console.log(mondeo.toString());
+
+        
+    // Note here that we are using Object.prototype.newMethod rather than 
+    // Object.prototype so as to avoid redefining the prototype object
+    Car.prototype.Print = function () {
+        return this.model + " has done " + this.miles + " miles";
+    };
+
+    // Usage:
+
+    var civic = new Car("Honda Civic", 2009, 20000);
+    var mondeo = new Car("Ford Mondeo", 2010, 5000);
+
+    console.log(car.Print());
+    console.log(mondeo.Print());
+
+
+    //////////////// PROPERTY
+    // ECMAScript 3 compatible approaches
+
+    // 1. Dot syntax
+
+    // Set properties
+    newObject.someKey = "Hello World";
+
+    // Get properties
+    var key = newObject.someKey;
+
+
+
+    // 2. Square bracket syntax
+
+    // Set properties
+    newObject["someKey"] = "Hello World";
+
+    // Get properties
+    var key = newObject["someKey"];
+
+
+
+    // ECMAScript 5 only compatible approaches
+    // For more information see: http://kangax.github.com/es5-compat-table/
+
+    // 3. Object.defineProperty
+
+    // Set properties 
+    Object.defineProperty(newObject, "someKey", {
+        value: "for more control of the property's behavior",
+        writable: true,
+        enumerable: true,
+        configurable: true
+    });
+
+    // If the above feels a little difficult to read, a short-hand could
+    // be written as follows:
+
+    var defineProp = function (obj, key, value) {
+        config.value = value;
+        Object.defineProperty(obj, key, config);
+    };
+
+    // To use, we then create a new empty "person" object
+    var person = Object.create(null);
+
+    // Populate the object with properties
+    defineProp(person, "car", "Delorean");
+    defineProp(person, "dateOfBirth", "1981");
+    defineProp(person, "hasBeard", false);
+
+
+    // 4. Object.defineProperties
+
+    // Set properties
+    Object.defineProperties(newObject, {
+
+        "someKey": {
+            value: "Hello World",
+            writable: true
+        },
+
+        "anotherKey": {
+            value: "Foo bar",
+            writable: false
+        }
+
+    });
+
+    // Getting properties for 3. and 4. can be done using any of the
+    // options in 1. and 2.
+
+
+</script>
