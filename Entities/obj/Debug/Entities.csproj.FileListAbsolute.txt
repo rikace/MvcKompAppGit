@@ -38,3 +38,9 @@ C:\Git\MvcKompAppGit\Entities\bin\Debug\Entities.pdb
 C:\Git\MvcKompAppGit\Entities\obj\Debug\Entities.dll
 C:\Git\MvcKompAppGit\Entities\obj\Debug\Entities.pdb
 C:\Git\MvcKompAppGit\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\GitProjects\MvcKompAppGit\Entities\bin\Debug\Entities.dll.config
+C:\GitProjects\MvcKompAppGit\Entities\bin\Debug\Entities.dll
+C:\GitProjects\MvcKompAppGit\Entities\bin\Debug\Entities.pdb
+C:\GitProjects\MvcKompAppGit\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\GitProjects\MvcKompAppGit\Entities\obj\Debug\Entities.dll
+C:\GitProjects\MvcKompAppGit\Entities\obj\Debug\Entities.pdb

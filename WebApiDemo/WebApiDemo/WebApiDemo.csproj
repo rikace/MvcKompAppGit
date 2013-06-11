@@ -169,6 +169,14 @@
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\TagRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\CompressionDelegateHandler.cs" />
+    <Compile Include="Utility\WebApiKey.cs" />
+    <Compile Include="Utility\WebApiKeyHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-WebApi-20130116230436.mdf" />
@@ -212,6 +220,10 @@
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.6.2-vsdoc.js" />
     <Content Include="Scripts\ajax-util.js" />
     <Content Include="Scripts\bp-index-final.js" />

@@ -3,7 +3,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebApi.Database;
 using WebApiDemo.Models;
+using WebApiDemo.Utility;
 
 namespace WebApiDemo
 {
@@ -24,7 +26,10 @@ namespace WebApiDemo
 
 
             Database.SetInitializer<PlaybookContext>(new PlaybookContextDbInitializer());
-            
+            Database.SetInitializer<CustomersDbContext>(new
+            DatabaseCustomersDbContextInit());
+
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new WebApiKeyHandler());
         }
     }
 }
