@@ -2,9 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MediaService.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Folder" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">\\MiniServerR2\F\Media\Immagini\Bugghina</Value>
-    </Setting>
     <Setting Name="ApiKey" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
@@ -19,6 +16,9 @@
   &lt;string&gt;c87f678a-eb28-4880-93bb-63214212c354&lt;/string&gt;
   &lt;string&gt;918704ec-4811-45b6-a169-16bae3df69a8&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="Folder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">F:\Media\Immagini\Bugghina</Value>
     </Setting>
   </Settings>
 </SettingsFile>
