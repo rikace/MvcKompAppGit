@@ -54,6 +54,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
@@ -195,12 +196,14 @@
     </Compile>
     <Compile Include="Infrastructure\AjaxOnly.cs" />
     <Compile Include="Infrastructure\CartModelBinder.cs" />
+    <Compile Include="Infrastructure\WebApi\CompressionDelegateHandler.cs" />
     <Compile Include="Infrastructure\CustomModelBinder.cs" />
     <Compile Include="Infrastructure\DateBinder.cs" />
     <Compile Include="Infrastructure\EnableJson.cs" />
     <Compile Include="Infrastructure\EnableXml.cs" />
     <Compile Include="Infrastructure\HtmlHelpers.cs" />
     <Compile Include="Infrastructure\ILog.cs" />
+    <Compile Include="Infrastructure\IsAjaxAttribute.cs" />
     <Compile Include="Infrastructure\JsonResult2.cs" />
     <Compile Include="Infrastructure\KompValidation.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
@@ -212,6 +215,7 @@
     <Compile Include="Infrastructure\PrincipalModelBinder.cs" />
     <Compile Include="Infrastructure\ProductBinder.cs" />
     <Compile Include="Infrastructure\RssActionResult.cs" />
+    <Compile Include="Infrastructure\WebApi\WebApiKeyHandler.cs" />
     <Compile Include="Infrastructure\XmlResult.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Appointment.cs" />

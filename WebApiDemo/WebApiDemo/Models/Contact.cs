@@ -7,7 +7,7 @@ using WebApi.Controllers;
 
 namespace WebApiDemo.Models
 {
-    public class Contact:IEntity
+    public class Contact : IEntity
     {
         public int Id { get; set; }
 

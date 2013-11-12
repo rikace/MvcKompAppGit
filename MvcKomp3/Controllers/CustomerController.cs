@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MvcKompApp.Infrastructure;
 using MvcKompApp.WorkerServices.Abstraction;
 using MvcKompApp.WorkerServices.Customer;
+using MvcKompMvc4.Infrastructure;
 
 namespace MvcKompApp.Controllers
 {
@@ -34,7 +35,25 @@ namespace MvcKompApp.Controllers
             return View(customers.Customers);
         }
 
+        [IsAjax(false)]
         public ActionResult Edit(int id)
+        {
+            var custmer = _service.FindCustmer(id);
+
+            if (custmer != null)
+            {
+                if (Request.IsAjaxRequest())
+                {
+                    return View("_customerEdit", custmer);
+                }
+                return View(custmer);
+            }
+            return View();
+        }
+
+
+        [IsAjaxAttribute(true), ActionName("Edit")]
+        public ActionResult Edit_Ajax(int id)
         {
             var custmer = _service.FindCustmer(id);
 

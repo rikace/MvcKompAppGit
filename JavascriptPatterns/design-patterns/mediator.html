@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>JavaScript Patterns</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script>
+        var mediator = (function () {
+
+            // Storage for topics that can be broadcast or listened to
+            var topics = {};
+
+            // Subscribe to a topic, supply a callback to be executed
+            // when that topic is broadcast to
+            var subscribe = function (topic, fn) {
+
+                if (!topics[topic]) {
+                    topics[topic] = [];
+                }
+
+                topics[topic].push({ context: this, callback: fn });
+
+                return this;
+            };
+
+            // Publish/broadcast an event to the rest of the application
+            var publish = function (topic) {
+
+                var args;
+
+                if (!topics[topic]) {
+                    return false;
+                }
+
+                args = Array.prototype.slice.call(arguments, 1);
+                for (var i = 0, l = topics[topic].length; i < l; i++) {
+
+                    var subscription = topics[topic][i];
+                    subscription.callback.apply(subscription.context, args);
+                }
+                return this;
+            };
+
+            return {
+                publish: publish,
+                subscribe: subscribe,
+                installTo: function (obj) {
+                    obj.subscribe = subscribe;
+                    obj.publish = publish;
+                }
+            };
+
+        }());
+
+        mediator.subscribe("salut", function () {
+            alert('ciao');
+        });
+        mediator.subscribe("salut", function () {
+            alert('hello');
+        });
+
+        mediator.subscribe("welcome", function () {
+            alert('prego');
+        });
+
+
+        mediator.publish("salut");
+
+    </script>
+    <script>
+        /* Title: Mediator
+         Description: allows loose coupling between classes by being the only class that has detailed knowledge of their methods
+         */
+
+        function Player(name) {
+            this.points = 0;
+            this.name = name;
+        }
+        Player.prototype.play = function () {
+            this.points += 1;
+            mediator.played();
+        };
+        var scoreboard = {
+
+            // HTML element to be updated
+            element: document.getElementById('results'),
+
+            // update the score display
+            update: function (score) {
+                var i, msg = '';
+                for (i in score) {
+                    if (score.hasOwnProperty(i)) {
+                        msg += '<p><strong>' + i + '<\/strong>: ';
+                        msg += score[i];
+                        msg += '<\/p>';
+                    }
+                }
+                this.element.innerHTML = msg;
+            }
+        };
+
+        var mediator = {
+
+            // all the player
+            players: {},
+
+            // initialization
+            setup: function () {
+                var players = this.players;
+                players.home = new Player('Home');
+                players.guest = new Player('Guest');
+            },
+
+            // someone plays, update the score
+            played: function () {
+                var players = this.players,
+                        score = {
+                            Home: players.home.points,
+                            Guest: players.guest.points
+                        };
+
+                scoreboard.update(score);
+            },
+
+            // handle user interactions
+            keypress: function (e) {
+                e = e || window.event; // IE
+                if (e.which === 49) { // key "1"
+                    mediator.players.home.play();
+                    return;
+                }
+                if (e.which === 48) { // key "0"
+                    mediator.players.guest.play();
+                    return;
+                }
+            }
+        };
+
+        // go!
+        mediator.setup();
+        window.onkeypress = mediator.keypress;
+
+        // game over in 30 seconds
+        setTimeout(function () {
+            window.onkeypress = null;
+            console.log('Game over!');
+        }, 30000);
+
+        // reference
+        // http://shop.oreilly.com/product/9780596806767.do?sortby=publicationDate
+    </script>
+</body>
+</html>

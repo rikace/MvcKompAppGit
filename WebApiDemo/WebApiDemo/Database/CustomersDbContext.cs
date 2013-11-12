@@ -16,4 +16,13 @@ namespace WebApi.Database
 
         public DbSet<Customer> Customers { get; set; }
     }
+
+    public class DatabaseCustomersDbContextInit : CreateDatabaseIfNotExists<CustomersDbContext>
+    {
+        protected override void Seed(CustomersDbContext context)
+        {
+            context.Customers.Add(new Customer { Name ="Riccardo", Email="s.riccardo@hotmail.com", Phone="30457895672" });
+            base.Seed(context);
+        }
+    }
 }

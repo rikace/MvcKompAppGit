@@ -22,3 +22,12 @@ C:\Git\MvcKompAppGit\MediaService\MediaService\bin\EntityFramework.dll
 C:\Git\MvcKompAppGit\MediaService\MediaService\bin\EntityFramework.xml
 C:\Git\MvcKompAppGit\MediaService\MediaService\obj\Debug\MediaService.dll
 C:\Git\MvcKompAppGit\MediaService\MediaService\obj\Debug\MediaService.pdb
+C:\Git\MvcKompAppGit\MediaService\MediaService\obj\Debug\MediaService.csprojResolveAssemblyReference.cache
+C:\GitProjects\MvcKompAppGit\MediaService\MediaService\bin\App_Data\APIKeys.xml
+C:\GitProjects\MvcKompAppGit\MediaService\MediaService\bin\MediaService.dll
+C:\GitProjects\MvcKompAppGit\MediaService\MediaService\bin\MediaService.pdb
+C:\GitProjects\MvcKompAppGit\MediaService\MediaService\bin\EntityFramework.dll
+C:\GitProjects\MvcKompAppGit\MediaService\MediaService\bin\EntityFramework.xml
+C:\GitProjects\MvcKompAppGit\MediaService\MediaService\obj\Debug\MediaService.csprojResolveAssemblyReference.cache
+C:\GitProjects\MvcKompAppGit\MediaService\MediaService\obj\Debug\MediaService.dll
+C:\GitProjects\MvcKompAppGit\MediaService\MediaService\obj\Debug\MediaService.pdb

@@ -249,6 +249,7 @@
     <Compile Include="Infrastructure\EnableXml.cs" />
     <Compile Include="Infrastructure\HtmlHelpers.cs" />
     <Compile Include="Infrastructure\ILog.cs" />
+    <Compile Include="Infrastructure\IsAjaxAttribute.cs" />
     <Compile Include="Infrastructure\JsonResult2.cs" />
     <Compile Include="Infrastructure\KompValidation.cs" />
     <Compile Include="Infrastructure\Logger.cs" />

@@ -17,3 +17,8 @@ C:\Git\MvcKompAppGit\MvcPaging\bin\Debug\MvcPaging.pdb
 C:\Git\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.csprojResolveAssemblyReference.cache
 C:\Git\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.dll
 C:\Git\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.pdb
+C:\GitProjects\MvcKompAppGit\MvcPaging\bin\Debug\MvcPaging.dll
+C:\GitProjects\MvcKompAppGit\MvcPaging\bin\Debug\MvcPaging.pdb
+C:\GitProjects\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.csprojResolveAssemblyReference.cache
+C:\GitProjects\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.dll
+C:\GitProjects\MvcKompAppGit\MvcPaging\obj\Debug\MvcPaging.pdb
