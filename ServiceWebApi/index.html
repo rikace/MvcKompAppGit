@@ -1,0 +1,124 @@
+<!-- include CarlsFileUploader.js and the JQuery -->
+<script src="Scripts/CarlsFileUploader.js"></script>
+<script src="Scripts/jquery-1.7.1.min.js"></script>
+
+<script type="text/javascript">
+
+    function UploadFile() {
+
+        if (NameBox.value == "") {
+            alert("Please enter your name");
+            return;
+        } else {
+            setCookie("username", NameBox.value, 365);
+        }
+
+        var fileInput = document.getElementById("fileInput");
+
+        if ('files' in fileInput) {
+            if (fileInput.files.length == 0) {
+                alert("Please select a file");
+                return;
+            } else {
+                var file = fileInput.files[0];
+                var ar = $("#AutoResumeBox").is(":checked");
+                var chunksize = 20000;
+                var name = NameBox.value;
+
+                /* 
+                Arguments:
+                    username            name used to create subfolders on the server.
+                    files               files object from the file input tag.
+                    uploadStartFunction function that receives a file object just before uploading.
+                    progressFunction    function that accepts a percent-complete integer value.
+                    doneFunction        function called when file is uploaded.
+                    errorFunction       function called when an error occurs.
+                    chunkSize           size in bytes of each chunk uploaded.
+                    autoResume          bool to control auto resuming.
+                */
+                CFUpload(name, fileInput.files, uploadStart, progress, done, error, chunksize, ar);
+            }
+        }
+    }
+
+    function uploadStart(thisfile)
+    {
+        $("#statusMessage").text("Uploading " + thisfile.name);
+    }
+
+    function progress(percent) {
+        var p = percent + "%";
+        $("#errorMessage").text("");
+        $("#progressbar").width(p);
+        $("#progressbar").data("percentage", percent);
+        $("#progressbar").text(p);
+    }
+
+    function resetprogress() {
+        progress(0);
+    }
+
+    function done() {
+        $("#errorMessage").text("");
+        $("#statusMessage").text("Done");
+    }
+
+    function error(data) {
+        //alert(data);
+        console.log(data);
+        $("#errorMessage").text("There was a problem. Retrying...");
+    }
+
+    function setCookie(c_name, value, exdays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+        document.cookie = c_name + "=" + c_value;
+    }
+
+    function getCookie(c_name) {
+        var c_value = document.cookie;
+        var c_start = c_value.indexOf(" " + c_name + "=");
+        if (c_start == -1) {
+            c_start = c_value.indexOf(c_name + "=");
+        }
+        if (c_start == -1) {
+            c_value = null;
+        }
+        else {
+            c_start = c_value.indexOf("=", c_start) + 1;
+            var c_end = c_value.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = c_value.length;
+            }
+            c_value = unescape(c_value.substring(c_start, c_end));
+        }
+        return c_value;
+    }
+
+    $(document).ready(function () {
+        var username = getCookie("username");
+        NameBox.value = username;
+    });
+
+</script>
+
+<!-- Name Input Box -->
+Your Name: <input type="text" id="NameBox" />
+<br />
+<!-- File picker -->
+<input type="file" id="fileInput" multiple="multiple" onclick="resetprogress()" style="width: 400px" />
+<br />
+<!-- Auto-Resume Checkbox -->
+Auto Resume: <input type="checkbox" id="AutoResumeBox" />
+<!-- Upload Button -->
+<input type="submit" onclick="UploadFile()" value="Upload" />
+<br />
+<!-- Simple Progress Bar -->
+<div style="width: 400px;">
+    <div id="progressbar" style="background-color: green; text-align: center; color: white; width: 0%;"></div>
+</div>
+<!-- Status message -->
+<div id="statusMessage" /><br />
+<!-- error message -->
+<div id="errorMessage" style="color: red;" />

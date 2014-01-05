@@ -25,6 +25,8 @@ namespace ServiceWebApi.Infrastructure
                     return "image/tiff";
                 case ".bmp":
                     return "image/bmp";
+                case ".mp4":
+                    return "video/mp4";
                 default:
                     return "application/octet-stream";
             }

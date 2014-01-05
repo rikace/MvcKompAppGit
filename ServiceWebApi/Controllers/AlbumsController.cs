@@ -23,7 +23,8 @@ namespace ServiceWebApi.Controllers
                     Id = a.Id,
                     Name = a.Name,
                     Comments = a.Comments,
-                    Link = new Uri(string.Format(@"http://www.riscanet.com/Service/MediaService.svc/GetPhotos/{0}?apikey={1}",
+                    //Link = new Uri(string.Format(@"http://www.riscanet.com/Service/MediaService.svc/GetPhotos/{0}?apikey={1}",
+                    Link = new Uri(string.Format(@"http://www.riscanet.com/Api/Albums/{0}?apikey={1}",
                     a.Id, HttpContext.Current.Request.QueryString["apikey"]))
                 });
         }
@@ -44,8 +45,10 @@ namespace ServiceWebApi.Controllers
                         Id = a.Id,
                         Name = a.Name,
                         Comments = a.Comments,
-                        Link = new Uri(string.Format(@"http://www.riscanet.com/Service/MediaService.svc/GetPhoto/{0}/{1}?apikey={2}",
-                                                     id, a.Id, HttpContext.Current.Request.QueryString["apikey"]))
+                        Link = new Uri(string.Format(@"http://www.riscanet.com/Api/Albums/{0}?photoid={1}&apikey={2}",
+                                                  id, a.Id, HttpContext.Current.Request.QueryString["apikey"]))
+                        //Link = new Uri(string.Format(@"http://www.riscanet.com/Service/MediaService.svc/GetPhoto/{0}/{1}?apikey={2}",
+                        //                             id, a.Id, HttpContext.Current.Request.QueryString["apikey"]))
                     })
                         .ToArray();
                     return arrayPhotos;
