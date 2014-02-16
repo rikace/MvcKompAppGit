@@ -315,6 +315,7 @@
     <Compile Include="WorkerServices\Visitor\VisitorSiteService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Constractot_Property.html" />
     <Content Include="Content\Custom.css" />
     <Content Include="Content\jquery.autocomplete.css" />
     <Content Include="Content\SiteGreen.css" />
@@ -378,6 +379,10 @@
     <Content Include="Framework\Parallels Shared Folders.lnk" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Module.html" />
+    <Content Include="Observer.html" />
+    <Content Include="Prototype.html" />
+    <Content Include="Revealing_Module.html" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

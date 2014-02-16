@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    var myRevealingModule = function () {
+
+        var privateCounter = 0;
+
+        function privateFunction() {
+            privateCounter++;
+        }
+
+        function publicFunction() {
+            publicIncrement();
+        }
+
+        function publicIncrement() {
+            privateFunction();
+        }
+
+        function publicGetCount() {
+            return privateCounter;
+        }
+
+        // Reveal public pointers to 
+        // private functions and properties        
+
+        return {
+            start: publicFunction,
+            increment: publicIncrement,
+            count: publicGetCount
+        };
+
+    }();
+
+    myRevealingModule.start();
+
+
+</script>
