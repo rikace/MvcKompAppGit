@@ -1,0 +1,166 @@
+﻿@functions{
+    public static string SiteRoot(bool includeAppPath = true){
+        var context = HttpContext.Current;
+        var Port = context.Request.ServerVariables["SERVER_PORT"];
+        if (Port == null || Port == "80" || Port == "443")
+            Port = "";
+        else
+            Port = ":" + Port;
+        var Protocol = context.Request.ServerVariables["SERVER_PORT_SECURE"];
+        if (Protocol == null || Protocol == "0")
+            Protocol = "http://";
+        else
+            Protocol = "https://";
+
+        var appPath = "";
+        if (includeAppPath) {
+            appPath = context.Request.ApplicationPath;
+            if (appPath == "/")
+                appPath = "";
+        }
+        var sOut = Protocol + context.Request.ServerVariables["SERVER_NAME"] + Port + appPath;
+        return sOut;      
+    }
+}
+
+
+@helper CSS(string cssFile, string media= "screen"){
+    <link rel="stylesheet" href="/public/stylesheets/@cssFile" type="text/css" media="@media" /> 
+}
+@helper Image(string imageFile) {
+    <img src = "/public/images/@imageFile" />
+}
+@helper ImageLink(string link, string imageFile) {
+    <a href="@link">
+        @Assets.Image(imageFile)
+    </a>
+}
+@helper Templates(){
+    <script type = "text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+}
+@helper Backbone(){
+    @Assets.Script("underscore-min.js")
+    @Assets.Script("backbone-min.js")
+}
+@helper Script(string scriptFile) {
+    <script type="text/javascript" src="/public/javascripts/@scriptFile"></script>
+}
+@helper jQuery(bool useGoogle = true) {
+    if (useGoogle) {
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" type="text/javascript"></script>
+    } else {
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js" type="text/javascript"></script>
+    }
+}
+
+@helper Scripts(){
+    @Assets.CSS("plugins/buttons/screen.css")
+    @Assets.Script("jquery.validate.min.js")
+    @Assets.Script("jquery.validate.unobtrusive.min.js")
+}
+@helper ValidationMessage(string name){
+    <span class="field-validation-valid" data-valmsg-for="@name" data-valmsg-replace="true"></span>
+}
+@helper TextBox(string name, object value = null) {
+    var val = value ?? "";
+    <p>
+        <label>@name</label>
+        <input type="text" name="@name" id="@name" value="@val" />
+    </p>
+}
+@helper TextBoxDate(string name, object value = null) {
+    var val = value ?? "";
+    <p>
+        <label>@name</label>
+        <input type="text" name="@name" id="@name" value="@val" class="datepicker"/>
+    </p>
+}
+@helper TextBoxRequired(string name, object value = null, string requiredMessage = "Required") {
+    var val = value ?? "";
+    <p>
+        <label>@name *</label>
+        <input type="text" name="@name" id="@name" value="@val" data-val="true" data-val-required="@requiredMessage" />
+        @ValidationMessage(name)
+    </p>
+    
+}
+@helper TextBoxNumber(string name, object value = null, string numberMessage = "Should be a number") {
+    var val = value ?? "";
+    <p>
+        <label>@name *</label>
+        <input type="text" name="@name" id="@name" value="@val" data-val="true" 
+        data-val-number="@numberMessage" />
+        @ValidationMessage(name)
+    </p>
+    
+}
+@helper TextArea(string name, string attributes = "", object value = null) {
+    var val = value ?? "";
+    <p>
+        <label>@name</label>
+        <textarea name="@name" id="@name" @attributes >@val</textarea>
+    </p>
+}
+@helper Submit(string value="Save"){
+    <p>
+        <button type="submit" class="button positive">
+            <img src="/public/stylesheets/plugins/buttons/icons/tick.png" alt=""/>@value
+        </button>
+    </p>
+    <div class="clear"></div>
+}
+@helper HiddenID(object id){
+    <input type="hidden" name="ID" id="ID" value="@id" />
+}
+
+
+@helper Scripts(){
+    @Assets.CSS("plugins/buttons/screen.css")
+}
+
+@helper TextBox(string name) {
+    <p>
+        <label>@name</label>
+        <input type="text" name="@name" id="@name" value="${@name}" />
+    </p>
+}
+@helper TextBoxDate(string name) {
+    <p>
+        <label>@name</label>
+        <input type="text" name="@name" id="@name" value="${@name}" class="datepicker"/>
+    </p>
+}
+@helper TextBoxRequired(string name, string requiredMessage = "Required") {
+    <p>
+        <label>@name *</label>
+        <input type="text" name="@name" id="@name" value="${@name}"/>
+    </p>
+    
+}
+@helper TextBoxNumber(string name, string numberMessage = "Should be a number") {
+    <p>
+        <label>@name *</label>
+        <input type="text" name="@name" id="@name" value="${@name}" size="6"/>
+    </p>
+    
+}
+@helper TextArea(string name, string attributes = "") {
+    <p>
+        <label>@name</label>
+        <textarea name="@name" id="@name" @attributes >${@name}</textarea>
+    </p>
+}
+@helper Submit(string value = "Save") {
+    <p>
+        <button type="submit" class="button positive">
+            <img src="/public/stylesheets/plugins/buttons/icons/tick.png" alt=""/>@value
+        </button>
+    </p>
+    <div class="clear"></div>
+}
+
+@helper HiddenID(object id) {
+    <input type="hidden" name="ID" id="ID" value="${@id}" />
+}

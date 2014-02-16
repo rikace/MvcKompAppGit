@@ -7,9 +7,10 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using WebApi.Models;
+using WebApiDemo.Filters;
 
 namespace WebApi.Controllers
-{
+{   
     public class CustomerGridController : ApiController
     {
         ICustomerRepository _contacts = new CustomerRepository();
