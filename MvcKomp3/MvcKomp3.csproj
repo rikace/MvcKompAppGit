@@ -114,6 +114,12 @@
     <Content Include="App_Code\ImageResizer.cs" />
     <Content Include="App_Code\WorkItem.cs" />
     <Content Include="App_Code\HttpModuleMain.cs" />
+    <Compile Include="ActionResults\FeedType.cs" />
+    <Compile Include="ActionResults\HttpNotFoundResult.cs" />
+    <Compile Include="ActionResults\JsonpExtensions.cs" />
+    <Compile Include="ActionResults\JsonpResult.cs" />
+    <Compile Include="ActionResults\SyndicationResult.cs" />
+    <Compile Include="Binders\DateModelBinder.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AjaxPagerController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
@@ -160,26 +166,44 @@
     <Compile Include="DAL\StudentRepository.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="DAL\VisitorSiteInMemoryDB.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\WebClientExtensions.cs" />
+    <Compile Include="Filters\AddHeaderAttribute.cs" />
     <Compile Include="Filters\AjaxActionOnly.cs" />
     <Compile Include="Filters\AjaxAuthorizeAttribute.cs" />
     <Compile Include="Filters\AjaxOnlyAttribute.cs" />
+    <Compile Include="Filters\Axpect\AxpectActionInvoker.cs" />
+    <Compile Include="Filters\Axpect\AxpectController.cs" />
+    <Compile Include="Filters\Axpect\AxpectFramework.cs" />
+    <Compile Include="Filters\BrowserSpecificAttribute.cs" />
+    <Compile Include="Filters\CompressAttribute.cs" />
+    <Compile Include="Filters\CultureAttribute.cs" />
     <Compile Include="Filters\CustomAuthFilter.cs" />
+    <Compile Include="Filters\DefaultViewSelector.cs" />
+    <Compile Include="Filters\DynamicLoadingFilterProvider.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Filters\IViewSelector.cs" />
     <Compile Include="Filters\Logger.cs" />
     <Compile Include="Filters\LogonAuthorize.cs" />
     <Compile Include="Filters\MyActionFilterAttribute.cs" />
     <Compile Include="Filters\MyExceptionAttribute.cs" />
     <Compile Include="Filters\MyOtherExceptionAttribute.cs" />
+    <Compile Include="Filters\OnlyIfPostedFromButtonAttribute.cs" />
     <Compile Include="Filters\OrAuthorizationAttribute.cs" />
     <Compile Include="Filters\ProfileAllAttribute.cs" />
     <Compile Include="Filters\ProfileAttribute.cs" />
     <Compile Include="Filters\ProfileResultAttribute.cs" />
+    <Compile Include="Filters\ReportDurationAttribute.cs" />
     <Compile Include="Filters\RequestLogFilter.cs" />
     <Compile Include="Filters\RequestTimingFilter.cs" />
     <Compile Include="Filters\RequestTimingFilterProvider.cs" />
     <Compile Include="Filters\SimpleMessageAttribute.cs" />
+    <Compile Include="Filters\SubmitActionNameAttribute.cs" />
     <Compile Include="Filters\TraceActionFilterAttribute.cs" />
+    <Compile Include="Filters\TrackActionAttribute.cs" />
     <Compile Include="Filters\UseStopWatch.cs" />
+    <Compile Include="Filters\WillOnlyRunOnAttribute.cs" />
     <Compile Include="Framework\AjaxExtensions.cs" />
     <Compile Include="Framework\AllowAnonymousAttribute.cs" />
     <Compile Include="Framework\BasePagedList.cs" />
@@ -194,6 +218,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Html\ImageOrDefault.cs" />
+    <Compile Include="Html\ImgHelpers.cs" />
     <Compile Include="Infrastructure\AjaxOnly.cs" />
     <Compile Include="Infrastructure\CartModelBinder.cs" />
     <Compile Include="Infrastructure\WebApi\CompressionDelegateHandler.cs" />
@@ -217,6 +243,9 @@
     <Compile Include="Infrastructure\RssActionResult.cs" />
     <Compile Include="Infrastructure\WebApi\WebApiKeyHandler.cs" />
     <Compile Include="Infrastructure\XmlResult.cs" />
+    <Compile Include="Localization\PartialExtensions.cs" />
+    <Compile Include="Localization\RenderPartialExtensions.cs" />
+    <Compile Include="Localization\UrlExtensions.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -268,6 +297,8 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\VisitorSiteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routes\EvenConstraint.cs" />
+    <Compile Include="Security\AuthorizeOnlyAttribute.cs" />
     <Compile Include="Services\DataService.svc.cs">
       <DependentUpon>DataService.svc</DependentUpon>
     </Compile>
