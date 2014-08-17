@@ -94,3 +94,4 @@ C:\Git\MvcKompAppGit\MvcKomp3\bin\System.Web.WebPages.Razor.xml
 C:\Git\MvcKompAppGit\MvcKomp3\obj\Debug\MvcKomp3.csprojResolveAssemblyReference.cache
 C:\Git\MvcKompAppGit\MvcKomp3\obj\Debug\MvcKomp3.dll
 C:\Git\MvcKompAppGit\MvcKomp3\obj\Debug\MvcKomp3.pdb
+C:\Git\MvcKompAppGit\MvcKomp3\bin\MvcKomp3.dll.config

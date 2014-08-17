@@ -8,6 +8,7 @@ using MvcKompApp.Filters;
 using MvcKompApp.Infrastructure;
 using MvcKompApp.Models;
 using MvcKompApp.Validation;
+using System;
 
 namespace MvcKompApp
 {
@@ -20,6 +21,18 @@ namespace MvcKompApp
         {
             //filters.Add(new LogonAuthorize());
             filters.Add(new HandleErrorAttribute());
+        }
+
+        void Application_Error(object sender, EventArgs e)
+        {
+            var exception = Server.GetLastError();
+            if (exception == null) return;
+
+            // DO SOMETHING WITH ERROR
+
+            Server.ClearError();
+
+            Response.Redirect("Home/Error");
         }
 
         public static void RegisterRoutes(RouteCollection routes)

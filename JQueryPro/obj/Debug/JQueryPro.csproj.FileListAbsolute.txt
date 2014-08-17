@@ -40,3 +40,4 @@ C:\Git\MvcKompAppGit\JQueryPro\bin\System.Web.WebPages.Razor.xml
 C:\Git\MvcKompAppGit\JQueryPro\obj\Debug\JQueryPro.csprojResolveAssemblyReference.cache
 C:\Git\MvcKompAppGit\JQueryPro\obj\Debug\JQueryPro.dll
 C:\Git\MvcKompAppGit\JQueryPro\obj\Debug\JQueryPro.pdb
+C:\Git\MvcKompAppGit\JQueryPro\bin\JQueryPro.dll.config

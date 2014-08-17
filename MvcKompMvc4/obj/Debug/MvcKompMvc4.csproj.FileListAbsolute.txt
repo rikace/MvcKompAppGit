@@ -172,3 +172,4 @@ C:\Git\MvcKompAppGit\MvcKompMvc4\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\Git\MvcKompAppGit\MvcKompMvc4\obj\Debug\MvcKompMvc4.csprojResolveAssemblyReference.cache
 C:\Git\MvcKompAppGit\MvcKompMvc4\obj\Debug\MvcKompMvc4.dll
 C:\Git\MvcKompAppGit\MvcKompMvc4\obj\Debug\MvcKompMvc4.pdb
+C:\Git\MvcKompAppGit\MvcKompMvc4\bin\MvcKompMvc4.dll.config

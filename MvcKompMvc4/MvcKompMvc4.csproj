@@ -288,6 +288,8 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\VisitorSiteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceControllers\Home\HomeService.cs" />
+    <Compile Include="ServiceControllers\Shared\IHomeService.cs" />
     <Compile Include="Services\DataService.svc.cs">
       <DependentUpon>DataService.svc</DependentUpon>
     </Compile>

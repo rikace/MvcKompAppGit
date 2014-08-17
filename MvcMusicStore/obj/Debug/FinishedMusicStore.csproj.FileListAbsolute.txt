@@ -22,3 +22,4 @@ C:\Git\MvcKompAppGit\MvcMusicStore\obj\Debug\MvcMusicStore.dll
 C:\Git\MvcKompAppGit\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
 C:\Git\MvcKompAppGit\MvcMusicStore\bin\EntityFramework.dll
 C:\Git\MvcKompAppGit\MvcMusicStore\bin\EntityFramework.xml
+C:\Git\MvcKompAppGit\MvcMusicStore\bin\MvcMusicStore.dll.config

@@ -60,3 +60,4 @@ C:\Git\MvcKompAppGit\oDataService\bin\System.Web.WebPages.Razor.xml
 C:\Git\MvcKompAppGit\oDataService\obj\Debug\oDataService.csprojResolveAssemblyReference.cache
 C:\Git\MvcKompAppGit\oDataService\obj\Debug\oDataService.dll
 C:\Git\MvcKompAppGit\oDataService\obj\Debug\oDataService.pdb
+C:\Git\MvcKompAppGit\oDataService\bin\oDataService.dll.config
